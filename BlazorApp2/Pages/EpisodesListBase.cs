@@ -12,8 +12,8 @@ namespace BlazorApp2.Pages
 {
     public class EpisodesListBase : ComponentBase
     {
-        //public IEnumerable<Episode> Episodes { get; set; } = new List<Episode>();
-        public Episode[] Top { get; set; }
+        public IEnumerable<Episode> Episodes { get; set; } = new List<Episode>();
+        
 
         [Inject]
         public IEpisodeService episodeService { get; set; }
@@ -21,7 +21,7 @@ namespace BlazorApp2.Pages
 
         protected override async Task OnInitializedAsync()
         {
-            Top = await episodeService.GetEpisodes();
+            Episodes = (await episodeService.GetEpisodes()).ToList();
         }
 
         //private void LoadEmployees()

@@ -9,6 +9,6 @@ namespace BlazorApp2.Services
     public interface IEpisodeService
     {
         Task<Episode> GetEpisode(int id);
-        Task<Episode[]> GetEpisodes();
+        Task<IEnumerable<Episode>> GetEpisodes();
     }
 }

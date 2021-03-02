@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace BlazorApp2.Services
@@ -22,17 +23,13 @@ namespace BlazorApp2.Services
             return await httpClient.GetFromJsonAsync<Episode>($"anime/{id}");
         }
 
-        //public async Task<IEnumerable<Episode>> GetEpisodes()
-        //{
-        //    return await httpClient.GetFromJsonAsync < Episode[]>("top/anime/1/upcoming");
-        //    //var content = await response.Content.ReadAsStringAsync();
-        //    //var episodes = JsonSerializer.Deserialize<List<Episode>>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-            
-        //}
-
-        public async Task<Episode[]> GetEpisodes()
+        public async Task<IEnumerable<Episode>> GetEpisodes()
         {
-            return await httpClient.GetFromJsonAsync<Episode[]>("top/anime/1/upcoming");
+            return await httpClient.GetFromJsonAsync<List<Episode>>("top/anime/1/upcoming");
+            //var content = await response.Content.ReadAsStringAsync();
+            //var episodes = JsonSerializer.Deserialize<List<Episode>>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
         }
+
     }
 }

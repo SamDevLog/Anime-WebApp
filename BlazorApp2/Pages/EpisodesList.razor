@@ -5,34 +5,30 @@
 
 <h4>Top Animes</h4>
 
-@if (Top == null)
+@if (Episodes == null)
 {
     <div class="spinner"></div>
 }
 else
 {
-    @foreach (var episode in Top)
-    {
-        Console.WriteLine(episode);
-    }
 
-    @*<div class="card-deck">
+    <div class="card-deck">
         @foreach (var episode in Episodes)
         {
             <div class="card m-3 text-center" style="min-width: 18rem; max-width: 30.5%">
                 <div class="card-header">
-                    @episode.Title
+                    @episode.title
                 </div>
-                <a href="@($"episodedetails/{episode.Id}")">
-                    <img class="card-img-top imageThumbnail" src="@episode.PhotoPath" alt="@episode.Title" />
+                <a href="@($"episodedetails/{episode.mal_id}")">
+                    <img class="card-img-top imageThumbnail" src="@episode.image_url" alt="@episode.title" />
                 </a>
                 <div class="card-footer">
-                    ID: @episode.Id
+                    ID: @episode.mal_id
                 </div>
                 <div class="card-footer">
-                    Genre: @episode.Genre
+                    Start Date: @episode.start_date
                 </div>
             </div>
         }
-    </div>*@
+    </div>
 }
