@@ -1,7 +1,5 @@
 ﻿@page "/"
 @inherits EpisodesListBase
-@inject HttpClient Http
-@inject NavigationManager navigationManager
 
 <h4>Top Animes</h4>
 
@@ -11,7 +9,6 @@
 }
 else
 {
-
     <div class="card-deck">
         @foreach (var episode in Episodes)
         {
@@ -26,7 +23,7 @@ else
                     ID: @episode.mal_id
                 </div>
                 <div class="card-footer">
-                    Start Date: @episode.start_date
+                    Start Date: @(episode.start_date == null ? "Not Announced Yet!" : episode.start_date)
                 </div>
             </div>
         }

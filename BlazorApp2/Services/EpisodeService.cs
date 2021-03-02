@@ -1,4 +1,7 @@
 ﻿using BlazorApp2.Models;
+using Microsoft.AspNetCore.Components;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,12 +26,14 @@ namespace BlazorApp2.Services
             return await httpClient.GetFromJsonAsync<Episode>($"anime/{id}");
         }
 
-        public async Task<IEnumerable<Episode>> GetEpisodes()
+        public async Task<IEnumerable<Top>> GetEpisodes()
         {
-            return await httpClient.GetFromJsonAsync<List<Episode>>("top/anime/1/upcoming");
-            //var content = await response.Content.ReadAsStringAsync();
-            //var episodes = JsonSerializer.Deserialize<List<Episode>>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+            //return await httpClient.GetJsonAsync<Episode[]>("top/anime/1/upcoming");
 
+
+            Root root = await httpClient.GetJsonAsync<Root>("top/anime/1/upcoming");
+            List<Top> top = root.top;
+            return top;
         }
 
     }
