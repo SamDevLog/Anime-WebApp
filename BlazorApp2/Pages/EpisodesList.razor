@@ -1,0 +1,38 @@
+﻿@page "/"
+@inherits EpisodesListBase
+@inject HttpClient Http
+@inject NavigationManager navigationManager
+
+<h4>Top Animes</h4>
+
+@if (Top == null)
+{
+    <div class="spinner"></div>
+}
+else
+{
+    @foreach (var episode in Top)
+    {
+        Console.WriteLine(episode);
+    }
+
+    @*<div class="card-deck">
+        @foreach (var episode in Episodes)
+        {
+            <div class="card m-3 text-center" style="min-width: 18rem; max-width: 30.5%">
+                <div class="card-header">
+                    @episode.Title
+                </div>
+                <a href="@($"episodedetails/{episode.Id}")">
+                    <img class="card-img-top imageThumbnail" src="@episode.PhotoPath" alt="@episode.Title" />
+                </a>
+                <div class="card-footer">
+                    ID: @episode.Id
+                </div>
+                <div class="card-footer">
+                    Genre: @episode.Genre
+                </div>
+            </div>
+        }
+    </div>*@
+}
