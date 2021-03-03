@@ -9,23 +9,22 @@
 }
 else
 {
-    <div class="card-deck">
-        @foreach (var episode in Episodes)
-        {
-            <div class="card m-3 text-center" style="min-width: 18rem; max-width: 30.5%">
-                <div class="card-header">
-                    @episode.title
-                </div>
-                <a href="@($"episodedetails/{episode.mal_id}")">
-                    <img class="card-img-top imageThumbnail" src="@episode.image_url" alt="@episode.title" />
-                </a>
-                <div class="card-footer">
-                    ID: @episode.mal_id
-                </div>
-                <div class="card-footer">
-                    Start Date: @(episode.start_date == null ? "Not Announced Yet!" : episode.start_date)
-                </div>
-            </div>
-        }
+
+    @foreach (var episode in Episodes)
+    {
+<div class="container">
+    <div class="card">
+        <div class="imgBx">
+            <img src="@episode.image_url" alt="@episode.title" />
+        </div>
+        <div class="content">
+            <h4>@episode.title</h4>
+            <h6>@episode.rank</h6>
+            <h6>ID: @episode.mal_id</h6>
+            <h6>Start Date: @(episode.start_date == null ? "Not Announced Yet!" : episode.start_date)</h6>
+        </div>
     </div>
+</div>
+    }
+
 }
