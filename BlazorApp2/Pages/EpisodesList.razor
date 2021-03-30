@@ -1,30 +1,40 @@
 ﻿@page "/"
 @inherits EpisodesListBase
+@inject IJSRuntime JSRuntime
 
-<h4>Top Animes</h4>
+<h4 style="text-align: center">Top Upcoming Animes</h4>
 
-@if (Episodes == null)
+@if (Episodes != null)
 {
-    <div class="spinner"></div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            @foreach (var ep in Episodes)
+            {
+                <div class="swiper-slide"><img src="@ep.image_url" alt="Alternate Text" /></div>
+            }
+        </div>
+    </div>
 }
 else
 {
+<div class="spinner"></div>
+}
 
-    @foreach (var episode in Episodes)
+@code{
+
+
+    protected override async Task OnInitializedAsync()
     {
-<div class="container">
-    <div class="card">
-        <div class="imgBx">
-            <img src="@episode.image_url" alt="@episode.title" />
-        </div>
-        <div class="content">
-            <h4>@episode.title</h4>
-            <h6>@episode.rank</h6>
-            <h6>ID: @episode.mal_id</h6>
-            <h6>Start Date: @(episode.start_date == null ? "Not Announced Yet!" : episode.start_date)</h6>
-        </div>
-    </div>
-</div>
+        Episodes = await episodeService.GetEpisodes();
+        ListTopAnime();
     }
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await Task.Delay(1000);
+            await JSRuntime.InvokeAsync<Object>("initializeSwiper");
+        }
+    }
 }

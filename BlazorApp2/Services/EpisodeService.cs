@@ -28,11 +28,8 @@ namespace BlazorApp2.Services
 
         public async Task<IEnumerable<Top>> GetEpisodes()
         {
-            //return await httpClient.GetJsonAsync<Episode[]>("top/anime/1/upcoming");
-
-
             Root root = await httpClient.GetJsonAsync<Root>("top/anime/1/upcoming");
-            List<Top> top = root.top;
+            List<Top> top = root.top.Take(10).ToList();
             return top;
         }
 

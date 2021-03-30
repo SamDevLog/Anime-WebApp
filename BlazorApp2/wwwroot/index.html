@@ -3,16 +3,21 @@
 
 <head>
     <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content=" IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>BlazorApp2</title>
+    <title>Anime Cavern</title>
     <base href="/" />
-    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <!--<link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />-->
+    <!--<link href="css/app.css" rel="stylesheet" />-->
+    <!--<link href="BlazorApp2.styles.css" rel="stylesheet" />-->
+
+    <link href="https://unpkg.com/swiper/swiper-bundle.min.css" rel="stylesheet" />
     <link href="css/app.css" rel="stylesheet" />
-    <link href="BlazorApp2.styles.css" rel="stylesheet" />
+    
 </head>
 
 <body>
-    
+
     <div id="app">Loading...</div>
 
     <div id="blazor-error-ui">
@@ -20,7 +25,32 @@
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
+
     <script src="_framework/blazor.webassembly.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        window.initializeSwiper = () => {
+            var swiper = new Swiper(".swiper-container", {
+                effect: "coverflow",
+                grabCursor: true,
+                loop: true,
+                centeredSlides: true,
+                slidesPerView: "auto",
+                coverflowEffect: {
+                    rotate: 20,
+                    stretch: 0,
+                    depth: 200,
+                    modifier: 1,
+                    slideShadows: true,
+                },
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+            });
+        };
+    </script>
 </body>
 
 </html>
