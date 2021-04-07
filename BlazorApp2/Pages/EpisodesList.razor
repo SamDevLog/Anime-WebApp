@@ -2,23 +2,32 @@
 @inherits EpisodesListBase
 @inject IJSRuntime JSRuntime
 
-<h4 style="text-align: center">Top Upcoming Animes</h4>
+<h1 class="display-2 text-center text-white">Top Upcoming Animes</h1>
 
-@if (Episodes != null)
-{
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-            @foreach (var ep in Episodes)
+<div class="container-fluid p-3 m-5">
+    <div class="row">
+        <div class="col-12">
+            @if (Episodes != null)
             {
-                <div class="swiper-slide"><img src="@ep.image_url" alt="Alternate Text" /></div>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        @foreach (var ep in Episodes)
+                        {
+                            <div class="swiper-slide"><img src="@ep.image_url" alt="Alternate Text" /></div>
+                        }
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="spinner"></div>
             }
         </div>
+        
     </div>
-}
-else
-{
-<div class="spinner"></div>
-}
+    
+</div>
+
 
 @code{
 
