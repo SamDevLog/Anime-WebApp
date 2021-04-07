@@ -1,6 +1,5 @@
 ﻿@page "/"
 @inherits EpisodesListBase
-@inject IJSRuntime JSRuntime
 
 <div>
     <h3 style="text-align: center; color:antiquewhite; font-size: 25px">Top Upcoming Animes</h3>
@@ -37,22 +36,3 @@
     
 </div>
 
-
-@code{
-
-
-    protected override async Task OnInitializedAsync()
-    {
-        Episodes = await episodeService.GetEpisodes();
-        ListTopAnime();
-    }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            await Task.Delay(1000);
-            await JSRuntime.InvokeAsync<Object>("initializeSwiper");
-        }
-    }
-}

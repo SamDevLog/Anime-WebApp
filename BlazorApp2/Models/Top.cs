@@ -8,7 +8,7 @@ namespace BlazorApp2.Models
     public class Top
     {
         public int mal_id { get; set; }
-        public int rank { get; set; }
+        public int? rank { get; set; }
         public string title { get; set; }
         public string url { get; set; }
         public string image_url { get; set; }

@@ -33,5 +33,11 @@ namespace BlazorApp2.Services
             return top;
         }
 
+        public async Task<IEnumerable<Top>> GetSeasonAnime()
+        {
+            Root root = await httpClient.GetJsonAsync<Root>("season/later");
+            List<Top> top = root.top.Take(10).ToList();
+            return top;
+        }
     }
 }

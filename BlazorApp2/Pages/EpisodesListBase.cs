@@ -16,27 +16,33 @@ namespace BlazorApp2.Pages
     public class EpisodesListBase : ComponentBase
     {
         public string Title { get; set; }
-        public List<string> ImgPaths { get; set; }
         public IEnumerable<Top> Episodes { get; set; }
-        public IEnumerable<dynamic> top { get; set; }
 
         [Inject]
         public IEpisodeService episodeService { get; set; }
 
+        [Inject]
+        public IJSRuntime JSRuntime { get; set; }
+
         public string ShortenTitle(string _title)
         {
-            Title = _title.Take(30).ToString();
+            Title = _title.Take(10).ToString();
             return Title;
         }
-        
 
-        public void ListTopAnime()
+        protected override async Task OnInitializedAsync()
         {
-            ImgPaths = new List<string>();
-            foreach (var ep in Episodes)
+            Episodes = await episodeService.GetEpisodes();
+        }
+
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (firstRender)
             {
-                ImgPaths.Add(ep.image_url);
+                await Task.Delay(1000);
+                await JSRuntime.InvokeAsync<Object>("initializeSwiper");
             }
         }
+
     }
 }

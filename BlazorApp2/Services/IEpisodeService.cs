@@ -10,5 +10,6 @@ namespace BlazorApp2.Services
     {
         Task<Episode> GetEpisode(int id);
         Task<IEnumerable<Top>> GetEpisodes();
+        Task<IEnumerable<Top>> GetSeasonAnime();
     }
 }
