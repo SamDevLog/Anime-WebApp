@@ -1,10 +1,10 @@
 ﻿@page "/episodedetails/{id}"
 @page "/episodedetails"
-@inherits EpisodeDetailsBase
+@inherits AnimeDetailsBase
 
-<h3>Episode Details</h3>
+<h3>Anime Details</h3>
 
-@if (Episode == null)
+@if (Anime == null)
 {
     <div class="spinner"></div>
 }
@@ -14,15 +14,15 @@ else
         <div class="col-sm-8">
             <div class="card">
                 <div class="card-header">
-                    <h1>@Episode.title</h1>
+                    <h1>@Anime.title</h1>
                 </div>
 
                 <div class="card-body text-center">
-                    <img class="card-img-top" src="@Episode.image_url" />
+                    <img class="card-img-top" src="@Anime.image_url" />
 
-                    <h4>Episode ID : @Episode.mal_id</h4>
-                    <h4>Rank : @Episode.rank</h4>
-                    <h4>Start Date : @Episode.start_date</h4>
+                    <h4>Episode ID : @Anime.mal_id</h4>
+                    <h4>Rank : @Anime.rank</h4>
+                    <h4>Start Date : @Anime.start_date</h4>
                 </div>
                 <div class="card-footer text-center">
                     <a href="/" class="btn btn-primary">Back</a>

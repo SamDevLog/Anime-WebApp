@@ -10,34 +10,36 @@ using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using BlazorApp2.Pages;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BlazorApp2.Services
 {
-    public class EpisodeService : IEpisodeService
+    public class AnimeService : IAnimeService
     {
         private readonly HttpClient httpClient;
 
-        public EpisodeService(HttpClient httpClient)
+        public AnimeService(HttpClient httpClient)
         {
             this.httpClient = httpClient;
         }
-        public async Task<Episode> GetEpisode(int id)
+        public async Task<Anime> GetAnime(int id)
         {
-            return await httpClient.GetFromJsonAsync<Episode>($"anime/{id}");
+            return await httpClient.GetFromJsonAsync<Anime>($"anime/{id}");
         }
 
-        public async Task<IEnumerable<Top>> GetEpisodes()
+        public async Task<IEnumerable<Top>> GetAnimeList()
         {
             Root root = await httpClient.GetJsonAsync<Root>("top/anime/1/upcoming");
             List<Top> top = root.top.Take(10).ToList();
             return top;
         }
 
-        public async Task<IEnumerable<Top>> GetSeasonAnime()
+        public async Task<SeasonRoot> GetSeasonAnime()
         {
-            Root root = await httpClient.GetJsonAsync<Root>("season/later");
-            List<Top> top = root.top.Take(10).ToList();
-            return top;
+            return await httpClient.GetFromJsonAsync<SeasonRoot>($"season/2021/summer");
         }
+
+
     }
 }

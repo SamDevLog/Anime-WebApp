@@ -20,7 +20,7 @@ namespace BlazorApp2
             builder.RootComponents.Add<App>("#app");
             builder.Services.AddSingleton<IJikan, Jikan>();
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://api.jikan.moe/v3/") });
-            builder.Services.AddScoped<IEpisodeService, EpisodeService>();
+            builder.Services.AddScoped<IAnimeService, AnimeService>();
 
             await builder.Build().RunAsync();
         }

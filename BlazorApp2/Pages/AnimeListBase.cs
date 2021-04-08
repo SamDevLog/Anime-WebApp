@@ -13,13 +13,13 @@ using System.Threading.Tasks;
 
 namespace BlazorApp2.Pages
 {
-    public class EpisodesListBase : ComponentBase
+    public class AnimeListBase : ComponentBase
     {
         public string Title { get; set; }
         public IEnumerable<Top> Episodes { get; set; }
 
         [Inject]
-        public IEpisodeService episodeService { get; set; }
+        public IAnimeService episodeService { get; set; }
 
         [Inject]
         public IJSRuntime JSRuntime { get; set; }
@@ -32,14 +32,14 @@ namespace BlazorApp2.Pages
 
         protected override async Task OnInitializedAsync()
         {
-            Episodes = await episodeService.GetEpisodes();
+            Episodes = await episodeService.GetAnimeList();
         }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)
             {
-                await Task.Delay(1000);
+                await Task.Delay(500);
                 await JSRuntime.InvokeAsync<Object>("initializeSwiper");
             }
         }

@@ -1,12 +1,16 @@
-﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
-
-
+﻿
 *
 {
     margin: 0;
     padding: 0;
 }
 
+.synopsis {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
 
 a, .btn-link {
     color: #0366d6;
@@ -71,24 +75,34 @@ a, .btn-link {
     }
 }
 
+.pageTitle {
+    text-align: center; 
+    color:antiquewhite; 
+    font-size: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.animeName {
+    text-align: center;
+    color: antiquewhite;
+    font-size: 15px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
 
 body {
     background: #111;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 14px;
     color: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
 }
 
 .swiper-container {
-    width: 1100px;
-    height: 300px;
-    padding-top: 50px;
-    padding-bottom: 170px;
-
+    width: 100%;
+    height: 500px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .swiper-slide {
@@ -96,4 +110,6 @@ body {
     width: 250px;
     height: 300px;
     -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, #0006);
+    justify-content: center;
+    align-items: center;
 }

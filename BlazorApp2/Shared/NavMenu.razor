@@ -1,29 +1,29 @@
-﻿<div class="top-row pl-4 navbar navbar-dark">
+﻿<nav class="navbar sticky-top navbar-expand-sm navbar-dark bg-dark">
     <a class="navbar-brand" href="">Anime Cavern</a>
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
     </button>
-</div>
 
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <ul class="nav flex-column">
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="episodedetails/10">
-                <span class="oi oi-plus" aria-hidden="true"></span> Anime Details
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-            </NavLink>
-        </li>
-    </ul>
-</div>
+    <div class="@NavMenuCssClass navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                    <span class="oi oi-home" aria-hidden="true"></span> Home
+                </NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link" href="upcominganime/">
+                    <span class="oi oi-plus" aria-hidden="true"></span> Upcoming Anime
+                </NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link" href="seasonanime/">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> Season Anime
+                </NavLink>
+            </li>
+        </ul>
+    </div>
+</nav>
 
 @code {
     private bool collapseNavMenu = true;

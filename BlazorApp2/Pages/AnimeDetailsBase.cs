@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace BlazorApp2.Pages
 {
-    public class EpisodeDetailsBase : ComponentBase
+    public class AnimeDetailsBase : ComponentBase
     {
-        public Episode Episode { get; set; } = new Episode();
+        public Anime Anime { get; set; } = new Anime();
 
         [Inject]
-        public IEpisodeService episodeService { get; set; }
+        public IAnimeService animeService { get; set; }
 
         [Parameter]
         public string Id { get; set; }
@@ -21,7 +21,7 @@ namespace BlazorApp2.Pages
         protected async override Task OnInitializedAsync()
         {
             Id = Id ?? "1";
-            Episode = await episodeService.GetEpisode(int.Parse(Id));
+            Anime = await animeService.GetAnime(int.Parse(Id));
         }
     }
 }
