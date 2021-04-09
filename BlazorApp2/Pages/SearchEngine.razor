@@ -1,14 +1,15 @@
 ﻿@page "/"
 @inject HttpClient httpClient
-@using System.ComponentModel.DataAnnotations;
+@inherits SearchEngineBase 
+
 
 <h1 class="pageTitle">Anime Search Engine</h1>
 
 <div class="text-center">
-    <EditForm OnValidSubmit="@HandleSearch" class="p-2">
+    <EditForm Model="@searchModel" OnValidSubmit="@HandleSearch" class="p-2">
         <DataAnnotationsValidator />
         <ValidationSummary />
-        <InputText class="form-control form-control-lg w-25 mx-auto mt-4" placeholder="Type an Anime Name" @bind-value="searchName" />
+        <InputText class="form-control form-control-lg w-25 mx-auto mt-4" placeholder="Type an Anime Name" @bind-value="searchModel.SearchName" />
         <div class="p-2">
             <button type="submit" class="btn btn-primary btn-lg">Search the Anime API</button>
         </div>
@@ -43,16 +44,3 @@
 }
 
 
-@code {
-
-    [Required]
-    [MinLength(3, ErrorMessage = "Minimum of 3 characters required for the search!")]
-    private string searchName;
-
-    private RootResult query;
-
-    private async Task HandleSearch()
-    {
-        query = await httpClient.GetFromJsonAsync<RootResult>($"search/anime?q={searchName}");
-    }
-}
