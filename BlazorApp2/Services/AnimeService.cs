@@ -23,6 +23,8 @@ namespace BlazorApp2.Services
         {
             this.httpClient = httpClient;
         }
+
+
         public async Task<Anime> GetAnime(int id)
         {
             return await httpClient.GetFromJsonAsync<Anime>($"anime/{id}");
@@ -35,11 +37,14 @@ namespace BlazorApp2.Services
             return top;
         }
 
-        public async Task<SeasonRoot> GetSeasonAnime()
+        public async Task<SeasonRoot> GetSeasonAnime(Seasons season = Seasons.fall)
         {
-            return await httpClient.GetFromJsonAsync<SeasonRoot>($"season/2021/summer");
+            return await httpClient.GetFromJsonAsync<SeasonRoot>($"season/2021/{season}");
         }
 
-
+        public async Task<RootResult> Search(string search)
+        {
+            return await httpClient.GetFromJsonAsync<RootResult>($"search/anime?q={search}");
+        }
     }
 }
