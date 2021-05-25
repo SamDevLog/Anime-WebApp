@@ -1,58 +1,43 @@
 ﻿@page "/"
-@inject HttpClient httpClient
 @inherits SearchEngineBase 
 
 
 <h1 class="pageTitle">Anime Search Engine</h1>
 
 <div class="text-center">
-    <EditForm Model="search" OnValidSubmit="@HandleSearch" class="p-2">
+    <EditForm Model="SearchField" OnValidSubmit="@HandleSearch" class="p-2">
         <DataAnnotationsValidator />
         <ValidationSummary />
-        <InputText class="form-control form-control-lg w-25 mx-auto mt-4" placeholder="Type an Anime Name" @bind-Value="search.SearchName" />
+        <InputText class="form-control form-control-lg w-25 mx-auto mt-4" placeholder="Type an Anime Name" @bind-Value="SearchField.SearchField" />
         <div class="p-2">
-            <button type="submit" class="btn btn-primary btn-lg">Search the Anime API</button>
+            <button type="submit" class="btn btn-primary btn-lg oi-magnifying-glass">Search the Anime API</button>
         </div>
     </EditForm>
-    
 </div>
 
 @if (query != null)
 {
-    <div class="container pt-3 mt-3">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
-            @foreach (var result in query.results)
-            {
-                <div class="col mb-4">
-                    <div class="card h-100" style="width: 18rem;">
-                        <img src="@result.image_url">
-                        <div class="descriptions">
-                            <h3>@result.title</h3>
-                            <p>
-                                @result.synopsis
-                            </p>
-                            <button>
-                                <i class="fab fa-youtube"></i>
-                                Play trailer on YouTube
-                            </button>
-                        </div>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+        @foreach (var result in query.results)
+        {
+            <div class="col mb-4">
+                <div class="card h-100" style="width: 18rem;">
+                    <img src="@result.image_url">
+                    <div class="descriptions">
+                        <h3>@result.title</h3>
+                        <p>
+                            @result.synopsis
+                        </p>
+                        <button>
+                            <i class="fab fa-youtube"></i>
+                            Play trailer on YouTube
+                        </button>
                     </div>
                 </div>
-            }
-        </div>
+            </div>
+        }
     </div>
+    
 }
 
 
-@code {
-
-    private SearchEngineBase search = new SearchEngineBase();
-    private string searchName;
-
-    private RootResult query;
-
-    private async Task HandleSearch()
-    {
-        query = await httpClient.GetFromJsonAsync<RootResult>($"search/anime?q={search.SearchName}");
-    }
-}

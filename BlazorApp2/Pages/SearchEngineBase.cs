@@ -10,10 +10,25 @@ using System.Threading.Tasks;
 
 namespace BlazorApp2.Pages
 {
-    public class SearchEngineBase
+    public class Search
     {
         [Required]
-        [MinLength(3, ErrorMessage = "Minimum of 3 characters required for the search!")]
-        public string SearchName { get; set; }
+        [MinLength(3, ErrorMessage ="The name cannot be less than 3 characters long")]
+        public string SearchField { get; set; }
+    }
+    public class SearchEngineBase : ComponentBase
+    {
+        [Inject]
+        public IAnimeService animeService { get; set; }
+        public Search SearchField { get; set; } = new Search();
+
+        public RootResult query;
+
+
+
+        public async Task HandleSearch()
+        {
+            query = await animeService.Search(SearchField.SearchField);
+        }
     }
 }

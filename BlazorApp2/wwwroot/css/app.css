@@ -119,7 +119,6 @@ body {
 }
 
 
-
 .wrapper {
     position: absolute;
     top: 50%;
@@ -133,6 +132,7 @@ body {
     justify-content: space-between;
 }
 
+/* SEARCH ENGINE COMPONENT DISPLAY */
 .card {
     flex: 1;
     flex-basis: 300px;
@@ -217,4 +217,7 @@ body {
     transition: all .5s ease-in-out;
 }
 
+.row{
+    margin: 0px 5px;
+}
 

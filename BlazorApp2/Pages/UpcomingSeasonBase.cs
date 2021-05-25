@@ -16,22 +16,30 @@ namespace BlazorApp2.Pages
     public class UpcomingSeasonBase : ComponentBase
     {
         public SeasonRoot root { get; set; }
-        //public IEnumerable<Season> SeasonAnimeList { get; set; }
 
-        //[Parameter]
-        //public string Season { get; set; }
+        [Parameter]
+        public Seasons Season { get; set; }
         //[Parameter]
         //public int Year { get; set; }
 
         [Inject]
         public IAnimeService animeService { get; set; }
+        [Inject]
+        public NavigationManager navigationManager { get; set; }
 
         //[Inject]
         //public IJSRuntime JSRuntime { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
-            root = await animeService.GetSeasonAnime();
+            root = await animeService.GetSeasonAnime(Season);
+            
+        }
+
+        public void ValueChanged(Seasons season)
+        {
+            Season = season;
+            navigationManager.NavigateTo("/seasonanime/", true);
         }
     }
 }
