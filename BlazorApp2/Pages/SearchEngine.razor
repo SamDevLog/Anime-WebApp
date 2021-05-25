@@ -1,20 +1,18 @@
 ﻿@page "/"
-@inject HttpClient httpClient
 @inherits SearchEngineBase 
 
 
 <h1 class="pageTitle">Anime Search Engine</h1>
 
 <div class="text-center">
-    <EditForm Model="search" OnValidSubmit="@HandleSearch" class="p-2">
+    <EditForm Model="SearchField" OnValidSubmit="@HandleSearch" class="p-2">
         <DataAnnotationsValidator />
         <ValidationSummary />
-        <InputText class="form-control form-control-lg w-25 mx-auto mt-4" placeholder="Type an Anime Name" @bind-Value="search.SearchName" />
+        <InputText class="form-control form-control-lg w-25 mx-auto mt-4" placeholder="Type an Anime Name" @bind-Value="SearchField.SearchField" />
         <div class="p-2">
-            <button type="submit" class="btn btn-primary btn-lg">Search the Anime API</button>
+            <button type="submit" class="btn btn-primary btn-lg oi-magnifying-glass">Search the Anime API</button>
         </div>
     </EditForm>
-    
 </div>
 
 @if (query != null)
@@ -44,15 +42,3 @@
 }
 
 
-@code {
-
-    private SearchEngineBase search = new SearchEngineBase();
-    private string searchName;
-
-    private RootResult query;
-
-    private async Task HandleSearch()
-    {
-        query = await httpClient.GetFromJsonAsync<RootResult>($"search/anime?q={search.SearchName}");
-    }
-}

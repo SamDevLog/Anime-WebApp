@@ -1,28 +1,23 @@
 ﻿using BlazorApp2.Models;
 using Microsoft.AspNetCore.Components;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using BlazorApp2.Pages;
-using Microsoft.AspNetCore.Mvc;
 
 namespace BlazorApp2.Services
 {
     public class AnimeService : IAnimeService
     {
         private readonly HttpClient httpClient;
-
         public AnimeService(HttpClient httpClient)
         {
             this.httpClient = httpClient;
         }
+
+
         public async Task<Anime> GetAnime(int id)
         {
             return await httpClient.GetFromJsonAsync<Anime>($"anime/{id}");
@@ -35,11 +30,14 @@ namespace BlazorApp2.Services
             return top;
         }
 
-        public async Task<SeasonRoot> GetSeasonAnime()
+        public async Task<SeasonRoot> GetSeasonAnime(int year, Seasons season)
         {
-            return await httpClient.GetFromJsonAsync<SeasonRoot>($"season/2021/summer");
+            return await httpClient.GetFromJsonAsync<SeasonRoot>($"season/{year}/{season}");
         }
 
-
+        public async Task<RootResult> Search(string search)
+        {
+            return await httpClient.GetFromJsonAsync<RootResult>($"search/anime?q={search}");
+        }
     }
 }

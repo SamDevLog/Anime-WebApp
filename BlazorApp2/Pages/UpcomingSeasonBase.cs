@@ -16,22 +16,40 @@ namespace BlazorApp2.Pages
     public class UpcomingSeasonBase : ComponentBase
     {
         public SeasonRoot root { get; set; }
-        //public IEnumerable<Season> SeasonAnimeList { get; set; }
 
-        //[Parameter]
-        //public string Season { get; set; }
-        //[Parameter]
-        //public int Year { get; set; }
+        [Parameter]
+        public Seasons Season { get; set; } = Seasons.fall;
+        [Parameter]
+        public int Year { get; set; } = DateTime.Now.Year;
+        public IEnumerable<int> Years { get; set; } = Enumerable.Range(DateTime.Now.Year, 3);
 
         [Inject]
         public IAnimeService animeService { get; set; }
+        [Inject]
+        public NavigationManager navigationManager { get; set; }
 
-        //[Inject]
-        //public IJSRuntime JSRuntime { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
-            root = await animeService.GetSeasonAnime();
+            root = await animeService.GetSeasonAnime(Year, Season);
         }
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            root = await animeService.GetSeasonAnime(Year, Season);
+        }
+
+        public void SetSeason(Seasons season)
+        {
+            Season = season;
+            StateHasChanged();
+        }
+
+        public void SetYear(int year)
+        {
+            Year = year;
+            StateHasChanged();
+        }
+
+        
     }
 }
