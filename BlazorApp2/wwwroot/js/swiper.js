@@ -10,7 +10,7 @@ window.initializeSwiper = () => {
             stretch: 0,
             depth: 200,
             modifier: 1,
-            slideShadows: true,
+            slideShadows: false,
         },
         autoplay: {
             delay: 2500,
