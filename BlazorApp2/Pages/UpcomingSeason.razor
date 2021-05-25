@@ -1,5 +1,5 @@
 ﻿@page "/seasonanime/"
-@page "/seasonanime/2021/{Season}"
+@page "/seasonanime/{Year}/{Season}"
 @inherits UpcomingSeasonBase
 
 
@@ -16,19 +16,19 @@ else
     <div class="dropdown">
         <span>
             <EditForm Model="Season">
-                <InputSelect Value="Season"
+                <InputSelect class="dropdownBtn" Value="Season"
                              ValueChanged="@((Seasons season) => SetSeason(season))"
                              ValueExpression="@(()=> Season)">
                     @foreach (var value in Enum.GetValues(typeof(Seasons)))
                     {
-                        <option value="@value">@value.ToString()</option>
+                        <option class="dropdown-item" value="@value">@value.ToString()</option>
                     }
                 </InputSelect>
             </EditForm>
         </span>
         <span>
             <EditForm Model="Year">
-                <InputSelect class="seasonDropDowns" Value="Year"
+                <InputSelect class="dropdownBtn" Value="Year"
                              ValueChanged="@((int year) => SetYear(year))"
                              ValueExpression="@(()=> Year)">
                     @foreach (var value in Years)
@@ -39,23 +39,22 @@ else
             </EditForm>
         </span>
     </div>
-    <div class="container pt-3 mt-3">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
-            @foreach (var anime in root.anime)
-            {
-                <div class="col mb-4">
-                    <div class="card h-100" style="width: 18rem;">
-                        <img src="@anime.image_url">
-                        <div class="descriptions">
-                            <h3 >@anime.title</h3>
-                            <p>
-                                @anime.synopsis
-                            </p>
-                        </div>
+    <div class="row">
+        @foreach (var anime in root.anime)
+        {
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="@anime.image_url">
+                    <div class="descriptions">
+                        <h3 >@anime.title</h3>
+                        <p>
+                            @anime.synopsis
+                        </p>
                     </div>
                 </div>
-            }
-        </div>
+            </div>
+        }
     </div>
+    
 }
 

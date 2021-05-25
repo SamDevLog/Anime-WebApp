@@ -20,7 +20,7 @@ namespace BlazorApp2.Pages
         [Parameter]
         public Seasons Season { get; set; } = Seasons.fall;
         [Parameter]
-        public int Year { get; set; } = DateTime.Now.Year;
+        public int Year { get; set; }
         public IEnumerable<int> Years { get; set; } = Enumerable.Range(DateTime.Now.Year, 3);
 
         [Inject]
@@ -31,6 +31,7 @@ namespace BlazorApp2.Pages
 
         protected override async Task OnInitializedAsync()
         {
+            Year = DateTime.Now.Year;
             root = await animeService.GetSeasonAnime(Year, Season);
         }
         protected override async Task OnAfterRenderAsync(bool firstRender)

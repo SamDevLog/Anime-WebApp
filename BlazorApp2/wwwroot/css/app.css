@@ -81,6 +81,7 @@ a, .btn-link {
     text-align: center; 
     color:antiquewhite; 
     font-size: 25px;
+    margin: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
 }
@@ -104,16 +105,15 @@ body {
 
 .swiper-container {
     width: 90vw;
-    height: 100vh;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    height: 70vh;
+    padding-bottom: 40px;
 }
 
 .swiper-slide {
     background-position: center;
     width: 250px;
     height: 350px;
-    -webkit-box-reflect: below 5px linear-gradient(transparent, transparent, #0006);
+    -webkit-box-reflect: below 46px linear-gradient(transparent, transparent, #0006);
     justify-content: center;
     align-items: center;
 }
@@ -218,7 +218,14 @@ body {
 }
 
 .row{
-    margin: 0px 5px;
+    padding: 20px 20px;
+    margin: 5px 5px;
+    display: flex;
+    justify-content: center;
+    width: auto;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
 }
 
 .row:after {
@@ -232,3 +239,41 @@ body {
     width: auto;
     padding: 10px 10px;
 }
+
+@media screen and (max-width: 600px) {
+
+    .col {
+      width: auto;
+      display: block;
+      margin: 20px;
+    }
+    
+}
+
+.dropdown{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-content: center;
+}
+
+.dropdown span{
+    padding: 5px;
+}
+
+.dropdownBtn, .dropdown-item{
+    padding: 5px 10px;
+    background-color: #04AA6D;
+    color: white;
+    font-size: 18px;
+    border: none;
+}
+
+.dropdown-item{
+    display: block;
+    position: absolute;
+    width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
