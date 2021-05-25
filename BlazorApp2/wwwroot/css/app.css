@@ -221,3 +221,14 @@ body {
     margin: 0px 5px;
 }
 
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.col {
+    float: left;
+    width: auto;
+    padding: 10px 10px;
+}
