@@ -16,11 +16,11 @@
 
 @if (query != null)
 {
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+    <div class="row">
         @foreach (var result in query.results)
         {
-            <div class="col mb-4">
-                <div class="card h-100" style="width: 18rem;">
+            <div class="col">
+                <div class="card h-100">
                     <img src="@result.image_url">
                     <div class="descriptions">
                         <h3>@result.title</h3>

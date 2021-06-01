@@ -1,5 +1,5 @@
 ﻿:root {
-    font-size: 14px;
+    font-size: 16px;
     font-family: 'Open Sans';
     --text-primary: #b6b6b6;
     --text-secondary: #ececec;
@@ -35,6 +35,8 @@ main{
     background-color: var(--bg-primary);
     transition: width 600ms ease;
     overflow: scroll;
+    overflow-y: hidden;
+    overflow-x: hidden;
     z-index: 1;
 }
 
@@ -78,7 +80,7 @@ main{
 }
 
 .nav-link svg{
-    width: 2rem;
+    width: 1.5rem;
     min-width: 2rem;
     margin: 0 1.5rem;
 }
@@ -103,7 +105,7 @@ main{
     text-align: center;
     color: var(--text-secondary);
     background: var(--bg-secondary);
-    font-size: 1.5rem;
+    font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.3ch;
     width: 100%;
