@@ -8,7 +8,7 @@ namespace BlazorApp2.Pages
 {
     public class SeasonAnime
     {
-        public int mal_id { get; set; }
+        public int? mal_id { get; set; }
         public string url { get; set; }
         public string title { get; set; }
         public string image_url { get; set; }
@@ -18,7 +18,7 @@ namespace BlazorApp2.Pages
         public int? episodes { get; set; }
         public int? members { get; set; }
         public List<Genre> genres { get; set; }
-        public double? score { get; set; }
+        public float? score { get; set; }
         public bool continuing { get; set; }
     }
 }
