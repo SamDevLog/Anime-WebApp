@@ -1,5 +1,4 @@
 using BlazorApp2.Services;
-using JikanDotNet;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,7 +17,6 @@ namespace BlazorApp2
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
-            builder.Services.AddSingleton<IJikan, Jikan>();
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://api.jikan.moe/v3/") });
             builder.Services.AddScoped<IAnimeService, AnimeService>();
 

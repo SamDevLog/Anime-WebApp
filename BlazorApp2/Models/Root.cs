@@ -13,7 +13,7 @@ namespace BlazorApp2.Models
         public int request_cache_expiry { get; set; }
         public string season_name { get; set; }
         public int season_year { get; set; }
-        public List<Top> top { get; set; }
+        public List<Anime> top { get; set; }
         public List<SeasonAnime> seasonAnimes { get; set; }
     }
 }

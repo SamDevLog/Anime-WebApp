@@ -12,6 +12,7 @@ namespace BlazorApp2.Services
     public class AnimeService : IAnimeService
     {
         private readonly HttpClient httpClient;
+        public IEnumerable<Anime> Episodes { get; set; }
         public AnimeService(HttpClient httpClient)
         {
             this.httpClient = httpClient;
@@ -23,10 +24,10 @@ namespace BlazorApp2.Services
             return await httpClient.GetFromJsonAsync<Anime>($"anime/{id}");
         }
 
-        public async Task<IEnumerable<Top>> GetAnimeList()
+        public async Task<IEnumerable<Anime>> GetAnimeList()
         {
-            Root root = await httpClient.GetJsonAsync<Root>("top/anime/1/upcoming");
-            List<Top> top = root.top.Take(10).ToList();
+            Root root = await httpClient.GetFromJsonAsync<Root>("top/anime/1/upcoming");
+            List<Anime> top = root.top.Take(10).ToList();
             return top;
         }
 

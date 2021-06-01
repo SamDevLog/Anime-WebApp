@@ -16,13 +16,15 @@ namespace BlazorApp2.Pages
     public class AnimeListBase : ComponentBase
     {
         public string Title { get; set; }
-        public IEnumerable<Top> Episodes { get; set; }
+        public IEnumerable<Anime> Episodes { get; set; }
+
+        public bool jsInvoked { get; set; } = false;
 
         [Inject]
-        public IAnimeService episodeService { get; set; }
+        public IAnimeService _episodeService { get; set; }
 
         [Inject]
-        public IJSRuntime JSRuntime { get; set; }
+        public IJSRuntime _jsRuntime { get; set; }
 
         public string ShortenTitle(string _title)
         {
@@ -32,16 +34,21 @@ namespace BlazorApp2.Pages
 
         protected override async Task OnInitializedAsync()
         {
-            Episodes = await episodeService.GetAnimeList();
+            Episodes = await _episodeService.GetAnimeList();
+            Console.Write("API was Called");
         }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)
             {
-                await Task.Delay(500);
-                await JSRuntime.InvokeAsync<Object>("initializeSwiper");
+                //await Task.Delay(500);
+                //if (Episodes == null || jsInvoked) return;
+                await _jsRuntime.InvokeVoidAsync("initializeSwiper");
+                Console.Write("Swiper was launched");
+                //jsInvoked = true;
             }
+            
         }
 
     }

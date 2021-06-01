@@ -1,5 +1,4 @@
 ﻿using BlazorApp2.Models;
-using JikanDotNet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +18,6 @@ namespace BlazorApp2.Pages
         public int? episodes { get; set; }
         public int? members { get; set; }
         public List<Genre> genres { get; set; }
-        public List<Producer> producers { get; set; }
         public double? score { get; set; }
         public bool continuing { get; set; }
     }

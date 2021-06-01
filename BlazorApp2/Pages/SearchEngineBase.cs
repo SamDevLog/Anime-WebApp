@@ -1,5 +1,7 @@
-﻿using BlazorApp2.Services;
+﻿using BlazorApp2.Models;
+using BlazorApp2.Services;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -21,10 +23,15 @@ namespace BlazorApp2.Pages
         [Inject]
         public IAnimeService animeService { get; set; }
         public Search SearchField { get; set; } = new Search();
+        [Parameter]
+        public IEnumerable<Anime> Episodes { get; set; }
 
         public RootResult query;
 
-
+        protected override async Task OnInitializedAsync()
+        {
+            Episodes = await animeService.GetAnimeList();
+        }
 
         public async Task HandleSearch()
         {

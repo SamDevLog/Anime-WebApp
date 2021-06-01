@@ -4,14 +4,13 @@
 
 <h1 class="pageTitle">Anime Search Engine</h1>
 
-<div class="text-center">
-    <EditForm Model="SearchField" OnValidSubmit="@HandleSearch" class="p-2">
+
+<div>
+    <EditForm class="dropdown" Model="SearchField" OnValidSubmit="@HandleSearch" >
         <DataAnnotationsValidator />
-        <ValidationSummary />
-        <InputText class="form-control form-control-lg w-25 mx-auto mt-4" placeholder="Type an Anime Name" @bind-Value="SearchField.SearchField" />
-        <div class="p-2">
-            <button type="submit" class="btn btn-primary btn-lg oi-magnifying-glass">Search the Anime API</button>
-        </div>
+        <InputText class="dropdownBtn" placeholder="Type an Anime Name" @bind-Value="SearchField.SearchField" />
+        <ValidationMessage For="()=> SearchField.SearchField"></ValidationMessage>
+        <button type="submit" class="dropdownBtn">Search the Anime API</button>
     </EditForm>
 </div>
 
