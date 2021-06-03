@@ -18,6 +18,6 @@ namespace BlazorApp2.Models
         public string synopsis { get; set; }
         public string end_date { get; set; }
         public int? members { get; set; }
-        public int? score { get; set; }
+        public float? score { get; set; }
     }
 }

@@ -224,11 +224,10 @@ body {
 .row{
     display: flex;
     justify-content: center;
-    width: auto;
+    width: 100vw;
     align-items: center;
     align-content: center;
     flex-wrap: wrap;
-    margin-left: 5rem;
 }
 
 .row:after {
@@ -243,17 +242,6 @@ body {
     padding: 10px 10px;
 }
 
-@media screen and (max-width: 600px) {
-
-    .col {
-        width: auto;
-        display: block;
-        margin: 20px;
-    }
-    .dropdown {
-        flex-direction: column;
-    }
-}
 
 .dropdown {
     display: grid;
@@ -284,4 +272,23 @@ body {
     z-index: 1;
 }
 
+@media screen and (max-width: 600px) {
 
+    .col {
+        width: auto;
+        display: block;
+        margin: 20px;
+    }
+
+    .dropdown {
+        flex-direction: column;
+    }
+
+}
+
+@media screen and (min-width: 600px) {
+    .row {
+        width: 90vw;
+        margin: 0 5rem;
+    }
+}

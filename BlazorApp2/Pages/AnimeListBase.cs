@@ -34,14 +34,14 @@ namespace BlazorApp2.Pages
 
         protected override async Task OnInitializedAsync()
         {
-                Episodes = await _episodeService.GetAnimeList();
+            Episodes = await _episodeService.GetAnimeList();
         }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            if (Episodes == null || jsInvoked) return;
+            //if (Episodes == null || jsInvoked) return;
             await _jsRuntime.InvokeVoidAsync("initializeSwiper");
-            jsInvoked = true;           
+            //jsInvoked = true;           
         }
 
     }

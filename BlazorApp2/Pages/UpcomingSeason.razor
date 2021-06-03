@@ -4,7 +4,7 @@
 
 
 
-@if (root == null)
+@if (AnimeList == null)
 {
     <div class="spinner"></div>
 }
@@ -40,7 +40,7 @@ else
         </span>
     </div>
     <div class="row">
-        @foreach (var anime in root.anime)
+        @foreach (var anime in AnimeList)
         {
             <div class="col">
                 <div class="card">

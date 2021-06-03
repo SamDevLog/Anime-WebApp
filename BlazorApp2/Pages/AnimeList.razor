@@ -1,29 +1,10 @@
 ﻿@page "/upcominganime/" 
 @inherits AnimeListBase
 
-@if (Episodes == null)
-{
-     <div class="spinner"></div>
-}
-else
-{
 <div>
     <h3 class="pageTitle px-3 mx-3">Upcoming Animes</h3>
 </div>
-<div class="swiper-container">
-    <div class="swiper-wrapper">
-            @foreach (var ep in Episodes)
-            {
-                <div class="swiper-slide">
-                    <h5 class="animeName">@ep.title</h5>
-                    <a href="episodedetails/@ep.mal_id">
-                        <img class="cardImg" src="@ep.image_url" alt="Alternate Text" />
-                    </a>
-                </div>
-            }
-    </div>
-</div>
+@if (Episodes != null)
+{
+    <LatestAnime Episodes="Episodes"></LatestAnime>
 }
-
-
-

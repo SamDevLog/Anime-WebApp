@@ -31,9 +31,11 @@ namespace BlazorApp2.Services
             return top;
         }
 
-        public async Task<SeasonRoot> GetSeasonAnime(int year, Seasons season)
+        public async Task<List<Anime>> GetSeasonAnime(int year, Seasons season)
         {
-            return await httpClient.GetFromJsonAsync<SeasonRoot>($"season/{year}/{season}");
+            SeasonRoot seasonRoot = await httpClient.GetFromJsonAsync<SeasonRoot>($"season/{year}/{season}");
+            List<Anime> seasonAnime = seasonRoot.anime.ToList();
+            return seasonAnime;
         }
 
         public async Task<RootResult> Search(string search)

@@ -15,7 +15,8 @@ namespace BlazorApp2.Pages
 {
     public class UpcomingSeasonBase : ComponentBase
     {
-        public SeasonRoot root { get; set; }
+        public List<Anime> AnimeList { get; set; }
+        public bool listIsFull { get; set; }
 
         [Parameter]
         public Seasons Season { get; set; } = Seasons.fall;
@@ -24,33 +25,29 @@ namespace BlazorApp2.Pages
         public IEnumerable<int> Years { get; set; } = Enumerable.Range(DateTime.Now.Year, 3);
 
         [Inject]
-        public IAnimeService animeService { get; set; }
-        [Inject]
-        public NavigationManager navigationManager { get; set; }
-
+        public IAnimeService AnimeService { get; set; }
+        
 
         protected override async Task OnInitializedAsync()
         {
             Year = DateTime.Now.Year;
-            root = await animeService.GetSeasonAnime(Year, Season);
+            AnimeList = await AnimeService.GetSeasonAnime(Year, Season);
         }
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            root = await animeService.GetSeasonAnime(Year, Season);
-        }
+        
 
-        public void SetSeason(Seasons season)
+        public async Task SetSeason(Seasons season)
         {
             Season = season;
+            AnimeList = await AnimeService.GetSeasonAnime(Year, Season);
             StateHasChanged();
         }
 
-        public void SetYear(int year)
+        public async Task SetYear(int year)
         {
             Year = year;
+            AnimeList = await AnimeService.GetSeasonAnime(Year, Season);
             StateHasChanged();
         }
-
         
     }
 }
