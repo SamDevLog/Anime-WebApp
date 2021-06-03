@@ -6,6 +6,117 @@
 }
 */
 
+.container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(#333, #000);
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+.container .set{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 10rem;
+    pointer-events: none;
+}
+
+.container .set div{
+    position: absolute;
+    display: block;
+}
+
+.container .set div:nth-child(1){
+    left: 20%;
+    animation: animate 15s linear infinite;
+    animation-delay: -7s;
+}
+
+.container .set div:nth-child(2){
+    left: 50%;
+    animation: animate 20s linear infinite;
+    animation-delay: -5s;
+}
+
+.container .set div:nth-child(3){
+    left: 70%;
+    animation: animate 20s linear infinite;
+    animation-delay: -5s;
+}
+
+.container .set div:nth-child(4){
+    left: 0%;
+    animation: animate 15s linear infinite;
+    animation-delay: -5s;
+}
+
+.container .set div:nth-child(5){
+    left: 85%;
+    animation: animate 18s linear infinite;
+    animation-delay: -10s;
+}
+
+.container .set div:nth-child(6){
+    left: 0%;
+    animation: animate 12s linear infinite;
+}
+.container .set div:nth-child(7){
+    left: 15%;
+    animation: animate 14s linear infinite;
+}
+.container .set div:nth-child(8){
+    left: 60%;
+    animation: animate 12s linear infinite;
+}
+.container .set div:nth-child(9){
+    left: 0%;
+    animation: animate 12s linear infinite;
+}
+.container .set div:nth-child(10){
+    left: 90%;
+    animation: animate 9s linear infinite;
+}
+
+@keyframes animate{
+    0%
+    {
+        opacity: 0;
+        top: -10%;
+        transform: translateX(20px) rotate(0deg);
+    }
+    10%{
+        opacity: 1;
+    }
+    20%{
+        transform: translateX(-20px) rotate(45deg);
+    }
+    40%{
+        transform: translateX(-20px) rotate(90deg);
+    }
+    60%{
+        transform: translateX(-20px) rotate(180deg);
+    }
+    80%{
+        transform: translateX(-20px) rotate(180deg);
+    }
+    100%{
+        top: 110%;
+        transform: translateX(-20px) rotate(180deg);
+    }
+}
+
+.set2{
+    transform: scale(2) rotateY(180deg);
+    filter: blur(2px);
+}
+
+.set3{
+    transform: scale(0.8) rotateX(180deg);
+    filter: blur(4px);
+}
 
 .synopsis {
     display: -webkit-box;
@@ -107,8 +218,7 @@ body {
     padding: 1rem;
     margin-right: 5rem;
     width: 80vw;
-    height: 70vh;
-    padding-bottom: 40px;
+    height: 90vh;
     z-index: 0;
 }
 

@@ -16,7 +16,6 @@ namespace BlazorApp2.Pages
     public class UpcomingSeasonBase : ComponentBase
     {
         public List<Anime> AnimeList { get; set; }
-        public bool listIsFull { get; set; }
 
         [Parameter]
         public Seasons Season { get; set; } = Seasons.fall;
