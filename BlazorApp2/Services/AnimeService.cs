@@ -1,4 +1,5 @@
 ﻿using BlazorApp2.Models;
+using BlazorApp2.Pages;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
@@ -37,10 +38,16 @@ namespace BlazorApp2.Services
             List<Anime> seasonAnime = seasonRoot.anime.ToList();
             return seasonAnime;
         }
-
-        public async Task<RootResult> Search(string search)
+        public async Task<ResultRoot> Search(string search)
         {
-            return await httpClient.GetFromJsonAsync<RootResult>($"search/anime?q={search}");
+            return await httpClient.GetFromJsonAsync<ResultRoot>($"search/anime?q={search}");
+        }
+
+        public async Task<List<Anime>> GetWeekAnime(Days day)
+        {
+            ResultRoot rootWeek = await httpClient.GetFromJsonAsync<ResultRoot>($"schedule/{day}");
+            List<Anime> weekAnime = rootWeek.results.ToList();
+            return weekAnime;
         }
     }
 }

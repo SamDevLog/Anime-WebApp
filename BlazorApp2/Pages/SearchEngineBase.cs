@@ -23,12 +23,14 @@ namespace BlazorApp2.Pages
         [Inject]
         public IAnimeService animeService { get; set; }
         public Search SearchField { get; set; } = new Search();
+        public int AnimeCount {get; set;}
 
-        public RootResult query;
+        public ResultRoot query;
 
         public async Task HandleSearch()
         {
             query = await animeService.Search(SearchField.SearchField);
         }
+ 
     }
 }

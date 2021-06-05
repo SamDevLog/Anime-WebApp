@@ -1,7 +1,6 @@
-﻿@page "/seasonanime/"
-@page "/seasonanime/{Year}/{Season}"
-@inherits UpcomingSeasonBase
-
+﻿@page "/thisweek/"
+@page "/thisweek/{day}"
+@inherits WeekAnimeBase
 
 <section class="upcomingSeason">
     @if (AnimeList == null)
@@ -11,33 +10,22 @@
     else
     {
         <div>
-            <h3 class="pageTitle">Season Animes</h3>
+            <h3 class="pageTitle">On this Week</h3>
         </div>
         <div class="dropdown">
             <span>
-                <EditForm Model="Season">
-                    <InputSelect class="dropdownBtn" Value="Season"
-                                 ValueChanged="@((Seasons season) => SetSeason(season))"
-                                 ValueExpression="@(()=> Season)">
-                        @foreach (var value in Enum.GetValues(typeof(Seasons)))
+                <EditForm Model="Day">
+                    <InputSelect class="dropdownBtn" Value="Day"
+                                 ValueChanged="@((Days day) => SetDay(day))"
+                                 ValueExpression="@(()=> Day)">
+                        @foreach (var value in Enum.GetValues(typeof(Days)))
                         {
                             <option class="dropdown-item" value="@value">@value.ToString()</option>
                         }
                     </InputSelect>
                 </EditForm>
             </span>
-            <span>
-                <EditForm Model="Year">
-                    <InputSelect class="dropdownBtn" Value="Year"
-                                 ValueChanged="@((int year) => SetYear(year))"
-                                 ValueExpression="@(()=> Year)">
-                        @foreach (var value in Years)
-                        {
-                            <option class="dropdown-item" value="@value">@value.ToString()</option>
-                        }
-                    </InputSelect>
-                </EditForm>
-            </span>
+
             <h3 class="pageTitle">@AnimeList.Count()</h3>
         </div>
         <div class="row">
