@@ -6,117 +6,6 @@
 }
 */
 
-.container{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(#333, #000);
-    overflow: hidden;
-    justify-content: center;
-    align-items: center;
-}
-.container .set{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 10rem;
-    pointer-events: none;
-}
-
-.container .set div{
-    position: absolute;
-    display: block;
-}
-
-.container .set div:nth-child(1){
-    left: 20%;
-    animation: animate 15s linear infinite;
-    animation-delay: -7s;
-}
-
-.container .set div:nth-child(2){
-    left: 50%;
-    animation: animate 20s linear infinite;
-    animation-delay: -5s;
-}
-
-.container .set div:nth-child(3){
-    left: 70%;
-    animation: animate 20s linear infinite;
-    animation-delay: -5s;
-}
-
-.container .set div:nth-child(4){
-    left: 0%;
-    animation: animate 15s linear infinite;
-    animation-delay: -5s;
-}
-
-.container .set div:nth-child(5){
-    left: 85%;
-    animation: animate 18s linear infinite;
-    animation-delay: -10s;
-}
-
-.container .set div:nth-child(6){
-    left: 0%;
-    animation: animate 12s linear infinite;
-}
-.container .set div:nth-child(7){
-    left: 15%;
-    animation: animate 14s linear infinite;
-}
-.container .set div:nth-child(8){
-    left: 60%;
-    animation: animate 12s linear infinite;
-}
-.container .set div:nth-child(9){
-    left: 0%;
-    animation: animate 12s linear infinite;
-}
-.container .set div:nth-child(10){
-    left: 90%;
-    animation: animate 9s linear infinite;
-}
-
-@keyframes animate{
-    0%
-    {
-        opacity: 0;
-        top: -10%;
-        transform: translateX(20px) rotate(0deg);
-    }
-    10%{
-        opacity: 1;
-    }
-    20%{
-        transform: translateX(-20px) rotate(45deg);
-    }
-    40%{
-        transform: translateX(-20px) rotate(90deg);
-    }
-    60%{
-        transform: translateX(-20px) rotate(180deg);
-    }
-    80%{
-        transform: translateX(-20px) rotate(180deg);
-    }
-    100%{
-        top: 110%;
-        transform: translateX(-20px) rotate(180deg);
-    }
-}
-
-.set2{
-    transform: scale(2) rotateY(180deg);
-    filter: blur(2px);
-}
-
-.set3{
-    transform: scale(0.8) rotateX(180deg);
-    filter: blur(4px);
-}
 
 .synopsis {
     display: -webkit-box;
@@ -191,10 +80,8 @@ a, .btn-link {
 .pageTitle {
     text-align: center; 
     color:antiquewhite; 
-    font-size: 25px;
-    margin: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    font-size: 2rem;
+    /*align-self: end;*/
 }
 
 .animeName {
@@ -215,11 +102,8 @@ body {
 }
 
 .swiper-container {
-    padding: 1rem;
-    margin-right: 5rem;
-    width: 80vw;
-    height: 90vh;
     z-index: 0;
+    height: 90vh;
 }
 
 .swiper-slide {
@@ -331,14 +215,11 @@ body {
     transition: all .5s ease-in-out;
 }
 
-.row{
-    display: flex;
-    justify-content: center;
-    width: 100vw;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
+.row {
+    justify-content: space-evenly;
 }
+
+
 
 .row:after {
     content: "";
@@ -346,19 +227,19 @@ body {
     clear: both;
 }
 
-.col {
-    float: left;
-    width: auto;
-    padding: 10px 10px;
+.searchForm {
+    justify-self: center;
+    display: grid;
+    grid-gap: 1rem;
 }
 
-
 .dropdown {
-    display: grid;
-    position: relative;
+    justify-self: center;
+    /*display: grid;
+    grid-template-rows: .5fr auto 1fr;
     justify-content: center;
-    align-content: center;
-    align-items: center;
+    grid-template-columns: 20em;
+    justify-items: center;*/
 }
 
 .dropdown span{
@@ -371,7 +252,7 @@ body {
     color: white;
     font-size: 18px;
     border: none;
-    margin: 10px 0px;
+    
 }
 
 .dropdown-item{
@@ -382,8 +263,23 @@ body {
     z-index: 1;
 }
 
-@media screen and (max-width: 600px) {
+.searchComponent {
+    display: grid;
+    grid-template-rows: 10vh 20vh auto;
+    justify-content: center;
+    align-items: center;
+    grid-row-gap: 2em;
+}
 
+.upcomingSeason{
+    display: grid;
+    grid-template-rows: 10vh 20vh auto;
+    grid-row-gap: 2em;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 600px) {
     .col {
         width: auto;
         display: block;
@@ -394,11 +290,32 @@ body {
         flex-direction: column;
     }
 
+
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 601px) {
     .row {
+        display: grid;
+        grid-gap: 2rem 2rem;
+        justify-content: space-evenly;
+        grid-template-columns: repeat(auto-fill, 18rem);
         width: 90vw;
-        margin: 0 5rem;
+    }
+    .searchComponent{
+        display: grid;
+        grid-template-rows: 10vh 20vh auto;
+        align-items: center;
+        margin-left: 5rem;
+        grid-row-gap: 2em;
+    }
+
+    .upcomingSeason {
+        margin-left: 5rem;
+    }
+
+    .swiper-container {
+        margin-left: 5rem;
+        height: 80vh;
+        z-index: 0;
     }
 }

@@ -3,58 +3,59 @@
 @inherits UpcomingSeasonBase
 
 
-
-@if (AnimeList == null)
-{
-    <div class="spinner"></div>
-}
-else
-{
-    <div>
-        <h3 class="pageTitle">Season Animes</h3>
-    </div>
-    <div class="dropdown">
-        <span>
-            <EditForm Model="Season">
-                <InputSelect class="dropdownBtn" Value="Season"
-                             ValueChanged="@((Seasons season) => SetSeason(season))"
-                             ValueExpression="@(()=> Season)">
-                    @foreach (var value in Enum.GetValues(typeof(Seasons)))
-                    {
-                        <option class="dropdown-item" value="@value">@value.ToString()</option>
-                    }
-                </InputSelect>
-            </EditForm>
-        </span>
-        <span>
-            <EditForm Model="Year">
-                <InputSelect class="dropdownBtn" Value="Year"
-                             ValueChanged="@((int year) => SetYear(year))"
-                             ValueExpression="@(()=> Year)">
-                    @foreach (var value in Years)
-                    {
-                        <option class="dropdown-item" value="@value">@value.ToString()</option>
-                    }
-                </InputSelect>
-            </EditForm>
-        </span>
-    </div>
-    <div class="row">
-        @foreach (var anime in AnimeList)
-        {
-            <div class="col">
-                <div class="card">
-                    <img src="@anime.image_url">
-                    <div class="descriptions">
-                        <h3 >@anime.title</h3>
-                        <p>
-                            @anime.synopsis
-                        </p>
+<section class="upcomingSeason">
+    @if (AnimeList == null)
+    {
+        <div class="spinner"></div>
+    }
+    else
+    {
+        <div>
+            <h3 class="pageTitle">Season Animes</h3>
+        </div>
+        <div class="dropdown">
+            <span>
+                <EditForm Model="Season">
+                    <InputSelect class="dropdownBtn" Value="Season"
+                                 ValueChanged="@((Seasons season) => SetSeason(season))"
+                                 ValueExpression="@(()=> Season)">
+                        @foreach (var value in Enum.GetValues(typeof(Seasons)))
+                        {
+                            <option class="dropdown-item" value="@value">@value.ToString()</option>
+                        }
+                    </InputSelect>
+                </EditForm>
+            </span>
+            <span>
+                <EditForm Model="Year">
+                    <InputSelect class="dropdownBtn" Value="Year"
+                                 ValueChanged="@((int year) => SetYear(year))"
+                                 ValueExpression="@(()=> Year)">
+                        @foreach (var value in Years)
+                        {
+                            <option class="dropdown-item" value="@value">@value.ToString()</option>
+                        }
+                    </InputSelect>
+                </EditForm>
+            </span>
+        </div>
+        <div class="row">
+            @foreach (var anime in AnimeList)
+            {
+                <div class="col">
+                    <div class="card">
+                        <img src="@anime.image_url">
+                        <div class="descriptions">
+                            <h3>@anime.title</h3>
+                            <p>
+                                @anime.synopsis
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        }
-    </div>
-    
-}
+            }
+        </div>
 
+    }
+
+</section>

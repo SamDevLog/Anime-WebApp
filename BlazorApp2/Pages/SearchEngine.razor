@@ -1,25 +1,24 @@
 ﻿@page "/"
-@inherits SearchEngineBase 
+@inherits SearchEngineBase
 
 
-<h1 class="pageTitle">Anime Search Engine</h1>
 
-
-<div>
-    <EditForm class="dropdown" Model="SearchField" OnValidSubmit="@HandleSearch" >
+<sction class="searchComponent">
+    <h1 class="pageTitle">Anime Search Engine</h1>
+    
+    <EditForm class="searchForm" Model="SearchField" OnValidSubmit="@HandleSearch">
         <DataAnnotationsValidator />
         <InputText class="dropdownBtn" placeholder="Type an Anime Name" @bind-Value="SearchField.SearchField" />
         <ValidationMessage For="()=> SearchField.SearchField"></ValidationMessage>
         <button type="submit" class="dropdownBtn">Search the Anime API</button>
     </EditForm>
-</div>
-
-@if (query != null)
-{
+    
     <div class="row">
+    @if (query != null)
+    {
         @foreach (var result in query.results)
         {
-            <div class="col">
+            <div class="">
                 <div class="card h-100">
                     <img src="@result.image_url">
                     <div class="descriptions">
@@ -35,8 +34,8 @@
                 </div>
             </div>
         }
+
+    }
     </div>
-    
-}
 
-
+</sction>
