@@ -25,7 +25,7 @@ namespace BlazorApp2.Pages
         public Search SearchField { get; set; } = new Search();
         public int AnimeCount {get; set;}
 
-        public ResultRoot query;
+        public SearchResultModel query;
 
         public async Task HandleSearch()
         {

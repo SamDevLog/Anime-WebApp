@@ -1,50 +1,17 @@
 ﻿@page "/thisweek/"
-@page "/thisweek/{day}"
 @inherits WeekAnimeBase
 
 <section class="upcomingSeason">
-    @if (AnimeList == null)
+    @if (_AnimeList == null)
     {
         <div class="spinner"></div>
     }
     else
     {
-        <div>
-            <h3 class="pageTitle">On this Week</h3>
-        </div>
-        <div class="dropdown">
-            <span>
-                <EditForm Model="Day">
-                    <InputSelect class="dropdownBtn" Value="Day"
-                                 ValueChanged="@((Days day) => SetDay(day))"
-                                 ValueExpression="@(()=> Day)">
-                        @foreach (var value in Enum.GetValues(typeof(Days)))
-                        {
-                            <option class="dropdown-item" value="@value">@value.ToString()</option>
-                        }
-                    </InputSelect>
-                </EditForm>
-            </span>
-
-            <h3 class="pageTitle">@AnimeList.Count()</h3>
-        </div>
-        <div class="row">
-            @foreach (var anime in AnimeList)
-            {
-                <div class="col">
-                    <div class="card">
-                        <img src="@anime.image_url">
-                        <div class="descriptions">
-                            <h3>@anime.title</h3>
-                            <p>
-                                @anime.synopsis
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            }
-        </div>
-
+        @foreach (var anime in _AnimeList)
+        {
+            <h3>@anime.title</h3>
+        }
     }
 
 </section>

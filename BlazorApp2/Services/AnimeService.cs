@@ -38,16 +38,16 @@ namespace BlazorApp2.Services
             List<Anime> seasonAnime = seasonRoot.anime.ToList();
             return seasonAnime;
         }
-        public async Task<ResultRoot> Search(string search)
+        public async Task<SearchResultModel> Search(string search)
         {
-            return await httpClient.GetFromJsonAsync<ResultRoot>($"search/anime?q={search}");
+            return await httpClient.GetFromJsonAsync<SearchResultModel>($"search/anime?q={search}");
         }
 
-        public async Task<List<Anime>> GetWeekAnime(Days day)
+        public async Task<List<DailyAnime>> GetWeekAnime(Days day)
         {
-            ResultRoot rootWeek = await httpClient.GetFromJsonAsync<ResultRoot>($"schedule/{day}");
-            List<Anime> weekAnime = rootWeek.results.ToList();
-            return weekAnime;
+            DailyAnimeRaw rootWeek = await httpClient.GetFromJsonAsync<DailyAnimeRaw>($"schedule/{day}");
+            List<DailyAnime> weeklyAnime = rootWeek.day;
+            return weeklyAnime;
         }
     }
 }

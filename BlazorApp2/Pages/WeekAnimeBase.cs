@@ -13,29 +13,26 @@ using System.Threading.Tasks;
 namespace BlazorApp2.Pages
 {
     public enum Days{
-        Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+        monday, tuesday, wednesday, thursday, friday, Saturday, sunday
     }
     public class WeekAnimeBase : ComponentBase
     {
-        public List<Anime> AnimeList { get; set; }
+        public List<DailyAnime> _AnimeList { get; set; }
 
         [Parameter]
-        public Days Day { get; set; } = Days.Monday;
-        [Parameter]
-        //public string _day { get; set; }
+        public Days Day { get; set; } = Days.monday;
         [Inject]
         public IAnimeService AnimeService { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
-            //_day = DateTime.Today.ToString("dddd");
-            AnimeList = await AnimeService.GetWeekAnime(Day);
+            //var _day = DateTime.Today.ToString("dddd");
+            _AnimeList = await AnimeService.GetWeekAnime(Day);
         }
 
-        public async Task SetDay(Days _day){
-            Day = _day;
-            AnimeList = await AnimeService.GetWeekAnime(Day);
-            StateHasChanged();
-        }
+        //public async Task SetDay(Days _day){
+        //    _AnimeList = await AnimeService.GetWeekAnime();
+        //    StateHasChanged();
+        //}
     }
 }
