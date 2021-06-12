@@ -5,11 +5,8 @@ using System.Threading.Tasks;
 
 namespace BlazorApp2.Models
 {
-    public class DailyAnimeRaw
+    public class DailyAnimeRaw : BaseQueryResponse
     {
-        public string request_hash { get; set; }
-        public bool request_cached { get; set; }
-        public int? request_cache_expiry { get; set; }
-        public List<DailyAnime> day { get; set; }
+        public ICollection<DailyAnime> day { get; set; }
     }
 }

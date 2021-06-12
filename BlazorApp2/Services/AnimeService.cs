@@ -1,5 +1,4 @@
 ﻿using BlazorApp2.Models;
-using BlazorApp2.Pages;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
@@ -7,6 +6,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
+using Days = BlazorApp2.Models.Days;
 
 namespace BlazorApp2.Services
 {
@@ -43,11 +43,15 @@ namespace BlazorApp2.Services
             return await httpClient.GetFromJsonAsync<SearchResultModel>($"search/anime?q={search}");
         }
 
-        public async Task<List<DailyAnime>> GetWeekAnime(Days day)
+        public async Task<WeeklyResponseRaw> GetWeekAnime()
         {
-            DailyAnimeRaw rootWeek = await httpClient.GetFromJsonAsync<DailyAnimeRaw>($"schedule/{day}");
-            List<DailyAnime> weeklyAnime = rootWeek.day;
-            return weeklyAnime;
+            return await httpClient.GetFromJsonAsync<WeeklyResponseRaw>("schedule");
+        }
+
+        public async Task<ICollection<DailyAnime>> GetDailyAnime(Days _day)
+        {
+            DailyAnimeRaw dailyAnime = await httpClient.GetFromJsonAsync<DailyAnimeRaw>($"schedule/{_day}");
+            return dailyAnime.day;
         }
     }
 }

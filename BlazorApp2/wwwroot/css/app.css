@@ -246,13 +246,14 @@ body {
     padding: 5px;
 }
 
-.dropdownBtn, .dropdown-item{
+.dropdownBtn, .dropdown-item {
     padding: 5px 10px;
     background-color: #04AA6D;
     color: white;
     font-size: 18px;
     border: none;
-    
+    text-transform: capitalize;
+    text-align: center;
 }
 
 .dropdown-item{
