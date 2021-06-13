@@ -1,5 +1,5 @@
 ﻿@page "/seasonanime/"
-@page "/seasonanime/{Year}/{Season}"
+@page "/seasonanime/{Year:int}/{Season}"
 @inherits UpcomingSeasonBase
 
 
@@ -16,7 +16,7 @@
         <div class="dropdown">
             <span>
                 <EditForm Model="Season">
-                    <InputSelect class="dropdownBtn" Value="Season"
+                    <InputSelect class="dropdownBtn dropElems" Value="Season"
                                  ValueChanged="@((Seasons season) => SetSeason(season))"
                                  ValueExpression="@(()=> Season)">
                         @foreach (var value in Enum.GetValues(typeof(Seasons)))
@@ -28,7 +28,7 @@
             </span>
             <span>
                 <EditForm Model="Year">
-                    <InputSelect class="dropdownBtn" Value="Year"
+                    <InputSelect class="dropdownBtn dropElems" Value="Year"
                                  ValueChanged="@((int year) => SetYear(year))"
                                  ValueExpression="@(()=> Year)">
                         @foreach (var value in Years)

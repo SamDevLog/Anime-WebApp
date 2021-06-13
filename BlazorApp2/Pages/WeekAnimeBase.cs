@@ -49,6 +49,7 @@ namespace BlazorApp2.Pages
 
         public void SetDay(Days _day)
         {
+            Day = _day;
             if (!WeeklyAnime.TryGetValue(_day.ToString(), out _AnimeList))
             {
                 Console.WriteLine("_AnimeList content FAILED to update!");

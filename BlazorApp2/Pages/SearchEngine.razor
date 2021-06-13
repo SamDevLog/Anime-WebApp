@@ -4,15 +4,16 @@
 
 
 <sction class="searchComponent">
-    <h1 class="pageTitle">Anime Search Engine</h1>
-    
-    <EditForm class="searchForm" Model="SearchField" OnValidSubmit="@HandleSearch">
-        <DataAnnotationsValidator />
-        <InputText class="dropdownBtn" placeholder="Type an Anime Name" @bind-Value="SearchField.SearchField" />
-        <ValidationMessage For="()=> SearchField.SearchField"></ValidationMessage>
-        <button type="submit" class="dropdownBtn">Search the Anime API</button>
-    </EditForm>
     <div>
+        <h1 class="pageTitle">Anime Search Engine</h1>
+    </div>
+    <div>
+        <EditForm class="searchForm" Model="SearchField" OnValidSubmit="@HandleSearch">
+            <DataAnnotationsValidator />
+            <InputText class="dropdownBtn searchElems" placeholder="Type an Anime Name" @bind-Value="SearchField.SearchField" />
+            <ValidationMessage For="()=> SearchField.SearchField" class="searchElems"></ValidationMessage>
+            <button type="submit" class="dropdownBtn searchElems">Search the Anime API</button>
+        </EditForm>
         @if (query != null)
         {
             <h2 class="pageTitle">Results found: @query.results.Count()</h2>
@@ -24,7 +25,7 @@
     {
         @foreach (var result in query.results)
         {
-            <div class="">
+            <div class="col">
                 <div class="card h-100">
                     <img src="@result.image_url">
                     <div class="descriptions">

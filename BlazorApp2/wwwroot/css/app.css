@@ -217,6 +217,7 @@ body {
 
 .row {
     justify-content: space-evenly;
+    padding-bottom: 5rem;
 }
 
 
@@ -269,18 +270,16 @@ body {
     grid-template-rows: 10vh 20vh auto;
     justify-content: center;
     align-items: center;
-    grid-row-gap: 2em;
 }
 
 .upcomingSeason{
     display: grid;
     grid-template-rows: 10vh 20vh auto;
-    grid-row-gap: 2em;
     justify-content: center;
     align-items: center;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 601px) {
     .col {
         width: auto;
         display: block;
@@ -291,7 +290,20 @@ body {
         flex-direction: column;
     }
 
+    .pageTitle {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-size: 1rem;
+    }
 
+    .dropdownBtn, .dropdown-item {
+        font-size: 1rem;
+    }
+
+    .searchElems {
+        justify-self: center;
+        align-self: center;
+    }
 }
 
 @media screen and (min-width: 601px) {
@@ -300,16 +312,28 @@ body {
         grid-gap: 2rem 2rem;
         justify-content: space-evenly;
         grid-template-columns: repeat(auto-fill, 18rem);
-        width: 90vw;
+        width: 85vw;
     }
     .searchComponent{
         display: grid;
         grid-template-rows: 10vh 20vh auto;
         align-items: center;
         margin-left: 5rem;
-        grid-row-gap: 2em;
     }
 
+    .searchForm{
+        justify-items: center;
+    }
+
+    .searchElems{
+        width: 25vw;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .dropElems {
+        width: 15vw;
+    }
     .upcomingSeason {
         margin-left: 5rem;
     }
