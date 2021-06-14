@@ -143,14 +143,13 @@ main{
     border-radius: 25px;
     transition: all .5s ease-in-out;
     background-color: #22a6b3;
-    padding-right: 40px;
     color:#fff;
 }
 .input-search::placeholder{
-    color:rgba(255,255,255,.5);
+    color:rgba(255,255,255,.0);
     font-size: 14px;
     letter-spacing: 1px;
-    font-weight: 50;
+    font-weight: 100;
 }
 .btn-search{
     width: 40px;
@@ -198,6 +197,10 @@ main{
     background-color: transparent;
     border-bottom:1px solid rgba(255,255,255,.5);
     transition: all var(--transition-speed) cubic-bezier(0, 0.110, 0.35, 1.5);
+}
+
+.navbar:hover .input-search::placeholder {
+    color: rgba(255,255,255,.5);
 }
 
   /* ////////////////////////////////////////// */

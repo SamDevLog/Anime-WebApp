@@ -146,15 +146,32 @@
         </li>
 
         <li class="nav-item" id="themeButton">
-            <a href="#" class="nav-link">
-                <div class="search-box">
+            <div href="#" class="nav-link">
+                <EditForm class="search-box" Model="SearchField" OnValidSubmit="@HandleSearch">
+                    <DataAnnotationsValidator />
                     <button class="btn-search"><i class="fas fa-search"></i></button>
-                    <input type="text" class="input-search" placeholder="Type to Search...">
-                </div> 
-            </a>
+                    <InputText type="text" class="input-search" placeholder="Type to Search..." @bind-Value="SearchField.SearchField" />
+                    <ValidationMessage For="()=> SearchField.SearchField" class="searchElems"></ValidationMessage>
+                </EditForm> 
+            </div>
         </li>
         <li>
              
         </li>
     </ul>
 </nav>
+
+@code{
+    [Inject]
+    public IAnimeService animeService { get; set; }
+    public Search SearchField { get; set; } = new Search();
+    public int AnimeCount { get; set; }
+
+    public SearchResultModel query;
+
+    public async Task HandleSearch()
+    {
+        query = await animeService.Search(SearchField.SearchField);
+        StateHasChanged();
+    }
+}
