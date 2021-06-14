@@ -1,0 +1,26 @@
+﻿
+<div class="row">
+@if (AnimeList != null)
+{
+    @foreach (var anime in AnimeList)
+    {
+        <div class="col">
+            <div class="card">
+                <img src="@anime.image_url">
+                <div class="descriptions">
+                    <h3>@anime.title</h3>
+                    <p>
+                        @anime.airing_start
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+}
+</div>
+
+
+@code {
+    [Parameter]
+    public ICollection<DailyAnime> AnimeList { get; set; }
+}

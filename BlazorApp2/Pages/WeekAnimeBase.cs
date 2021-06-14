@@ -26,7 +26,8 @@ namespace BlazorApp2.Pages
 
         protected override async Task OnInitializedAsync()
         {
-            //var _day = DateTime.Today.ToString("dddd");
+            // var _day = DateTime.Today.ToString("dddd");
+            
             apiRspn = await AnimeService.GetWeekAnime();
 
             if (apiRspn != null)

@@ -14,7 +14,6 @@
             <h3 class="pageTitle">Season Animes</h3>
         </div>
         <div class="dropdown">
-            <span>
                 <EditForm Model="Season">
                     <InputSelect class="dropdownBtn dropElems" Value="Season"
                                  ValueChanged="@((Seasons season) => SetSeason(season))"
@@ -25,8 +24,6 @@
                         }
                     </InputSelect>
                 </EditForm>
-            </span>
-            <span>
                 <EditForm Model="Year">
                     <InputSelect class="dropdownBtn dropElems" Value="Year"
                                  ValueChanged="@((int year) => SetYear(year))"
@@ -37,8 +34,6 @@
                         }
                     </InputSelect>
                 </EditForm>
-            </span>
-            <h3 class="pageTitle">@AnimeList.Count()</h3>
         </div>
         <div class="row">
             @foreach (var anime in AnimeList)
