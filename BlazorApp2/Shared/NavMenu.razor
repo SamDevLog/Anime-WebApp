@@ -162,16 +162,14 @@
 </nav>
 
 @code{
-    [Inject]
-    public IAnimeService animeService { get; set; }
+    
+    [Parameter]
     public Search SearchField { get; set; } = new Search();
-    public int AnimeCount { get; set; }
+    public NavigationManager nav { get; set; }
 
-    public SearchResultModel query;
-
-    public async Task HandleSearch()
+    public void HandleSearch()
     {
-        query = await animeService.Search(SearchField.SearchField);
-        StateHasChanged();
+        nav.NavigateTo("$/{SearchField.SearchField}");
+        //StateHasChanged();
     }
 }

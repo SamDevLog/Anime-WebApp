@@ -27,7 +27,7 @@ namespace BlazorApp2.Services
 
         public async Task<IEnumerable<Anime>> GetAnimeList()
         {
-            Root root = await httpClient.GetFromJsonAsync<Root>("top/anime/1/upcoming");
+            AnimeListBase root = await httpClient.GetFromJsonAsync<AnimeListBase>("top/anime/1/upcoming");
             List<Anime> top = root.top.Take(10).ToList();
             return top;
         }

@@ -7,11 +7,11 @@ namespace BlazorApp2.Models
 {
     public class Anime
     {
-        public int? mal_id { get; set; }
+        public long? mal_id { get; set; }
         public int? rank { get; set; }
         public string title { get; set; }
-        public string url { get; set; }
-        public string image_url { get; set; }
+        public Uri url { get; set; }
+        public Uri image_url { get; set; }
         public string type { get; set; }
         public int? episodes { get; set; }
         public string start_date { get; set; }

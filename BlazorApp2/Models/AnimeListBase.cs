@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace BlazorApp2.Models
 {
-    public class Root
+    public class AnimeListBase : BaseQueryResponse
     {
-        public string request_hash { get; set; }
-        public bool request_cached { get; set; }
-        public int request_cache_expiry { get; set; }
         public string season_name { get; set; }
         public int season_year { get; set; }
         public List<Anime> top { get; set; }
