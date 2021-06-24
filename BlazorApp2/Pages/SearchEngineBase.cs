@@ -23,21 +23,26 @@ namespace BlazorApp2.Pages
         [Inject]
         public IAnimeService animeService { get; set; }
         [Parameter]
+        public string passedQuery { get; set; }
         public Search SearchField { get; set; } = new Search();
         public int AnimeCount {get; set;}
-
         public SearchResultModel query;
+        
         protected override async Task OnParametersSetAsync()
         {
-            if (SearchField != null)
+            if (!String.IsNullOrEmpty(passedQuery))
             {
-                query = await animeService.Search(SearchField.SearchField);
+                SearchField.SearchField = passedQuery;
+                query = await animeService.Search(passedQuery);
+                SearchField.SearchField = "";  
             }
         }
+
 
         public async Task HandleSearch()
         {
             query = await animeService.Search(SearchField.SearchField);
+            SearchField.SearchField = "";
         }
  
     }

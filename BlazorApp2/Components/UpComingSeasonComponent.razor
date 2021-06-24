@@ -1,0 +1,21 @@
+<div class="row">
+            @foreach (var anime in UpcomingSeasons)
+            {
+                <div class="col">
+                    <div class="card">
+                        <img src="@anime.image_url">
+                        <div class="descriptions">
+                            <h3>@anime.title</h3>
+                            <p>
+                                @anime.synopsis
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+</div>
+
+@code{
+    [Parameter]
+    public List<Anime> UpcomingSeasons { get; set; }
+}

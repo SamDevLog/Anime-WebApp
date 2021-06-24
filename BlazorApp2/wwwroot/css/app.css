@@ -236,11 +236,11 @@ body {
 
 .dropdown {
     justify-self: center;
-    /*display: grid;
-    grid-template-rows: .5fr auto 1fr;
-    justify-content: center;
-    grid-template-columns: 20em;
-    justify-items: center;*/
+}
+
+.dropdown.seasons{
+    display: grid;
+    row-gap: 1rem;
 }
 
 .dropdown span{
@@ -279,6 +279,7 @@ body {
     align-items: center;
 }
 
+
 @media screen and (max-width: 601px) {
     .col {
         width: auto;
@@ -298,11 +299,22 @@ body {
 
     .dropdownBtn, .dropdown-item {
         font-size: 1rem;
+        width: 10rem;
+    }
+
+    .dropdown .seasons{
+        display: grid;
+        row-gap: 1rem;
+    }
+
+    .dropdown .days{
+        width: 10rem;
     }
 
     .searchElems {
         justify-self: center;
         align-self: center;
+        width: 15rem;
     }
 }
 
@@ -326,7 +338,7 @@ body {
     }
 
     .searchElems{
-        width: 25vw;
+        width: 25vw!important;
         justify-self: center;
         align-self: center;
     }
@@ -336,6 +348,18 @@ body {
     }
     .upcomingSeason {
         margin-left: 5rem;
+    }
+    .dropdownBtn, .dropdown-item {
+        font-size: 1rem;
+        width: 10rem;
+    }
+    .dropdown.seasons{
+        display: grid;
+        row-gap: 1rem;
+    }
+
+    .dropdown.days{
+        width: 10rem;
     }
 
     .swiper-container {
