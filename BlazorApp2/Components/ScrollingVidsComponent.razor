@@ -1,0 +1,37 @@
+@page "/scroller"
+@using Microsoft.JSInterop;
+@inject IJSRuntime JS
+
+<div class="scrollCol">
+    <!-- Slider main container -->
+    <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+                <img src="@imgUrl" alt="" srcset="">
+            </div>
+            <div class="swiper-slide">
+                <img src="@imgUrl" alt="" srcset="">
+            </div>
+            <div class="swiper-slide">
+                <img src="@imgUrl" alt="" srcset="">
+            </div>
+            <div class="swiper-slide">
+                <img src="@imgUrl" alt="" srcset="">
+            </div>
+        </div>
+    </div>
+</div>
+@code{
+    [Parameter]
+    public Uri imgUrl { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (firstRender)
+            {
+                await JS.InvokeVoidAsync("initializeScroller");
+            }
+        }
+}

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.JSInterop;
 
 namespace BlazorApp2.Pages
 {
@@ -14,6 +15,8 @@ namespace BlazorApp2.Pages
 
         [Inject]
         public IAnimeService animeService { get; set; }
+        [Inject]
+        public IJSRuntime JS { get; set; }
 
         [Parameter]
         public string Id { get; set; }
@@ -22,6 +25,14 @@ namespace BlazorApp2.Pages
         {
             Id = Id ?? "1";
             Anime = await animeService.GetAnime(int.Parse(Id));
+        }
+
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (firstRender)
+            {
+                await JS.InvokeVoidAsync("initializeScroller");
+            }
         }
     }
 }

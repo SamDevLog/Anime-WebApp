@@ -81,6 +81,7 @@ a, .btn-link {
     text-align: center; 
     color:antiquewhite; 
     font-size: 2rem;
+    margin: 1rem 0;
     /*align-self: end;*/
 }
 
@@ -220,8 +221,6 @@ body {
     padding-bottom: 5rem;
 }
 
-
-
 .row:after {
     content: "";
     display: table;
@@ -279,6 +278,36 @@ body {
     align-items: center;
 }
 
+.infoCol h3 {
+    color: #ff3838;
+    letter-spacing: 1px;
+    margin: 0px;
+    padding-left: 25%;
+}
+
+.infoCol h2 {
+    font-family: fantasy;
+    color: #ff3838;
+    letter-spacing: 1px;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.infoCol p {
+    padding-top: 10px;
+    line-height: 24px;
+    height: 70%;
+    text-align: center;
+}
+
+.scrollCol{
+    display: grid;
+    grid-template-columns: 350px;
+    grid-template-rows: 400px;
+    padding-left: 5rem;
+    justify-content: center;
+    overflow: hidden;
+}
 
 @media screen and (max-width: 601px) {
     .col {
@@ -326,6 +355,26 @@ body {
         grid-template-columns: repeat(auto-fill, 18rem);
         width: 85vw;
     }
+
+    .detailsGrid{
+        height: 85vh;
+        display: grid;
+        padding-left: 5rem;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 1rem;
+        justify-items: center;
+        align-items: flex-start;
+    }
+
+    .imageCol{
+        justify-self: center;
+        align-self: center;
+    }
+
+    .infoCol{
+        margin: 0 1rem;
+    }
+    
     .searchComponent{
         display: grid;
         grid-template-rows: 10vh 20vh auto;
