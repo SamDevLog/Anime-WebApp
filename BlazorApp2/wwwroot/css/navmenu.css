@@ -133,6 +133,11 @@ main{
     position: relative;
     padding-left: 1.2rem;
 }
+
+.search-box .validation-message{
+    display: none;
+}
+
 .input-search{
     height: 40px;
     width: 40px;
@@ -197,6 +202,10 @@ main{
     background-color: transparent;
     border-bottom:1px solid rgba(255,255,255,.5);
     transition: all var(--transition-speed) cubic-bezier(0, 0.110, 0.35, 1.5);
+}
+
+.navbar:hover .validation-message {
+    display: block;
 }
 
 .navbar:hover .input-search::placeholder {

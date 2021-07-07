@@ -17,8 +17,12 @@ namespace BlazorApp2
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://api.jikan.moe/v3/") });
-            builder.Services.AddScoped<IAnimeService, AnimeService>();
+            builder.Services.AddHttpClient<IAnimeService, AnimeService>(client =>
+            {
+                client.BaseAddress = new Uri("https://api.jikan.moe/v3/");
+            });
+            //builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://api.jikan.moe/v3/") });
+            //builder.Services.AddScoped<IAnimeService, AnimeService>();
 
             await builder.Build().RunAsync();
         }

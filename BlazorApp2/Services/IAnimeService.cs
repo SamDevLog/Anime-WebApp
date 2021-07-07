@@ -14,6 +14,6 @@ namespace BlazorApp2.Services
         Task<SearchResultModel> Search(string search);
         Task<WeeklyResponseRaw> GetWeekAnime();
         Task<ICollection<DailyAnime>> GetDailyAnime(Days day);
-
+        Task<Videos> GetAnimeVideos(int id);
     }
 }

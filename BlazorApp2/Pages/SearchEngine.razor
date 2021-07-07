@@ -24,17 +24,19 @@
         @foreach (var result in query.results)
         {
             <div class="col">
-                <div class="card h-100">
+                <div class="card">
                     <img src="@result.image_url">
                     <div class="descriptions">
                         <h3>@result.title</h3>
                         <p>
                             @result.synopsis
                         </p>
-                        <button>
-                            <i class="fab fa-youtube"></i>
-                            Play trailer on YouTube
-                        </button>
+                        <a class="button" href="episodedetails/@result.mal_id">
+                            <button>
+                                <i class="fas fa-info-circle"></i>
+                                More Details
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>

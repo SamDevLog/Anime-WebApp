@@ -53,5 +53,10 @@ namespace BlazorApp2.Services
             DailyAnimeRaw dailyAnime = await httpClient.GetFromJsonAsync<DailyAnimeRaw>($"schedule/{_day}");
             return dailyAnime.day;
         }
+
+        public async Task<Videos> GetAnimeVideos(int id)
+        {
+            return await httpClient.GetFromJsonAsync<Videos>($"anime/{id}/videos");
+        }
     }
 }

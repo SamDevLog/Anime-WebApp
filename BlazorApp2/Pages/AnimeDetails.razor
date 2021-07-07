@@ -2,7 +2,6 @@
 @page "/episodedetails"
 @inherits AnimeDetailsBase
 
-<h3>Anime Details</h3>
 
 @if (Anime == null)
 {
@@ -10,24 +9,52 @@
 }
 else
 {
-    <div class="row justify-content-center m-3">
-        <div class="col-sm-8">
-            <div class="card">
-                <div class="card-header">
-                    <h1>@Anime.title</h1>
-                </div>
-
-                <div class="card-body text-center">
-                    <img class="card-img-top" src="@Anime.image_url" />
-
-                    <h4>Episode ID : @Anime.mal_id</h4>
-                    <h4>Rank : @Anime.rank</h4>
-                    <h4>Start Date : @Anime.start_date</h4>
-                </div>
-                <div class="card-footer text-center">
-                    <a href="/" class="btn btn-primary">Back</a>
-                </div>
+<div class="detailsPage">
+    <h3 class="pageTitle">@Anime.title</h3>
+    <div class="col">
+        <div class="card">
+            <img src="@Anime.image_url" />
+            <div class="descriptions">
+                <h3>@Anime.type</h3>
+                <p>@Anime.synopsis</p>
+                <p>Episode ID : @Anime.mal_id</p>
+                <p>Start Date : @Anime.start_date</p>
             </div>
         </div>
+        <div>
+            <a href="./upcominganime/">
+                Back
+            </a>
+            
+        </div>
     </div>
+    <div class="vidsGrid">
+        @if (Promos != null)
+        {
+        <div class="promos">
+            @foreach (var prom in Promos)
+            {
+                <h4>@prom.title</h4>
+                <img src="@prom.image_url" />
+            }
+        </div>
+        }
+        else if (Episodes != null)
+        {
+        <div class="episodes">
+            @foreach (var ep in Episodes)
+            {
+                <h4>@ep.title</h4>
+                <img src="@ep.image_url" />
+
+            }
+        </div>
+        }
+        else
+        {
+            <h4 class="pageTitle">No Episodes were found!</h4>
+        }
+    </div>
+        
+</div>
 }
