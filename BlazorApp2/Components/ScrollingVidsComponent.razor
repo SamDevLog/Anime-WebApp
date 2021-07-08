@@ -7,31 +7,40 @@
     <div class="swiper-container">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
-            <!-- Slides -->
-            <div class="swiper-slide">
-                <img src="@imgUrl" alt="" srcset="">
-            </div>
-            <div class="swiper-slide">
-                <img src="@imgUrl" alt="" srcset="">
-            </div>
-            <div class="swiper-slide">
-                <img src="@imgUrl" alt="" srcset="">
-            </div>
-            <div class="swiper-slide">
-                <img src="@imgUrl" alt="" srcset="">
-            </div>
+            @if (Promos.Any())
+            {
+                foreach (var promo in Promos)
+                {
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                        <img src="@promo.image_url" alt="@promo.title" @onclick="@()=>Console.WriteLine(@promo.video_url)">
+                    </div>        
+                }
+            }
+            @if (Episodes.Any())
+            {
+                foreach (var ep in Episodes)
+                {
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                        <img src="@ep.image_url" alt="@ep.title" @onclick="@()=>Console.WriteLine(@ep.url)">
+                    </div>        
+                }
+            }
         </div>
     </div>
 </div>
 @code{
     [Parameter]
-    public Uri imgUrl { get; set; }
+    public List<Promo> Promos { get; set; }
+    [Parameter]
+    public List<Episode> Episodes { get; set; }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
         {
-            if (firstRender)
-            {
-                await JS.InvokeVoidAsync("initializeScroller");
-            }
+            await JS.InvokeVoidAsync("initializeScroller");
         }
+    }
 }

@@ -24,12 +24,8 @@ else
         </div>
         <div class="imageCol">
             <div class="card">
-                <div class="card-header">
-                    <h1>@Anime.title</h1>
-                </div>
                 <div class="card-body text-center">
                     <img class="card-img-top" src="@Anime.image_url" />
-                    
                 </div>
                 <div class="card-footer text-center">
                     <a href="/" class="btn btn-primary">Back</a>
@@ -37,7 +33,7 @@ else
             </div>
         </div>
         <div class="vidsCol">
-            <ScrollingVidsComponent imgUrl="@Anime.image_url"></ScrollingVidsComponent>
+            <ScrollingVidsComponent Episodes="@Episodes" Promos="@Promos"></ScrollingVidsComponent>
         </div>
     </div>
 }

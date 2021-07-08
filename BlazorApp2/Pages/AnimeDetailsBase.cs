@@ -6,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.JSInterop;
 
 namespace BlazorApp2.Pages
 {
@@ -19,8 +18,6 @@ namespace BlazorApp2.Pages
         public List<Episode> Episodes { get; set; } = new();
         [Inject]
         public IAnimeService animeService { get; set; }
-        [Inject]
-        public IJSRuntime JS { get; set; }
 
         [Parameter]
         public string Id { get; set; }
@@ -34,14 +31,6 @@ namespace BlazorApp2.Pages
             {
                 Promos = vids.promo.ToList();
                 Episodes = vids.episodes.ToList();
-            }
-        }
-
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            if (firstRender)
-            {
-                await JS.InvokeVoidAsync("initializeScroller");
             }
         }
     }
