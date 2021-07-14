@@ -1,7 +1,10 @@
 ﻿@page "/upcominganime/" 
 @inherits AnimeListBase
 
-<div class="pageTitle">Upcoming Animes</div>
+<div class="pageTitle">
+    <h3>Upcoming Animes</h3>
+</div>
+
 @if (Episodes != null)
 {
     <LatestAnime Episodes="Episodes"></LatestAnime>

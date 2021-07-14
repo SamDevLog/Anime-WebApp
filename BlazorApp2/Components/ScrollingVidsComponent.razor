@@ -1,12 +1,9 @@
-@page "/scroller"
-@using Microsoft.JSInterop;
-@inject IJSRuntime JS
-
 <div class="scrollCol">
     <!-- Slider main container -->
     <div class="swiper-container">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
+<<<<<<< HEAD
             @if (Promos.Any())
             {
                 foreach (var promo in Promos)
@@ -27,11 +24,34 @@
                     </div>        
                 }
             }
+=======
+            <div class="swiper-slide">
+                <h3>photo1</h3>
+            </div>
+            <div class="swiper-slide">
+                <h3>photo2</h3>
+            </div>
+            <div class="swiper-slide">
+                <h3>photo3</h3>
+            </div>
+            <div class="swiper-slide">
+                <h3>photo4</h3>
+            </div>
+            <div class="swiper-slide">
+                <h3>photo5</h3>
+            </div>
+            <div class="swiper-slide">
+                <h3>photo6</h3>
+            </div>
+            
+
+>>>>>>> d7fa2c8db7b8f5490bccd6b8bc8387dad1319103
         </div>
     </div>
 </div>
 @code{
     [Parameter]
+<<<<<<< HEAD
     public List<Promo> Promos { get; set; }
     [Parameter]
     public List<Episode> Episodes { get; set; }
@@ -43,4 +63,9 @@
             await JS.InvokeVoidAsync("initializeScroller");
         }
     }
+=======
+    public Videos Videos { get; set; }
+    
+
+>>>>>>> d7fa2c8db7b8f5490bccd6b8bc8387dad1319103
 }
