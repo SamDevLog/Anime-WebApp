@@ -6,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.JSInterop;
 
 namespace BlazorApp2.Pages
 {
@@ -17,6 +16,7 @@ namespace BlazorApp2.Pages
         public Anime Anime { get; set; } = new();
         public List<Promo> Promos { get; set; } = new();
         public List<Episode> Episodes { get; set; } = new();
+        public Videos vids { get; set; }
         [Inject]
         public IAnimeService animeService { get; set; }
         [Inject]
@@ -29,7 +29,7 @@ namespace BlazorApp2.Pages
         {
             Id = Id ?? "1";
             Anime = await animeService.GetAnime(int.Parse(Id));
-            var vids = await animeService.GetAnimeVideos(int.Parse(Id));
+            vids = await animeService.GetAnimeVideos(int.Parse(Id));
             if (vids != null)
             {
                 Promos = vids.promo.ToList();

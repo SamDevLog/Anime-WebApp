@@ -13,7 +13,6 @@ else
 
     <div class="detailsGrid">
         <div class="infoCol">
-            <h2>Title: @Anime.title</h2>
             <h3>Episode ID : @Anime.mal_id</h3>
             <h3>Episodes : @Anime.episodes</h3>
             <h3>Score : @Anime.score</h3>
@@ -24,12 +23,8 @@ else
         </div>
         <div class="imageCol">
             <div class="card">
-                <div class="card-header">
-                    <h1>@Anime.title</h1>
-                </div>
                 <div class="card-body text-center">
                     <img class="card-img-top" src="@Anime.image_url" />
-                    
                 </div>
                 <div class="card-footer text-center">
                     <a href="/" class="btn btn-primary">Back</a>
@@ -37,7 +32,12 @@ else
             </div>
         </div>
         <div class="vidsCol">
-            <ScrollingVidsComponent imgUrl="@Anime.image_url"></ScrollingVidsComponent>
+            @if (vids != null)
+            {
+                <ScrollingVidsComponent Videos="@vids">
+                </ScrollingVidsComponent>
+            }
+
         </div>
     </div>
 }

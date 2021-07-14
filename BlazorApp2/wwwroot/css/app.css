@@ -1,4 +1,13 @@
-﻿
+﻿:root {
+    font-size: 16px;
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #23232e;
+    --bg-secondary: #141418;
+    --transition-speed: 600ms;
+    font-family: 'Open Sans';
+}
+
 /**
 {
     margin: 0;
@@ -7,12 +16,6 @@
 */
 
 
-.synopsis {
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-}
 
 a, .btn-link {
     color: #0366d6;
@@ -78,9 +81,10 @@ a, .btn-link {
 }
 
 .pageTitle {
-    text-align: center; 
-    color:antiquewhite; 
+    text-align: center;
+    color: #df49a6;
     font-size: 2rem;
+    font-family: 'Nova Flat';
     margin: 1rem 0;
     /*align-self: end;*/
 }
@@ -99,7 +103,8 @@ body {
     margin: 0px;
     width: 100%;
     height: 100%;
-    font-family: 'Lato';
+    font-family: 'Lato', 'Open Sans', sans-serif;
+    color: var(--text-primary);
 }
 
 .swiper-container {
@@ -248,8 +253,8 @@ body {
 
 .dropdownBtn, .dropdown-item {
     padding: 5px 10px;
-    background-color: #04AA6D;
-    color: white;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     font-size: 18px;
     border: none;
     text-transform: capitalize;
@@ -271,6 +276,7 @@ body {
     align-items: center;
 }
 
+
 .upcomingSeason{
     display: grid;
     grid-template-rows: 10vh 20vh auto;
@@ -279,15 +285,16 @@ body {
 }
 
 .infoCol h3 {
-    color: #ff3838;
+    color: var(--bg-primary);
     letter-spacing: 1px;
     margin: 0px;
     padding-left: 25%;
+    font-family: 'Nova Flat';
 }
 
 .infoCol h2 {
-    font-family: fantasy;
-    color: #ff3838;
+    font-family: 'Nova Flat';
+    color: var(--bg-primary);
     letter-spacing: 1px;
     margin: 1rem 0;
     text-align: center;
@@ -298,6 +305,8 @@ body {
     line-height: 24px;
     height: 70%;
     text-align: center;
+    color: var(--bg-primary);
+
 }
 
 .scrollCol{
@@ -373,6 +382,12 @@ body {
 
     .infoCol{
         margin: 0 1rem;
+    }
+
+    .vidsCol{
+        margin: 0 1rem;
+        height: 85vh;
+
     }
     
     .searchComponent{
