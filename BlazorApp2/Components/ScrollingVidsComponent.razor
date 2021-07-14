@@ -3,15 +3,15 @@
     <div class="swiper-container">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
-<<<<<<< HEAD
             @if (Promos.Any())
             {
                 foreach (var promo in Promos)
                 {
                     <!-- Slides -->
-                    <div class="swiper-slide">
-                        <img src="@promo.image_url" alt="@promo.title" @onclick="@()=>Console.WriteLine(@promo.video_url)">
-                    </div>        
+                    <li @onclick="@(()=>ShowPopupModal(promo.title, promo.video_url))" class="swiper-slide">
+                        <img src="@promo.image_url" alt="@promo.title">
+                        <h3>@promo.video_url</h3>
+                    </li>        
                 }
             }
             @if (Episodes.Any())
@@ -19,53 +19,41 @@
                 foreach (var ep in Episodes)
                 {
                     <!-- Slides -->
-                    <div class="swiper-slide">
-                        <img src="@ep.image_url" alt="@ep.title" @onclick="@()=>Console.WriteLine(@ep.url)">
-                    </div>        
+                    <li @onclick="@(()=>ShowPopupModal(ep.title, ep.url))" class="swiper-slide">
+                        <img src="@ep.image_url" alt="@ep.title">
+                    </li>        
                 }
             }
-=======
-            <div class="swiper-slide">
-                <h3>photo1</h3>
-            </div>
-            <div class="swiper-slide">
-                <h3>photo2</h3>
-            </div>
-            <div class="swiper-slide">
-                <h3>photo3</h3>
-            </div>
-            <div class="swiper-slide">
-                <h3>photo4</h3>
-            </div>
-            <div class="swiper-slide">
-                <h3>photo5</h3>
-            </div>
-            <div class="swiper-slide">
-                <h3>photo6</h3>
-            </div>
-            
-
->>>>>>> d7fa2c8db7b8f5490bccd6b8bc8387dad1319103
         </div>
     </div>
 </div>
+
+@if (showingPopup)
+{
+    <PopupModal Title="@title" VideoUrl="@url" OnCancel="@ClosePopupModal"></PopupModal>
+}
+
+
 @code{
     [Parameter]
-<<<<<<< HEAD
     public List<Promo> Promos { get; set; }
     [Parameter]
     public List<Episode> Episodes { get; set; }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            await JS.InvokeVoidAsync("initializeScroller");
-        }
-    }
-=======
-    public Videos Videos { get; set; }
     
 
->>>>>>> d7fa2c8db7b8f5490bccd6b8bc8387dad1319103
+    string title;
+    string url;
+    bool showingPopup;
+
+    void ShowPopupModal(string _title, string _url){
+        title = _title;
+        url = _url;
+        showingPopup = true;
+    }
+
+    void ClosePopupModal(){
+        title = String.Empty;
+        url = String.Empty;
+        showingPopup = false;
+    }
 }

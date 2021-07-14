@@ -34,5 +34,12 @@ namespace BlazorApp2.Pages
                 Episodes = vids.episodes.ToList();
             }
         }
+
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if(firstRender){
+                await jsRuntime.InvokeVoidAsync("initializeScroller");
+            }
+        }   
     }
 }
