@@ -363,12 +363,7 @@ body {
 }
 
 
-.upcomingSeason{
-    display: grid;
-    grid-template-rows: 20vh auto;
-    justify-content: center;
-    align-items: center;
-}
+
 
 .infoCol h3 {
     color: var(--bg-primary);
@@ -476,17 +471,24 @@ body {
         height: 50vh;
     }
 
+    .upcomingSeason{
+        display: grid;
+        grid-template-rows: 10vh 20vh auto;
+        justify-content: center;
+        align-items: center;
+    }
+
     .homePageContent {
-        width: 99%;
+        width: calc(100% - 1rem);
+        padding-left: 2rem;
     }
 
     .topMangaList {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, 200px);
-        grid-template-rows: 400px;
+        display: flex;
+        width: calc(100% - 2rem);
         overflow: auto;
         grid-gap: 2em;
-        justify-content: space-evenly;
+        justify-content: space-between;
         align-items: center;
     }
 

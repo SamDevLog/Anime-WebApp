@@ -115,7 +115,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/search" class="nav-link">
                 <svg xmlns="http://www.w3.org/2000/svg" 
                     xmlns:xlink="http://www.w3.org/1999/xlink" 
                     aria-hidden="true" 
@@ -141,7 +141,7 @@
                         r="4"/>
                     </g>
                 </svg>
-                <span class="link-text">Shuttle</span>
+                <span class="link-text">Search</span>
             </a>
         </li>
 
@@ -170,7 +170,7 @@
 
     public void HandleSearch()
     {
-        nav.NavigateTo($"/{SearchField.SearchField}");
+        nav.NavigateTo($"/search/{SearchField.SearchField}");
         SearchField.SearchField = "";
         //StateHasChanged();
     }
