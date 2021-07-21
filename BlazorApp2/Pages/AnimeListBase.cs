@@ -17,7 +17,7 @@ namespace BlazorApp2.Pages
     {
         public string Title { get; set; }
         public IEnumerable<Anime> Episodes { get; set; }
-
+        public TopManga TopManga { get; set; }
         public bool jsInvoked { get; set; } = false;
 
         [Inject]
@@ -35,6 +35,11 @@ namespace BlazorApp2.Pages
         protected override async Task OnInitializedAsync()
         {
             Episodes = await _episodeService.GetAnimeList();
+            TopManga = await _episodeService.GetTopManga();
+            if (TopManga != null)
+            {
+                Console.WriteLine(TopManga.Top.Count());
+            }
         }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)

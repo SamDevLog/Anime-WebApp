@@ -170,7 +170,7 @@ a, .btn-link {
     color: #df49a6;
     font-size: 2rem;
     font-family: 'Nova Flat';
-    margin: 1rem 0;
+    margin: 1rem 0 1rem 5rem;
     /*align-self: end;*/
 }
 
@@ -200,7 +200,7 @@ body {
 .swiper-slide {
     background-position: center;
     width: 250px;
-    height: 350px;
+    height: 100%;
     -webkit-box-reflect: below 46px linear-gradient(transparent, transparent, #0006);
     justify-content: center;
     align-items: center;
@@ -289,7 +289,7 @@ body {
     position: absolute;
     bottom: 10px;
     left: 55px;
-    width: fit-content();
+    width: fit-content;
     height: 40px;
     cursor: pointer;
     border-style: none;
@@ -339,7 +339,7 @@ body {
 .dropdownBtn, .dropdown-item {
     padding: 5px 10px;
     background-color: var(--bg-primary);
-    color: var(--text-primary);
+    color: #df49a6;
     font-size: 18px;
     border: none;
     text-transform: capitalize;
@@ -352,6 +352,7 @@ body {
     width: 150px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    text-transform: capitalize;
 }
 
 .searchComponent {
@@ -364,7 +365,7 @@ body {
 
 .upcomingSeason{
     display: grid;
-    grid-template-rows: 10vh 20vh auto;
+    grid-template-rows: 20vh auto;
     justify-content: center;
     align-items: center;
 }
@@ -388,19 +389,35 @@ body {
 .infoCol p {
     padding-top: 10px;
     line-height: 24px;
-    height: 70%;
+    height: 50vh;
     text-align: center;
     color: var(--bg-primary);
-
+    overflow: auto;
 }
 
-.scrollCol{
+.infoCol p::-webkit-scrollbar {
+    width: 0.25rem;
+}
+
+.infoCol p::-webkit-scrollbar-track {
+    background-color: #1e1e24;
+}
+
+.infoCol p::-webkit-scrollbar-thumb {
+    background-color: #6649b8;
+}
+
+.animeDetailsValues {
+    color: #df49a6;
+    text-align: right;
+}
+
+.scrollCol {
     display: grid;
     grid-template-columns: 350px;
-    grid-template-rows: 400px;
-    padding-left: 5rem;
+    grid-template-rows: 600px;
     justify-content: center;
-    overflow: hidden;
+    align-items: center;
 }
 
 @media screen and (max-width: 601px) {
@@ -442,6 +459,37 @@ body {
 }
 
 @media screen and (min-width: 601px) {
+
+    .homePage {
+        margin-left: 5rem;
+        height: 95vh;
+        display: grid;
+        grid-template-rows: 50vh 40vh;
+        grid-template-columns: 95vw;
+        grid-gap: 2rem;
+        justify-items: self-start;
+        align-items: flex-start;
+    }
+
+    .latestAnime{
+        width: 95%;
+        height: 50vh;
+    }
+
+    .homePageContent {
+        width: 99%;
+    }
+
+    .topMangaList {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 200px);
+        grid-template-rows: 400px;
+        overflow: auto;
+        grid-gap: 2em;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
     .row {
         display: grid;
         grid-gap: 2rem 2rem;
@@ -466,18 +514,35 @@ body {
     }
 
     .infoCol{
-        margin: 0 1rem;
+        margin: 2rem 1rem;
     }
 
     .vidsCol{
-        margin: 0 1rem;
+        margin: 0;
         height: 85vh;
-
+        width: 25vw;
+        justify-self: center;
+        align-self: start;
+        padding-top: 2rem;
     }
-    
-    .searchComponent{
+
+    .scroller-wrapper{
+        margin-left: 0!important;
+        height: 100%;
+    }
+
+    .scroller-container{
+        margin-left: 0!important;
+        height: 600px;
+    }
+
+    .scroller-slide{
+        height: 150px!important;
+    }
+
+    .searchComponent {
         display: grid;
-        grid-template-rows: 10vh 20vh auto;
+        grid-template-rows: 20vh auto;
         align-items: center;
         margin-left: 5rem;
     }
@@ -512,8 +577,7 @@ body {
     }
 
     .swiper-container {
-        margin-left: 5rem;
-        height: 80vh;
+        height: 100%;
         z-index: 0;
     }
 }

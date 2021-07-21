@@ -1,11 +1,28 @@
 ﻿@page "/upcominganime/" 
 @inherits AnimeListBase
 
-<div class="pageTitle">
-    <h3>Upcoming Animes</h3>
-</div>
 
 @if (Episodes != null)
 {
-    <LatestAnime Episodes="Episodes"></LatestAnime>
+    <h3 class="pageTitle">Top Anime</h3>
+    <div class="homePage">
+        <div class="latestAnime">
+            <LatestAnime Episodes="Episodes"></LatestAnime>
+        </div>
+        <div class="homePageContent">
+            <h3 class="pageTitle" style="margin-left: 0;">Highly Ranked Manga</h3>
+            @if (TopManga != null)
+            {
+            <div class="topMangaList">
+                @foreach (var manga in TopManga.Top)
+                {
+                    <div>
+                        <img src="@manga.image_url"/>
+                    </div>
+                }
+            </div>
+            }
+
+        </div>
+    </div>
 }

@@ -13,12 +13,12 @@ else
 
     <div class="detailsGrid">
         <div class="infoCol">
-            <h3>Episode ID : @Anime.mal_id</h3>
-            <h3>Episodes : @Anime.episodes</h3>
-            <h3>Score : @Anime.score</h3>
-            <h3>Rank : @Anime.rank</h3>
-            <h3>Start Date : @Anime.start_date</h3>
-            <h3>End Date : @Anime.end_date</h3>
+            <h3>Episode ID : <span class="animeDetailsValues"> @Anime.mal_id</span></h3>
+            <h3>Episodes : <span class="animeDetailsValues">@Anime.episodes</span></h3>
+            <h3>Score : <span class="animeDetailsValues">@Anime.score</span></h3>
+            <h3>Rank : <span class="animeDetailsValues">@Anime.rank</span></h3>
+            <h3>Start Date : <span class="animeDetailsValues">@Anime.start_date</span></h3>
+            <h3>End Date : <span class="animeDetailsValues">@Anime.end_date</span></h3>
             <p>Synopsis: <br> @Anime.synopsis</p>
         </div>
         <div class="imageCol">
@@ -33,7 +33,7 @@ else
             
         </div>
         <div class="vidsCol">
-            <ScrollingVidsComponent Episodes="@Episodes" Promos="@Promos"></ScrollingVidsComponent>
+            <ScrollingVidsComponent Episodes="Episodes"></ScrollingVidsComponent>
         </div>
     </div>
 }

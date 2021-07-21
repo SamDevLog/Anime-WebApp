@@ -3,10 +3,9 @@ window.initializeScroller = () => {
         direction: "vertical",
         effect: "slide",
         grabCursor: false,
-        spaceBetween: '10',
         loop: true,
         autoplay: {
-            delay: 2500,
+            delay: 4000,
             disableOnInteraction: true,
         },
       });

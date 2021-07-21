@@ -2,32 +2,31 @@
 @inherits WeekAnimeBase
 
 
-<section class="upcomingSeason">
+<section>
     @if (apiRspn == null)
     {
         <div class="spinner"></div>
     }
     else
     {
-        <div>
-            <h3 class="pageTitle">Anime this Week</h3>
-        </div>
-        <div class="dropdown days">
-            <span>
-                <EditForm Model="Day">
-                    <InputSelect class="dropdownBtn" Value="Day"
-                                 ValueChanged="@((Days day) => SetDay(day))"
-                                 ValueExpression="@(()=> Day)">
-                        @foreach (var _day in Enum.GetValues(typeof(Days)))
-                        {
-                            <option class="dropdown-item" value="@_day">@_day.ToString()</option>
-                        }
-                    </InputSelect>
-                </EditForm>
-            </span>
-        </div>
-        <DisplayList AnimeList = "_AnimeList"></DisplayList>
+        <h3 class="pageTitle">Anime this Week</h3>
+        <div class="upcomingSeason">    
+            <div class="dropdown days">
+                <span>
+                    <EditForm Model="Day">
+                        <InputSelect class="dropdownBtn" Value="Day"
+                                     ValueChanged="@((Days day) => SetDay(day))"
+                                     ValueExpression="@(()=> Day)">
+                            @foreach (var _day in Enum.GetValues(typeof(Days)))
+                            {
+                                <option class="dropdown-item" value="@_day">@_day.ToString()</option>
+                            }
+                        </InputSelect>
+                    </EditForm>
+                </span>
+            </div>
+            <DisplayList AnimeList="_AnimeList"></DisplayList>
 
+        </div>
     }
-
 </section>

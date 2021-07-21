@@ -4,45 +4,45 @@
 
 
 
-<sction class="searchComponent">
-    <div>
-        <h1 class="pageTitle">Anime Search Engine</h1>
-    </div>
-    <div>
-        <EditForm class="searchForm" Model="SearchField" OnValidSubmit="@HandleSearch">
-            <DataAnnotationsValidator />
-            <InputText class="dropdownBtn searchElems" placeholder="Type an Anime Name" @bind-Value="SearchField.SearchField" />
-            <ValidationMessage For="()=> SearchField.SearchField" class="searchElems"></ValidationMessage>
-            <button type="submit" class="dropdownBtn searchElems glowing">Search the Anime API</button>
-        </EditForm>
-    </div>
+<sction>
+    <h3 class="pageTitle">Anime Search Engine</h3>
+    <div class="searchComponent">
 
-    
-    <div class="row">
-    @if (query != null)
-    {
-        @foreach (var result in query.results)
-        {
-            <div class="col">
-                <div class="card">
-                    <img src="@result.image_url">
-                    <div class="descriptions">
-                        <h3>@result.title</h3>
-                        <p>
-                            @result.synopsis
-                        </p>
-                        <a class="button" href="episodedetails/@result.mal_id">
-                            <button>
-                                <i class="fas fa-info-circle"></i>
-                                More Details
-                            </button>
-                        </a>
+        <div>
+            <EditForm class="searchForm" Model="SearchField" OnValidSubmit="@HandleSearch">
+                <DataAnnotationsValidator />
+                <InputText class="dropdownBtn searchElems" placeholder="Type an Anime Name" @bind-Value="SearchField.SearchField" />
+                <ValidationMessage For="()=> SearchField.SearchField" class="searchElems"></ValidationMessage>
+                <button type="submit" class="dropdownBtn searchElems glowing">Search the Anime API</button>
+            </EditForm>
+        </div>
+
+
+        <div class="row">
+            @if (query != null)
+            {
+                @foreach (var result in query.results)
+                {
+                    <div class="col">
+                        <div class="card">
+                            <img src="@result.image_url">
+                            <div class="descriptions">
+                                <h3>@result.title</h3>
+                                <p>
+                                    @result.synopsis
+                                </p>
+                                <a class="button" href="episodedetails/@result.mal_id">
+                                    <button>
+                                        <i class="fas fa-info-circle"></i>
+                                        More Details
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        }
+                }
 
-    }
+            }
+        </div>
     </div>
-
 </sction>

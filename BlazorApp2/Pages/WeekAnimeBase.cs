@@ -19,10 +19,9 @@ namespace BlazorApp2.Pages
         public WeeklyResponseRaw apiRspn { get; set; }
 
         [Parameter]
-        public Days Day { get; set; } = Days.monday;
+        public Days Day { get; set; } = Days.Monday;
         [Inject]
         public IAnimeService AnimeService { get; set; }
-        public bool isRendered { get; private set; }
 
         protected override async Task OnInitializedAsync()
         {
@@ -32,13 +31,13 @@ namespace BlazorApp2.Pages
 
             if (apiRspn != null)
             {
-                WeeklyAnime.Add("monday", apiRspn.monday);
-                WeeklyAnime.Add("tuesday", apiRspn.tuesday);
-                WeeklyAnime.Add("wednesday", apiRspn.wednesday);
-                WeeklyAnime.Add("thursday", apiRspn.thursday);
-                WeeklyAnime.Add("friday", apiRspn.friday);
-                WeeklyAnime.Add("saturday", apiRspn.saturday);
-                WeeklyAnime.Add("sunday", apiRspn.sunday);
+                WeeklyAnime.Add("Monday", apiRspn.monday);
+                WeeklyAnime.Add("Tuesday", apiRspn.tuesday);
+                WeeklyAnime.Add("Wednesday", apiRspn.wednesday);
+                WeeklyAnime.Add("Thursday", apiRspn.thursday);
+                WeeklyAnime.Add("Friday", apiRspn.friday);
+                WeeklyAnime.Add("Saturday", apiRspn.saturday);
+                WeeklyAnime.Add("Sunday", apiRspn.sunday);
                 WeeklyAnime.Add("other", apiRspn.other);
                 WeeklyAnime.Add("unknown", apiRspn.unknown);
 

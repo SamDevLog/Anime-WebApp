@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace BlazorApp2.Models
 {
-    public enum Days
+    public class TopManga : BaseQueryResponse
     {
-        Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+        public List<Manga> Top { get; set; }
     }
 }

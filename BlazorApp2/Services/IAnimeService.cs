@@ -10,6 +10,7 @@ namespace BlazorApp2.Services
     {
         Task<Anime> GetAnime(int id);
         Task<IEnumerable<Anime>> GetAnimeList();
+        Task<TopManga> GetTopManga();
         Task<List<Anime>> GetSeasonAnime(int Year, Seasons season = Seasons.fall);
         Task<SearchResultModel> Search(string search);
         Task<WeeklyResponseRaw> GetWeekAnime();

@@ -1,30 +1,12 @@
-<div class="scrollCol">
-    <!-- Slider main container -->
-    <div class="swiper-container">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-            @if (Promos.Any())
-            {
-                foreach (var promo in Promos)
-                {
-                    <!-- Slides -->
-                    <li @onclick="@(()=>ShowPopupModal(promo.title, promo.video_url))" class="swiper-slide">
-                        <img src="@promo.image_url" alt="@promo.title">
-                        <h3>@promo.video_url</h3>
-                    </li>        
-                }
-            }
-            @if (Episodes.Any())
-            {
-                foreach (var ep in Episodes)
-                {
-                    <!-- Slides -->
-                    <li @onclick="@(()=>ShowPopupModal(ep.title, ep.url))" class="swiper-slide">
-                        <img src="@ep.image_url" alt="@ep.title">
-                    </li>        
-                }
-            }
-        </div>
+<div class="swiper-container scroller-container">
+    <div class="swiper-wrapper scroller-wrapper">
+        @foreach (var ep in Episodes)
+        {
+            <!-- Slides -->
+            <div class="swiper-slide scroller-slide" style="height: 200px!important;" @onclick="@(()=>ShowPopupModal(ep.title, ep.url))" >
+                <img src="@ep.image_url" alt="@ep.title">
+            </div>        
+        }
     </div>
 </div>
 
@@ -35,11 +17,11 @@
 
 
 @code{
-    [Parameter]
-    public List<Promo> Promos { get; set; }
+    //[Parameter]
+    //public List<Promo> Promos { get; set; }
     [Parameter]
     public List<Episode> Episodes { get; set; }
-    
+
 
     string title;
     string url;

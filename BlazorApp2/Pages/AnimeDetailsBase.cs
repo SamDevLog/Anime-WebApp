@@ -37,9 +37,8 @@ namespace BlazorApp2.Pages
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            if(firstRender){
-                await jsRuntime.InvokeVoidAsync("initializeScroller");
-            }
+            await jsRuntime.InvokeVoidAsync("initializeScroller");
+            
         }   
     }
 }
