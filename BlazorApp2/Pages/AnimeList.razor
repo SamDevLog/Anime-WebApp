@@ -1,4 +1,4 @@
-﻿@page "/upcominganime/" 
+﻿@page "/" 
 @inherits AnimeListBase
 
 
@@ -13,13 +13,24 @@
             <h3 class="pageTitle" style="margin-left: 0;">Highly Ranked Manga</h3>
             @if (TopManga != null)
             {
-            <div class="topMangaList">
+            @* <div class="topMangaList">
                 @foreach (var manga in TopManga.Top)
                 {
                     <div>
                         <img src="@manga.image_url"/>
                     </div>
                 }
+            </div> *@
+
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    @foreach (var manga in TopManga.Top)
+                    {
+                        <div class="swiper-slide">
+                            <img class="cardImg" src="@manga.image_url" alt="@manga.title" />
+                        </div>
+                    }
+                </div>
             </div>
             }
 

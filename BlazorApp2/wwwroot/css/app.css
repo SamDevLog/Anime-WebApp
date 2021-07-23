@@ -170,7 +170,7 @@ a, .btn-link {
     color: #df49a6;
     font-size: 2rem;
     font-family: 'Nova Flat';
-    margin: 1rem 0 1rem 5rem;
+    margin: 1rem 0 1rem 0;
     /*align-self: end;*/
 }
 
@@ -190,6 +190,13 @@ body {
     height: 100%;
     font-family: 'Lato', 'Open Sans', sans-serif;
     color: var(--text-primary);
+}
+
+.upcomingSeason{
+    display: grid;
+    grid-template-rows: 5vh 15vh auto;
+    justify-content: center;
+    align-items: center;
 }
 
 .swiper-container {
@@ -357,13 +364,10 @@ body {
 
 .searchComponent {
     display: grid;
-    grid-template-rows: 10vh 20vh auto;
+    grid-template-rows: 5vh 15vh auto;
     justify-content: center;
     align-items: center;
 }
-
-
-
 
 .infoCol h3 {
     color: var(--bg-primary);
@@ -451,6 +455,10 @@ body {
         align-self: center;
         width: 15rem;
     }
+    
+    #searchBox{
+        display: none;
+    }
 }
 
 @media screen and (min-width: 601px) {
@@ -459,16 +467,17 @@ body {
         margin-left: 5rem;
         height: 95vh;
         display: grid;
-        grid-template-rows: 50vh 40vh;
-        grid-template-columns: 95vw;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 100%;
         grid-gap: 2rem;
         justify-items: self-start;
         align-items: flex-start;
     }
 
     .latestAnime{
-        width: 95%;
-        height: 50vh;
+        width: calc(100% - 2rem);
+        height: 100%;
+        padding-left: 1rem;
     }
 
     .upcomingSeason{
@@ -544,7 +553,7 @@ body {
 
     .searchComponent {
         display: grid;
-        grid-template-rows: 20vh auto;
+        grid-template-rows: 10vh 20vh auto;
         align-items: center;
         margin-left: 5rem;
     }
