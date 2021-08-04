@@ -63,5 +63,10 @@ namespace BlazorApp2.Services
         {
             return await httpClient.GetFromJsonAsync<TopManga>("top/manga/1/bypopularity");
         }
+
+        public async Task<Manga> GetManga(int id)
+        {
+            return await httpClient.GetFromJsonAsync<Manga>($"manga/{id}");
+        }
     }
 }

@@ -44,9 +44,7 @@ namespace BlazorApp2.Pages
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            //if (Episodes == null || jsInvoked) return;
             await _jsRuntime.InvokeVoidAsync("initializeSwiper");
-            //jsInvoked = true;           
         }
 
     }

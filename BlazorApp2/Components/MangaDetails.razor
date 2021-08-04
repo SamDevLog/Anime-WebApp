@@ -1,0 +1,38 @@
+﻿@page "/manga/{id}"
+@inject IAnimeService animeService
+
+
+    <h3 class="pageTitle">Manga Details</h3>
+<section class="mangaDetails">
+
+    @if (Manga != null)
+    {
+        <div class="mangaInfo">
+            <h4>Title : @Manga.title</h4>
+            <h4>Volumes : @Manga.volumes</h4>
+            <h4>Chapters : @Manga.chapters</h4>
+            <p>Background: @Manga.background</p>
+        </div>
+        <div>
+            <img src="@Manga.image_url"/>
+        </div>
+        
+    }
+    else
+    {
+        <div class="spinner"></div>
+    }
+</section>
+
+@code{
+    [Parameter]
+    public string Id { get; set; }
+
+    public Manga Manga { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Id = Id ?? "1";
+        Manga = await animeService.GetManga(int.Parse(Id));
+    }
+}
