@@ -13,7 +13,7 @@ namespace BlazorApp2.Services
         Task<TopManga> GetTopManga();
         Task<Manga> GetManga(int id);
         Task<List<Anime>> GetSeasonAnime(int Year, Seasons season = Seasons.fall);
-        Task<SearchResultModel> Search(string search);
+        Task<SearchResultModel> Search(string search, Types type);
         Task<WeeklyResponseRaw> GetWeekAnime();
         Task<ICollection<DailyAnime>> GetDailyAnime(Days day);
         Task<Videos> GetAnimeVideos(int id);

@@ -15,7 +15,94 @@
 }
 */
 
+.snip1295 {
+    position: relative;
+    overflow: hidden;
+    margin: 7px;
+    padding: 6px;
+    box-shadow: none !important;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-box-sizing: padding-box;
+    box-sizing: padding-box;
+    flex-basis: auto;
+}
+
+.snip1295 img {
+    max-width: 100%;
+    vertical-align: top;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.snip1295 .border {
+    position: absolute;
+    opacity: 0.45;
+}
+
+.snip1295 .border:before, .snip1295 .border:after, .snip1295 .border div:before, .snip1295 .border div:after {
+    background-color: #f5b043;
+    position: absolute;
+    content: "";
+    display: block;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+.snip1295 .border:before, .snip1295 .border:after {
+    width: 0;
+    height: 1px;
+}
+
+.snip1295 .border div:before, .snip1295 .border div:after {
+    width: 1px;
+    height: 0;
+}
+
+.snip1295 .border.one {
+    left: 0;
+    top: 0;
+    right: 12px;
+    bottom: 12px;
+}
+
+.snip1295 .border.one:before, .snip1295 .border.one div:before {
+    left: 0;
+    top: 0;
+}
+
+.snip1295 .border.one:after, .snip1295 .border.one div:after {
+    bottom: 0;
+    right: 0;
+}
+
+.snip1295 .border.two {
+    left: 12px;
+    top: 12px;
+    right: 0;
+    bottom: 0;
+}
+
+.snip1295 .border.two:before, .snip1295 .border.two div:before {
+    right: 0;
+    top: 0;
+}
+
+.snip1295 .border.two:after, .snip1295 .border.two div:after {
+    bottom: 0;
+    left: 0;
+}
+
+
+.snip1295:hover .border:before, .snip1295.hover .border:before, .snip1295:hover .border:after, .snip1295.hover .border:after {
+    width: 100%;
+}
+
+.snip1295:hover .border div:before, .snip1295.hover .border div:before, .snip1295:hover .border div:after, .snip1295.hover .border div:after {
+    height: 100%;
+}
+
 /* Modal Code */
+
 .dialog-container {
     position: absolute;
     top: 0;
@@ -101,7 +188,6 @@
     margin: 0 1.5rem;
 }
 
-
 a, .btn-link {
     color: #0366d6;
 }
@@ -159,7 +245,6 @@ a, .btn-link {
     0% {
         transform: rotate(0deg)
     }
-
     100% {
         transform: rotate(360deg)
     }
@@ -192,7 +277,7 @@ body {
     color: var(--text-primary);
 }
 
-.upcomingSeason{
+.upcomingSeason {
     display: grid;
     grid-template-rows: 5vh 15vh auto;
     justify-content: center;
@@ -213,7 +298,6 @@ body {
     align-items: center;
 }
 
-
 .wrapper {
     position: absolute;
     top: 50%;
@@ -228,6 +312,7 @@ body {
 }
 
 /* SEARCH ENGINE COMPONENT DISPLAY */
+
 .card {
     flex: 1;
     flex-basis: 300px;
@@ -236,9 +321,9 @@ body {
     width: 18rem;
     background: #fff;
     border: 2px solid #fff;
-    box-shadow: 0px 4px 7px rgba(0,0,0,.5);
+    box-shadow: 0px 4px 7px rgba(0, 0, 0, .5);
     cursor: pointer;
-    transition: all .5s cubic-bezier(.8,.5,.2,1.4);
+    transition: all .5s cubic-bezier(.8, .5, .2, 1.4);
     overflow: hidden;
     position: relative;
 }
@@ -246,14 +331,14 @@ body {
 .card img {
     width: 100%;
     height: 100%;
-    transition: all .5s cubic-bezier(.8,.5,.2,1.4);
+    transition: all .5s cubic-bezier(.8, .5, .2, 1.4);
 }
 
 .descriptions {
     position: absolute;
     top: 0px;
     left: 0px;
-    background-color: rgba(255,255,255,.7);
+    background-color: rgba(255, 255, 255, .7);
     width: 100%;
     height: 100%;
     transition: all .7s ease-in-out;
@@ -269,13 +354,13 @@ body {
 }
 
 .card:hover {
-    transition: all .5s cubic-bezier(.8,.5,.2,1.4);
-    box-shadow: 0px 2px 3px rgba(0,0,0,.3);
+    transition: all .5s cubic-bezier(.8, .5, .2, 1.4);
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, .3);
     transform: scale(.97);
 }
 
 .card:hover img {
-    transition: all .5s cubic-bezier(.8,.5,.2,1.4);
+    transition: all .5s cubic-bezier(.8, .5, .2, 1.4);
     transform: scale(1.6) rotate(20deg);
     filter: blur(3px);
 }
@@ -304,7 +389,7 @@ body {
     color: #fff;
     font-size: 15px;
     outline: none;
-    box-shadow: 0px 2px 3px rgba(0,0,0,.4);
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, .4);
     transition: all .5s ease-in-out;
 }
 
@@ -334,12 +419,12 @@ body {
     justify-self: center;
 }
 
-.dropdown.seasons{
+.dropdown.seasons {
     display: grid;
     row-gap: 1rem;
 }
 
-.dropdown span{
+.dropdown span {
     padding: 5px;
 }
 
@@ -353,11 +438,11 @@ body {
     text-align: center;
 }
 
-.dropdown-item{
+.dropdown-item {
     display: block;
     position: absolute;
     width: 150px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     text-transform: capitalize;
 }
@@ -425,44 +510,36 @@ body {
         display: block;
         margin: 20px;
     }
-
     .dropdown {
         flex-direction: column;
     }
-
     .pageTitle {
         margin-top: 5px;
         margin-bottom: 5px;
         font-size: 1rem;
     }
-
     .dropdownBtn, .dropdown-item {
         font-size: 1rem;
         width: 10rem;
     }
-
-    .dropdown .seasons{
+    .dropdown .seasons {
         display: grid;
         row-gap: 1rem;
     }
-
-    .dropdown .days{
+    .dropdown .days {
         width: 10rem;
     }
-
     .searchElems {
         justify-self: center;
         align-self: center;
         width: 15rem;
     }
-    
-    #searchBox{
+    #searchBox {
         display: none;
     }
 }
 
 @media screen and (min-width: 601px) {
-
     .homePage {
         margin-left: 5rem;
         height: 95vh;
@@ -473,25 +550,21 @@ body {
         justify-items: self-start;
         align-items: flex-start;
     }
-
-    .latestAnime{
+    .latestAnime {
         width: calc(100% - 2rem);
         height: 100%;
         padding-left: 1rem;
     }
-
-    .upcomingSeason{
+    .upcomingSeason {
         display: grid;
         grid-template-rows: 10vh 20vh auto;
         justify-content: center;
         align-items: center;
     }
-
     .homePageContent {
         width: calc(100% - 1rem);
         padding-left: 2rem;
     }
-
     .topMangaList {
         display: flex;
         width: calc(100% - 2rem);
@@ -500,7 +573,6 @@ body {
         justify-content: space-between;
         align-items: center;
     }
-
     .mangaDetails {
         display: flex;
         width: 100%;
@@ -510,26 +582,23 @@ body {
         padding: 2rem 2rem 2rem 7rem;
         flex-direction: row;
     }
-
     .mangaInfo {
         display: flex;
         width: 100%;
         height: 100%;
         align-items: start;
         flex-direction: column;
+        flex-basis: 65vw;
     }
-
-    .mangaInfo h4{
+    .mangaInfo h4 {
         margin: 0;
         padding: 0.5rem;
         font-size: 1rem;
     }
-
-    .mangaInfo p{
+    .mangaInfo p {
         font-size: 0.8rem;
         padding: 0.5rem;
     }
-
     .row {
         display: grid;
         grid-gap: 2rem 2rem;
@@ -537,8 +606,7 @@ body {
         grid-template-columns: repeat(auto-fill, 18rem);
         width: 85vw;
     }
-
-    .detailsGrid{
+    .detailsGrid {
         height: 85vh;
         display: grid;
         padding-left: 5rem;
@@ -547,17 +615,14 @@ body {
         justify-items: center;
         align-items: flex-start;
     }
-
-    .imageCol{
+    .imageCol {
         justify-self: center;
         align-self: center;
     }
-
-    .infoCol{
+    .infoCol {
         margin: 2rem 1rem;
     }
-
-    .vidsCol{
+    .vidsCol {
         margin: 0;
         height: 85vh;
         width: 25vw;
@@ -565,38 +630,39 @@ body {
         align-self: start;
         padding-top: 2rem;
     }
-
-    .scroller-wrapper{
+    .scroller-wrapper {
         margin-left: 0!important;
         height: 100%;
     }
-
-    .scroller-container{
+    .scroller-container {
         margin-left: 0!important;
         height: 600px;
     }
-
-    .scroller-slide{
+    .scroller-slide {
         height: 150px!important;
     }
-
     .searchComponent {
         display: grid;
         grid-template-rows: 10vh 20vh auto;
         align-items: center;
         margin-left: 5rem;
+        row-gap: 1rem;
     }
-
-    .searchForm{
+    .searchForm {
         justify-items: center;
     }
-
-    .searchElems{
+    .searchItems{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 1rem;
+    }
+    .searchElems {
         width: 25vw!important;
         justify-self: center;
         align-self: center;
     }
-
     .dropElems {
         width: 15vw;
     }
@@ -607,15 +673,13 @@ body {
         font-size: 1rem;
         width: 10rem;
     }
-    .dropdown.seasons{
+    .dropdown.seasons {
         display: grid;
         row-gap: 1rem;
     }
-
-    .dropdown.days{
+    .dropdown.days {
         width: 10rem;
     }
-
     .swiper-container {
         height: 100%;
         z-index: 0;

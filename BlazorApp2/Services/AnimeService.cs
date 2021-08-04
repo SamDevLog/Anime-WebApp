@@ -38,9 +38,9 @@ namespace BlazorApp2.Services
             List<Anime> seasonAnime = seasonRoot.anime.ToList();
             return seasonAnime;
         }
-        public async Task<SearchResultModel> Search(string search)
+        public async Task<SearchResultModel> Search(string search, Types type)
         {
-            return await httpClient.GetFromJsonAsync<SearchResultModel>($"search/anime?q={search}");
+            return await httpClient.GetFromJsonAsync<SearchResultModel>($"search/{type}?q={search}");
         }
 
         public async Task<WeeklyResponseRaw> GetWeekAnime()

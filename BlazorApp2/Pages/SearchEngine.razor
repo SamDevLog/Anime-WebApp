@@ -8,15 +8,25 @@
     <div class="searchComponent">
     <h3 class="pageTitle">Anime Search Engine</h3>
 
-        <div>
+        <div class="searchItems">
             <EditForm class="searchForm" Model="SearchField" OnValidSubmit="@HandleSearch">
                 <DataAnnotationsValidator />
                 <InputText class="dropdownBtn searchElems" placeholder="Type an Anime Name" @bind-Value="SearchField.SearchField" />
                 <ValidationMessage For="()=> SearchField.SearchField" class="searchElems"></ValidationMessage>
                 <button type="submit" class="dropdownBtn searchElems glowing">Search the Anime API</button>
             </EditForm>
+            <EditForm Model="Type">
+                        <InputSelect class="dropdownBtn" Value="Type"
+                                        ValueChanged="@((Types type) => SetType(type))"
+                                        ValueExpression="@(()=> Type)">
+                            @foreach (var _type in Enum.GetValues(typeof(Types)))
+                            {
+                                <option class="dropdown-item" value="@_type">@_type.ToString()</option>
+                            }
+                        </InputSelect>
+                    </EditForm>
+            
         </div>
-
 
         <div class="row">
             @if (query != null)
@@ -31,12 +41,13 @@
                                 <p>
                                     @result.synopsis
                                 </p>
-                                <a class="button" href="episodedetails/@result.mal_id">
+                                <a class="button" href="@Type/@result.mal_id">
                                     <button>
                                         <i class="fas fa-info-circle"></i>
                                         More Details
                                     </button>
                                 </a>
+                                
                             </div>
                         </div>
                     </div>

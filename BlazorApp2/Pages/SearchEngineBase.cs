@@ -23,21 +23,27 @@ namespace BlazorApp2.Pages
         [Inject]
         public IJSRuntime JSRuntime { get; set; }
         public SearchResultModel query;
+        public Types Type { get; set; } = Types.anime;
 
         protected override async Task OnParametersSetAsync()
         {
             if (!String.IsNullOrEmpty(passedQuery))
             {
                 SearchField.SearchField = passedQuery;
-                query = await animeService.Search(passedQuery);
+                query = await animeService.Search(passedQuery, Type);
                 SearchField.SearchField = "";  
             }
         }
 
         public async Task HandleSearch()
         {
-            query = await animeService.Search(SearchField.SearchField);
+            query = await animeService.Search(SearchField.SearchField, Type);
             SearchField.SearchField = "";
+        }
+
+        public void SetType(Types _type)
+        {
+            Type = _type;
         }
 
         public void OpenLink(Uri url)

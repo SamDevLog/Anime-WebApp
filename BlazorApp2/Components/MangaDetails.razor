@@ -11,12 +11,20 @@
             <h4>Title : @Manga.title</h4>
             <h4>Volumes : @Manga.volumes</h4>
             <h4>Chapters : @Manga.chapters</h4>
-            <p>Background: @Manga.background</p>
+            <h4>Background: </h4><p>@Manga.background</p>
+            <h4>Synopsis: </h4><p>@Manga.synopsis</p>
         </div>
-        <div>
-            <img src="@Manga.image_url"/>
-        </div>
-        
+        @* <div>
+            <img src=""/>
+        </div> *@
+        <figure class="snip1295"><img src="@Manga.image_url" alt="sample67"/>
+            <div class="border one">
+                <div></div>
+            </div>
+            <div class="border two">
+                <div></div>
+            </div>
+        </figure>
     }
     else
     {
