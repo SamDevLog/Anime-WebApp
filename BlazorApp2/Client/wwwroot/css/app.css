@@ -1,0 +1,818 @@
+﻿:root {
+    font-size: 16px;
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #23232e;
+    --bg-secondary: #141418;
+    --transition-speed: 600ms;
+    font-family: 'Open Sans';
+}
+
+/**
+{
+    margin: 0;
+    padding: 0;
+}
+*/
+
+
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.snip1295 {
+    position: relative;
+    overflow: hidden;
+    margin: 7px;
+    padding: 6px;
+    box-shadow: none !important;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-box-sizing: padding-box;
+    box-sizing: padding-box;
+    flex-basis: auto;
+}
+
+.snip1295 img {
+    max-width: 100%;
+    vertical-align: top;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.snip1295 .border {
+    position: absolute;
+    opacity: 0.45;
+}
+
+.snip1295 .border:before, .snip1295 .border:after, .snip1295 .border div:before, .snip1295 .border div:after {
+    background-color: #df49a6;
+    position: absolute;
+    content: "";
+    display: block;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+.snip1295 .border:before, .snip1295 .border:after {
+    width: 0;
+    height: 1px;
+}
+
+.snip1295 .border div:before, .snip1295 .border div:after {
+    width: 1px;
+    height: 0;
+}
+
+.snip1295 .border.one {
+    left: 0;
+    top: 0;
+    right: 12px;
+    bottom: 12px;
+}
+
+.snip1295 .border.one:before, .snip1295 .border.one div:before {
+    left: 0;
+    top: 0;
+}
+
+.snip1295 .border.one:after, .snip1295 .border.one div:after {
+    bottom: 0;
+    right: 0;
+}
+
+.snip1295 .border.two {
+    left: 12px;
+    top: 12px;
+    right: 0;
+    bottom: 0;
+}
+
+.snip1295 .border.two:before, .snip1295 .border.two div:before {
+    right: 0;
+    top: 0;
+}
+
+.snip1295 .border.two:after, .snip1295 .border.two div:after {
+    bottom: 0;
+    left: 0;
+}
+
+
+.snip1295:hover .border:before, .snip1295.hover .border:before, .snip1295:hover .border:after, .snip1295.hover .border:after {
+    width: 100%;
+}
+
+.snip1295:hover .border div:before, .snip1295.hover .border div:before, .snip1295:hover .border div:after, .snip1295.hover .border div:after {
+    height: 100%;
+}
+
+/* Modal Code */
+
+.dialog-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    display: flex;
+    animation: dialog-container-entry 0.2s;
+}
+
+@keyframes dialog-container-entry {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.dialog {
+    background-color: white;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    z-index: 2000;
+    align-self: center;
+    margin: auto;
+    width: 700px;
+    max-height: calc(100% - 3rem);
+    animation: dialog-entry 0.4s;
+    animation-timing-function: cubic-bezier(0.075, 0.820, 0.165, 1.000);
+}
+
+@keyframes dialog-entry {
+    0% {
+        transform: translateY(30px) scale(0.95);
+    }
+    100% {
+        transform: translateX(0px) scale(1.0);
+    }
+}
+
+.dialog-title {
+    background-color: #444;
+    color: #fff2cc;
+    padding: 1.3rem 2rem;
+}
+
+.dialog-title h2 {
+    color: white;
+    font-size: 1.4rem;
+    margin: 0;
+    font-family: 'Bahnschrift', Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    line-height: 1.3rem;
+}
+
+.dialog-body {
+    flex-grow: 1;
+}
+
+.dialog-buttons {
+    height: 4rem;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    background-color: #eee;
+    padding: 0 1rem;
+}
+
+.dialog-body>div {
+    display: flex;
+    margin: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog-body label {
+    text-align: right;
+    width: 200px;
+    margin: 0 1.5rem;
+}
+
+a, .btn-link {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid #26b050;
+}
+
+.invalid {
+    outline: 1px solid red;
+}
+
+.validation-message {
+    color: red;
+}
+
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+#blazor-error-ui .dismiss {
+    cursor: pointer;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+}
+
+.spinner {
+    border: 16px solid silver;
+    border-top: 16px solid #337AB7;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 700ms linear infinite;
+    top: 40%;
+    left: 55%;
+    position: absolute;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+.pageTitle {
+    text-align: center;
+    color: #df49a6;
+    font-size: 2rem;
+    font-family: 'Nova Flat';
+    margin: 1rem 0 1rem 0;
+    /*align-self: end;*/
+}
+
+.animeName {
+    text-align: center;
+    color: antiquewhite;
+    font-size: 15px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+body {
+    background-color: #3d3d3d;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    font-family: 'Lato', 'Open Sans', sans-serif;
+    color: var(--text-primary);
+}
+
+.upcomingSeason {
+    display: grid;
+    grid-template-rows: 5vh 15vh auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-container {
+    z-index: 0;
+    height: 90vh;
+}
+
+.swiper-slide {
+    background-position: center;
+    width: 250px;
+    height: 100%;
+    -webkit-box-reflect: below 46px linear-gradient(transparent, transparent, #0006);
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* SEARCH ENGINE COMPONENT DISPLAY */
+
+.card img {
+    width: 100%;
+    height: 100%;
+    transition: all .5s cubic-bezier(.8, .5, .2, 1.4);
+}
+
+.card button {
+    position: absolute;
+    bottom: 10px;
+    left: 30%;
+    width: fit-content;
+    height: 40px;
+    cursor: pointer;
+    border-style: none;
+    background-color: #ff3838;
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, .4);
+    transition: all .5s ease-in-out;
+}
+
+.row {
+    justify-content: space-evenly;
+    padding-bottom: 5rem;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.searchForm {
+    justify-self: center;
+    display: grid;
+    grid-gap: 1rem;
+}
+
+.dropdown {
+    justify-self: center;
+}
+
+.dropdown.seasons {
+    display: grid;
+    row-gap: 1rem;
+}
+
+.dropdown span {
+    padding: 5px;
+}
+
+.dropdownBtn, .dropdown-item {
+    padding: 5px 10px;
+    background-color: var(--bg-primary);
+    color: #df49a6;
+    font-size: 18px;
+    border: none;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.dropdown-item {
+    display: block;
+    position: absolute;
+    width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    text-transform: capitalize;
+}
+
+.searchComponent {
+    display: grid;
+    grid-template-rows: 5vh 15vh auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.infoCol h3 {
+    color: var(--bg-primary);
+    letter-spacing: 1px;
+    margin: 0px;
+    padding-left: 25%;
+    font-family: 'Nova Flat';
+}
+
+.infoCol h2 {
+    font-family: 'Nova Flat';
+    color: var(--bg-primary);
+    letter-spacing: 1px;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.infoCol p {
+    padding-top: 10px;
+    line-height: 24px;
+    height: 50vh;
+    text-align: center;
+    color: var(--bg-primary);
+    overflow: auto;
+}
+
+.infoCol p::-webkit-scrollbar {
+    width: 0.25rem;
+}
+
+.infoCol p::-webkit-scrollbar-track {
+    background-color: #1e1e24;
+}
+
+.infoCol p::-webkit-scrollbar-thumb {
+    background-color: #6649b8;
+}
+
+.animeDetailsValues {
+    color: #df49a6;
+    text-align: right;
+}
+
+.scrollCol {
+    display: grid;
+    grid-template-columns: 350px;
+    grid-template-rows: 600px;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 601px) {
+    .col {
+        width: auto;
+        display: block;
+        margin: 20px;
+    }
+    .card {
+        height: 350px;
+        width: 15rem;
+        background: #fff;
+        border: 2px solid #fff;
+        box-shadow: 0px 4px 7px rgba(0, 0, 0, .5);
+        cursor: pointer;
+        transition: all .5s cubic-bezier(.8, .5, .2, 1.4);
+        overflow: hidden;
+        position: relative;
+    }
+    .descriptions {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background-color: rgba(4, 0, 0, .71);
+        width: 100%;
+        height: 100%;
+        transition: all .7s ease-in-out;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    .card h3 {
+        color: #df49a6;
+        letter-spacing: 1px;
+        margin: 0px;
+        font-size: 1rem;
+    }
+    .card p {
+        padding-top: 10px;
+        line-height: 24px;
+        height: 70%;
+        font-size: .8rem;
+    }
+    .card button{
+        height: 30px;
+        left: 28%;
+    }
+
+    .dropdown {
+        flex-direction: column;
+    }
+    .pageTitle {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-size: 1rem;
+    }
+    .dropdownBtn, .dropdown-item {
+        font-size: 1rem;
+        width: 10rem;
+    }
+    .dropdown .seasons {
+        display: grid;
+        row-gap: 1rem;
+    }
+    .dropdown .days {
+        width: 10rem;
+    }
+
+    .searchComponent {
+        display: grid;
+        grid-template-rows: 10vh 20vh auto;
+        align-items: center;
+        row-gap: 1rem;
+    }
+
+    .searchForm {
+        justify-items: center;
+    }
+
+    .searchItems {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 1rem;
+    }
+    .searchElems {
+        justify-self: center;
+        align-self: center;
+        width: 15rem;
+    }
+    #searchBox {
+        display: none;
+    }
+
+    .detailsGrid {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 0 2rem 0;
+        row-gap: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .infoCol{
+        order: 2;
+    }
+    .imageCol{
+        order: 1;
+    }
+    .vidsCol{
+        order: 3;
+    }
+
+    .mangaDetails {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 0 7rem 0;
+        row-gap: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+    .mangaInfo {
+        order: 2;
+        padding: 0 2rem 0 2rem;
+    }
+    .snip1295{
+        order: 1;
+    }
+}
+
+@media screen and (min-width: 601px) {
+    .homePage {
+        margin-left: 5rem;
+        height: 95vh;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 100%;
+        grid-gap: 2rem;
+        justify-items: self-start;
+        align-items: flex-start;
+    }
+
+    .latestAnime {
+        width: calc(100% - 2rem);
+        height: 100%;
+        padding-left: 1rem;
+    }
+
+    .upcomingSeason {
+        display: grid;
+        grid-template-rows: 10vh 20vh auto;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .homePageContent {
+        width: calc(100% - 1rem);
+        padding-left: 2rem;
+    }
+
+    .topMangaList {
+        display: flex;
+        width: calc(100% - 2rem);
+        overflow: auto;
+        grid-gap: 2em;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .mangaDetails {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem 2rem 2rem 7rem;
+        flex-direction: row;
+    }
+
+    .mangaInfo {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: start;
+        flex-direction: column;
+        flex-basis: 65vw;
+    }
+
+    .mangaInfo h4 {
+        margin: 0;
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+
+    .mangaInfo p {
+        font-size: 0.8rem;
+        padding: 0.5rem;
+    }
+
+    .row {
+        display: grid;
+        grid-gap: 2rem 2rem;
+        justify-content: space-evenly;
+        grid-template-columns: repeat(auto-fill, 18rem);
+        width: 85vw;
+    }
+
+    .detailsGrid {
+        height: 85vh;
+        display: grid;
+        padding-left: 5rem;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 1rem;
+        justify-items: center;
+        align-items: flex-start;
+    }
+
+    .imageCol {
+        justify-self: center;
+        align-self: center;
+    }
+
+    .infoCol {
+        margin: 2rem 1rem;
+    }
+
+    .vidsCol {
+        margin: 0;
+        height: 85vh;
+        width: 25vw;
+        justify-self: center;
+        align-self: start;
+        padding-top: 2rem;
+    }
+
+    .scroller-wrapper {
+        margin-left: 0 !important;
+        height: 100%;
+    }
+
+    .scroller-container {
+        margin-left: 0 !important;
+        height: 600px;
+    }
+
+    .scroller-slide {
+        height: 150px !important;
+    }
+
+    .searchComponent {
+        display: grid;
+        grid-template-rows: 10vh 20vh auto;
+        align-items: center;
+        margin-left: 5rem;
+        row-gap: 1rem;
+    }
+
+    .searchForm {
+        justify-items: center;
+    }
+
+    .searchItems {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 1rem;
+    }
+
+    .searchElems {
+        width: 25vw !important;
+        justify-self: center;
+        align-self: center;
+    }
+
+    #searchBox {
+        position: absolute;
+        bottom: 0;
+    }
+
+    .dropElems {
+        width: 15vw;
+    }
+
+    .upcomingSeason {
+        margin-left: 5rem;
+    }
+
+    .dropdownBtn, .dropdown-item {
+        font-size: 1rem;
+        width: 10rem;
+    }
+
+    .dropdown.seasons {
+        display: grid;
+        row-gap: 1rem;
+    }
+
+    .dropdown.days {
+        width: 10rem;
+    }
+
+    .swiper-container {
+        height: 100%;
+        z-index: 0;
+    }
+
+    .card {
+        flex: 1;
+        flex-basis: 300px;
+        flex-grow: 0;
+        height: 440px;
+        width: 18rem;
+        background: #fff;
+        border: 2px solid #fff;
+        box-shadow: 0px 4px 7px rgba(0, 0, 0, .5);
+        cursor: pointer;
+        transition: all .5s cubic-bezier(.8, .5, .2, 1.4);
+        overflow: hidden;
+        position: relative;
+    }
+
+    .descriptions {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background-color: rgba(255, 255, 255, .7);
+        width: 100%;
+        height: 100%;
+        transition: all .7s ease-in-out;
+        padding: 20px;
+        box-sizing: border-box;
+        clip-path: circle(0% at 100% 100%);
+    }
+
+    .card:hover .descriptions {
+        left: 0px;
+        transition: all .7s ease-in-out;
+        clip-path: circle(75%);
+    }
+
+    .card:hover {
+        transition: all .5s cubic-bezier(.8, .5, .2, 1.4);
+        box-shadow: 0px 2px 3px rgba(0, 0, 0, .3);
+        transform: scale(.97);
+    }
+
+    .card:hover img {
+        transition: all .5s cubic-bezier(.8, .5, .2, 1.4);
+        transform: scale(1.6) rotate(20deg);
+        filter: blur(3px);
+    }
+
+    .card h3 {
+        color: #df49a6;
+        letter-spacing: 1px;
+        margin: 0px;
+    }
+
+    .card p {
+        padding-top: 10px;
+        line-height: 24px;
+        height: 70%;
+        color: black;
+        font-size: .8rem;
+    }
+
+
+    .card button:hover {
+        transform: scale(.95) translateX(-5px);
+        transition: all .5s ease-in-out;
+    }
+}
