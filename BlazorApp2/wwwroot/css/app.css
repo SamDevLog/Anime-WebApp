@@ -272,13 +272,13 @@ a, .btn-link {
 }
 
 body {
-    background-color: #3d3d3d;
+    background-color: #1d1c1c;
     padding: 0px;
     margin: 0px;
     width: 100%;
     height: 100%;
     font-family: 'Lato', 'Open Sans', sans-serif;
-    color: var(--text-primary);
+    color: #cecece;
 }
 
 .upcomingSeason {
@@ -396,7 +396,6 @@ body {
 }
 
 .infoCol h3 {
-    color: var(--bg-primary);
     letter-spacing: 1px;
     margin: 0px;
     padding-left: 25%;
@@ -405,7 +404,6 @@ body {
 
 .infoCol h2 {
     font-family: 'Nova Flat';
-    color: var(--bg-primary);
     letter-spacing: 1px;
     margin: 1rem 0;
     text-align: center;
@@ -416,7 +414,6 @@ body {
     line-height: 24px;
     height: 50vh;
     text-align: center;
-    color: var(--bg-primary);
     overflow: auto;
 }
 
