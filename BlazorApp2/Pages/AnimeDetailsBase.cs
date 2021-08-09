@@ -1,8 +1,6 @@
 ﻿using BlazorApp2.Models;
 using BlazorApp2.Services;
 using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,8 +9,6 @@ namespace BlazorApp2.Pages
 {
     public class AnimeDetailsBase : ComponentBase
     {
-        [Inject]
-        public IJSRuntime jsRuntime { get; set; }
         public Anime Anime { get; set; } = new();
         public List<Promo> Promos { get; set; } = new();
         public List<Episode> Episodes { get; set; } = new();
@@ -34,11 +30,5 @@ namespace BlazorApp2.Pages
                 Episodes = vids.episodes.ToList();
             }
         }
-
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            await jsRuntime.InvokeVoidAsync("initializeScroller");
-            
-        }   
     }
 }
