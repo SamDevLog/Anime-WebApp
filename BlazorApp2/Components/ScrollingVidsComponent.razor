@@ -1,14 +1,13 @@
-<div class="swiper-container scroller-container">
-    <div class="swiper-wrapper scroller-wrapper">
-        @foreach (var ep in Episodes)
-        {
-            <!-- Slides -->
-            <div class="swiper-slide scroller-slide" style="height: 200px!important;" @onclick="@(()=>ShowPopupModal(ep.title, ep.url))" >
-                <img src="@ep.image_url" alt="@ep.title">
-            </div>        
-        }
-    </div>
+<div class=animeDetailsVids>
+    
+    @foreach (var ep in Episodes)
+    {
+        <div @onclick="@(()=>ShowPopupModal(ep.title, ep.url))">
+            <img src="@ep.image_url" alt="@ep.title">
+        </div>
+    }
 </div>
+
 
 @if (showingPopup)
 {

@@ -21,8 +21,6 @@ namespace BlazorApp2
             {
                 client.BaseAddress = new Uri("https://api.jikan.moe/v3/");
             });
-            //builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://api.jikan.moe/v3/") });
-            //builder.Services.AddScoped<IAnimeService, AnimeService>();
 
             await builder.Build().RunAsync();
         }

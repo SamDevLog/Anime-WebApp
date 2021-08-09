@@ -26,14 +26,28 @@ else
                 <div class="card-body text-center">
                     <img class="card-img-top" src="@Anime.image_url" />
                 </div>
-                <div class="card-footer text-center">
-                    <a href="/" class="btn btn-primary">Back</a>
-                </div>
             </div>
+            <a href="/">
+                <button>
+                    <i class="fas fa-arrow-circle-left" aria-hidden="true">    Back</i>
+                </button>
+            </a>
             
         </div>
         <div class="vidsCol">
-            <ScrollingVidsComponent Episodes="Episodes"></ScrollingVidsComponent>
+            <div>
+                <h3>Promo Videos &ang; Episodes</h3>
+            </div>
+            @if (Episodes.Any())
+            {
+                <ScrollingVidsComponent Episodes="Episodes"></ScrollingVidsComponent>
+            }
+            else
+            {
+                <div>
+                    <h3>No videos available yet!</h3>
+                </div>
+            }
         </div>
     </div>
 }
