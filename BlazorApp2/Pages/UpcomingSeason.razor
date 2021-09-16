@@ -35,14 +35,19 @@
                     </InputSelect>
                 </EditForm>
 
-            @if (AnimeList.Count < 1)
-            {
-                <div style="padding-top: 1em; font-size: 1rem;">Results were not found</div>
-            }
-
         </div>
-        <UpComingSeasonComponent UpcomingSeasons="AnimeList"></UpComingSeasonComponent>
 
+        @if (AnimeList.Any())
+        {
+            <UpComingSeasonComponent UpcomingSeasons="AnimeList"></UpComingSeasonComponent>
+            
+        }else
+        {
+            string content = "Anime";
+            <div class="no-content">
+                <ContentUnavailable Content="@content" Title="@Season.ToString()"></ContentUnavailable>
+            </div>
+        }
     }
 
 </section>

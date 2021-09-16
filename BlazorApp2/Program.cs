@@ -22,6 +22,11 @@ namespace BlazorApp2
                 client.BaseAddress = new Uri("https://api.jikan.moe/v3/");
             });
 
+            builder.Services.AddHttpClient<IEpisodeService, EpisodeService>(client =>
+            {
+                client.BaseAddress = new Uri("https://api.aniapi.com/v1/");
+            });
+
             await builder.Build().RunAsync();
         }
     }

@@ -2,7 +2,7 @@ window.initializeSwiper = () => {
     var swiper = new Swiper(".swiper-container", {
         effect: "coverflow",
         grabCursor: true,
-        loop: true,
+        loop: false,
         centeredSlides: true,
         slidesPerView: "auto",
         coverflowEffect: {

@@ -1,27 +1,29 @@
 <div class=animeDetailsVids>
-    
-    @foreach (var ep in Episodes)
+    <div>
+        <h3>Episodes Found: @Episodes.Count()</h3>
+    </div>
+    <div>
+    @foreach (var item in Episodes)
     {
-        <div @onclick="@(()=>ShowPopupModal(ep.Source, ep.Video))">
-            <img src="@ep.Video" alt="@ep.Title">
+        
+        <div class="videoThumbnail" @onclick="@(()=>ShowPopupModal(item.Title, item.Video))">
+            <h3>@item.Number</h3>
+            <h3>@item.Title</h3>
         </div>
     }
-</div>
+    </div>
 
+</div>
 
 @if (showingPopup)
 {
     <PopupModal Title="@title" VideoUrl="@url" OnCancel="@ClosePopupModal"></PopupModal>
 }
 
-
 @code{
-    //[Parameter]
-    //public List<Promo> Promos { get; set; }
     [Parameter]
-    public List<AniEpisodeBase> Episodes { get; set; } = new();
-
-
+    public List<AniEpisodeBase> Episodes {get; set;} = new();
+    
     string title;
     string url;
     bool showingPopup;
@@ -37,4 +39,5 @@
         url = String.Empty;
         showingPopup = false;
     }
+
 }

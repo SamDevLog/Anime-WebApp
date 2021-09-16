@@ -12,42 +12,41 @@ else
     <h3 class="pageTitle">@Anime.title Details</h3>
 
     <div class="detailsGrid">
-        <div class="infoCol">
-            <h3>Episode ID : <span class="animeDetailsValues"> @Anime.mal_id</span></h3>
-            <h3>Episodes : <span class="animeDetailsValues">@Anime.episodes</span></h3>
-            <h3>Score : <span class="animeDetailsValues">@Anime.score</span></h3>
-            <h3>Rank : <span class="animeDetailsValues">@Anime.rank</span></h3>
-            <h3>Start Date : <span class="animeDetailsValues">@Anime.start_date</span></h3>
-            <h3>End Date : <span class="animeDetailsValues">@Anime.end_date</span></h3>
-            <p>Synopsis: <br> @Anime.synopsis</p>
-        </div>
-        <div class="imageCol">
-            <div class="card">
-                <div class="card-body text-center">
-                    <img class="card-img-top" src="@Anime.image_url" />
-                </div>
-            </div>
-            <a href="/">
-                <button>
-                    <i class="fas fa-arrow-circle-left" aria-hidden="true">    Back</i>
-                </button>
-            </a>
-            
-        </div>
-        <div class="vidsCol">
+        
+        <div id="borders" class="imageCol">
             <div>
-                <h3>Promo Videos &ang; Episodes</h3>
+                <img style="height: 400px; width: 280px" src="@Anime.image_url" alt="@Anime.title"/>
             </div>
-            @if (Episodes.Any())
+        </div>
+        <div id="borders" class="infoCol">
+            <div style="margin: 2rem 0;">
+                <h3>Episode ID : <span class="animeDetailsValues"> @(Anime.mal_id.HasValue ? Anime.mal_id : "N/A")</span></h3>
+                <h3>AniList Id: <span class="animeDetailsValues">@(AniId.HasValue ? AniId : "N/A")</span></h3>
+                <h3>Episodes : <span class="animeDetailsValues">@(Anime.episodes.HasValue ? Anime.episodes : "N/A")</span></h3>
+                <h3>Score : <span class="animeDetailsValues">@(Anime.score.HasValue ? Anime.score : "N/A")</span></h3>
+                <h3>Rank : <span class="animeDetailsValues">@(Anime.rank.HasValue ? Anime.rank : "N/A")</span></h3>
+                <h3>Start Date : <span class="animeDetailsValues">@(String.IsNullOrEmpty(Anime.start_date) ? "N/A" : Anime.start_date) </span></h3>
+                <h3>End Date : <span class="animeDetailsValues">@(String.IsNullOrEmpty(Anime.end_date) ? "N/A" : Anime.end_date)</span></h3>
+                <p>Synopsis: <br> @Anime.synopsis</p>
+            </div>
+        </div>
+        <div id="borders" class="vidsCol">
+            @if (EpisodesListDict != null && EpisodesListDict.Count > 0)
             {
-                <ScrollingVidsComponent Episodes="Episodes"></ScrollingVidsComponent>
-            }
-            else
+                @if (EpisodesListDict.ContainsKey("en") || EpisodesListDict.ContainsKey("it"))
+                {
+                    @* <EpisodesVideos Episodes="episodesList"></EpisodesVideos> *@
+                    <EnglishEpisodes EpisodesDict="@EpisodesListDict"></EnglishEpisodes>
+                }
+            }else
             {
-                <div>
-                    <h3>No videos available yet!</h3>
+                string content = "Episodes";
+                <div class="no-content">
+                    <ContentUnavailable Content="@content" Title="@Anime.title"></ContentUnavailable>
                 </div>
             }
+            
+
         </div>
     </div>
 }
