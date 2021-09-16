@@ -4,13 +4,16 @@
 
 @if (Episodes != null)
 {
-    <h3 class="pageTitle">Top Anime</h3>
+    
     <div class="homePage">
         <div class="latestAnime">
             <LatestAnime Episodes="Episodes"></LatestAnime>
         </div>
-        <h3 class="pageTitle">Highly Ranked Manga</h3>
+
+        <div id="divider"></div>
+        
         <div class="homePageContent">
+            <h3 class="pageTitle">Highly Ranked Manga</h3>
             @if (TopManga != null)
             {
             <div class="swiper-container">
@@ -18,6 +21,7 @@
                     @foreach (var manga in TopManga.Top)
                     {
                         <div class="swiper-slide">
+                            <h5 class="animeName">@manga.title</h5>
                             <a href="/manga/@manga.mal_id">
                                 <img class="cardImg" src="@manga.image_url" alt="@manga.title" />
                             </a>

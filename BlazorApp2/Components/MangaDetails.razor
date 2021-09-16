@@ -8,15 +8,13 @@
     @if (Manga != null)
     {
         <div class="mangaInfo">
-            <h4>Title : @Manga.title</h4>
-            <h4>Volumes : @Manga.volumes</h4>
-            <h4>Chapters : @Manga.chapters</h4>
-            <h4>Background: </h4><p>@Manga.background</p>
-            <h4>Synopsis: </h4><p>@Manga.synopsis</p>
+            <h4>Title : @(string.IsNullOrEmpty(Manga.title) ? "N/A" : Manga.title)</h4>
+            <h4>Volumes : @(Manga.volumes.HasValue ? Manga.volumes : "N/A")</h4>
+            <h4>Chapters : @(Manga.chapters.HasValue ? Manga.chapters : "N/A")</h4>
+            <h4>Background: </h4><p>@(string.IsNullOrEmpty(Manga.background) ? "N/A" : Manga.background)</p>
+            <h4>Synopsis: </h4><p>@(string.IsNullOrEmpty(Manga.synopsis) ? "N/A" : Manga.synopsis)</p>
         </div>
-        @* <div>
-            <img src=""/>
-        </div> *@
+        
         <figure class="snip1295"><img src="@Manga.image_url" alt="sample67"/>
             <div class="border one">
                 <div></div>

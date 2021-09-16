@@ -1,0 +1,16 @@
+<div>
+   <h3>@Content For " <span class="animeDetailsValues">@Title</span> " Are Not Available For Now!</h3>
+   <h3>Please Come Back Later</h3>
+</div>
+<div>
+    <img src="\img\no-content.gif" width="200px">
+</div>
+
+
+@code{
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public string Content { get; set; }
+}

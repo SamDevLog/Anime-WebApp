@@ -1,0 +1,14 @@
+<div class=animeDetailsVids>
+    <div>
+        <h3>English Episodes Found: @(EpisodesDict.ContainsKey("en") ? EpisodesDict["en"].Count : "0" ) & Italian Episodes Found: @(EpisodesDict.ContainsKey("it") ? EpisodesDict["it"].Count : "0")</h3>
+    </div>
+    <div>
+    
+    </div>
+
+</div>
+
+@code{
+    [Parameter]
+    public Dictionary<string, List<AniEpisodeBase>> EpisodesDict { get; set; }
+}
