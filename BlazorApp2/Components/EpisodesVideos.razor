@@ -1,18 +1,11 @@
-<div class=animeDetailsVids>
-    <div>
-        <h3>Episodes Found: @Episodes.Count()</h3>
+<div class="animeDetailsVids ">
+@foreach (var item in Episodes)
+{
+    <div class="videoThumbnail" @onclick="@(()=>ShowPopupModal(item.Title, item.Video))">
+        <h3>@item.Number</h3>
+        <h3>@item.Title</h3>
     </div>
-    <div>
-    @foreach (var item in Episodes)
-    {
-        
-        <div class="videoThumbnail" @onclick="@(()=>ShowPopupModal(item.Title, item.Video))">
-            <h3>@item.Number</h3>
-            <h3>@item.Title</h3>
-        </div>
-    }
-    </div>
-
+}
 </div>
 
 @if (showingPopup)

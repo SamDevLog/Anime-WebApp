@@ -1,10 +1,10 @@
 <div style="@(ActiveClass ? "display: flex;" : "display: none; ") position: relative;">
-        <EpisodesVideos Episodes="@EnglishEpisodesList"></EpisodesVideos>
+        <EpisodesVideos Episodes="@ItalianEpisodesList"></EpisodesVideos>
 </div>
 
 @code{
     [Parameter]
-    public List<AniEpisodeBase> EnglishEpisodesList { get; set; }
+    public List<AniEpisodeBase> ItalianEpisodesList { get; set; }
     [Parameter]
     public bool ActiveClass { get; set; }
 }

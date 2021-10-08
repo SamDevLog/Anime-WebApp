@@ -20,8 +20,6 @@ else
         </div>
         <div id="borders" class="infoCol">
             <div style="margin: 2rem 0;">
-                <h3>Episode ID : <span class="animeDetailsValues"> @(Anime.mal_id.HasValue ? Anime.mal_id : "N/A")</span></h3>
-                <h3>AniList Id: <span class="animeDetailsValues">@(AniId.HasValue ? AniId : "N/A")</span></h3>
                 <h3>Episodes : <span class="animeDetailsValues">@(Anime.episodes.HasValue ? Anime.episodes : "N/A")</span></h3>
                 <h3>Score : <span class="animeDetailsValues">@(Anime.score.HasValue ? Anime.score : "N/A")</span></h3>
                 <h3>Rank : <span class="animeDetailsValues">@(Anime.rank.HasValue ? Anime.rank : "N/A")</span></h3>
@@ -31,13 +29,25 @@ else
             </div>
         </div>
         <div id="borders" class="vidsCol">
+            
             @if (EpisodesListDict != null && EpisodesListDict.Count > 0)
             {
-                @if (EpisodesListDict.ContainsKey("en") || EpisodesListDict.ContainsKey("it"))
+                <div class="btn-group">
+                    @foreach (var item in EpisodesListDict.Keys)
+                    {
+                        <button type="button" class="@(item.Equals("it") == true ? (ItalianActive == true ? "active" : string.Empty) : (EnglishActive == true ? "active" : string.Empty) )" @onclick="@(e => ShowEpisodes(e,item))">@item</button>
+                    }
+                </div>
+                <div class="videosContainer" style="">
+                @if (EpisodesListDict.ContainsKey("en"))
                 {
-                    @* <EpisodesVideos Episodes="episodesList"></EpisodesVideos> *@
-                    <EnglishEpisodes EpisodesDict="@EpisodesListDict"></EnglishEpisodes>
+                    <EnglishEpisodes ActiveClass=EnglishActive EnglishEpisodesList="@EpisodesListDict["en"]"></EnglishEpisodes>
                 }
+                @if (EpisodesListDict.ContainsKey("it"))
+                {
+                    <ItalianEpisodes ActiveClass=ItalianActive ItalianEpisodesList="@EpisodesListDict["it"]"></ItalianEpisodes>
+                }
+                </div>
             }else
             {
                 string content = "Episodes";
@@ -45,8 +55,6 @@ else
                     <ContentUnavailable Content="@content" Title="@Anime.title"></ContentUnavailable>
                 </div>
             }
-            
-
         </div>
     </div>
 }

@@ -25,7 +25,6 @@ namespace BlazorApp2.Services
             
             if (responseBodyEn.Contains("404"))
             {
-                Console.WriteLine("EN response body returned 404");
                 return null;
             }
 
@@ -37,33 +36,11 @@ namespace BlazorApp2.Services
             }
 
             return enEpisodes;
-
         }
 
         public async Task<AniEpisode> GetEpisode(int animeId, int episodeNumber)
         {
             return await _httpClient.GetFromJsonAsync<AniEpisode>($"episode?anime_id={animeId}&number={episodeNumber}");
-        }
-
-        public async Task<List<AniEpisodeBase>> GetEpisodesList(int animeId)
-        {
-            List<AniEpisodeBase> episodes = new();
-           
-            var responseBody = await _httpClient.GetStringAsync($"episode?anime_id={animeId}&locale=it");
-            
-            if (responseBody.Contains("404"))
-            {
-                return null;
-            }
-
-            var response = await _httpClient.GetFromJsonAsync<AniRoot>($"episode?anime_id={animeId}&locale=it");
-            
-            if (response.data.documents != null)
-            {
-                episodes = response.data.documents.Where(x => !string.IsNullOrEmpty(x.Title)).ToList();
-            }
-            
-            return episodes;
         }
 
         public async Task<int> GetIdOfAnime(int mal_id)

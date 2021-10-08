@@ -4,6 +4,7 @@
     --text-secondary: #ececec;
     --bg-primary: #23232e;
     --bg-secondary: #141418;
+    --primary-pink: #df49a6;
     --transition-speed: 600ms;
     font-family: 'Open Sans';
 }
@@ -44,7 +45,7 @@
 }
 
 .snip1295 .border:before, .snip1295 .border:after, .snip1295 .border div:before, .snip1295 .border div:after {
-    background-color: #df49a6;
+    background-color: var(--primary-pink);
     position: absolute;
     content: "";
     display: block;
@@ -105,10 +106,49 @@
     height: 100%;
 }
 
+/* ------- Tabs ---------*/
+.btn-group{
+    width: 100%;
+    display: flex;
+    position: absolute;
+    top: 10px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-group button {
+    background-color: #373636; /* Green background */
+    border: 1px solid #df418b; /* Green border */
+    color: white; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    width: calc(50% - 1rem);
+    margin: 0 3px;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+    background-color: #df49a6;
+}
+
+.active{
+    background-color: df49a6!important;
+}
+
 /* Modal Code */
 
 .dialog-container {
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
@@ -244,7 +284,7 @@ a, .btn-link {
 
 .pageTitle {
     text-align: center;
-    color: #df49a6;
+    color: var(--primary-pink);
     font-size: 1.5rem;
     font-family: 'Nova Flat';
     margin: 1rem 0 1rem 0;
@@ -360,7 +400,7 @@ body {
 .dropdownBtn, .dropdown-item {
     padding: 5px 10px;
     background-color: var(--bg-primary);
-    color: #df49a6;
+    color: var(--primary-pink);
     font-size: 18px;
     border: none;
     text-transform: capitalize;
@@ -418,7 +458,7 @@ body {
 }
 
 .animeDetailsValues {
-    color: #df49a6;
+    color: var(--primary-pink);
     text-align: right;
 }
 
@@ -458,25 +498,28 @@ body {
 
 .videoThumbnail{
     background: #373636;
-    width: 200px;
+    min-width: 200px;
     height: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 1em 0;
+    padding: .5em;
+    margin: 1em;
     box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
 .videoThumbnail h3{
+    width: 100%;
     margin: .5em;
-    overflow-y: hidden;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
 }
 
 @media screen and (max-width: 601px) {
     .spinner {
         border: 16px solid silver;
-        border-top: 16px solid #df49a6;
+        border-top: 16px solid var(--primary-pink);
         border-radius: 50%;
         width: 60px;
         height: 60px;
@@ -528,7 +571,7 @@ body {
         box-sizing: border-box;
     }
     .card h3 {
-        color: #df49a6;
+        color: var(--primary-pink);
         letter-spacing: 1px;
         margin: 0px;
         font-size: 1rem;
@@ -602,6 +645,8 @@ body {
 
     .infoCol{
         order: 2;
+        margin: .5em;
+        padding: .5em;
     }
     .imageCol{
         order: 1;
@@ -617,17 +662,24 @@ body {
         justify-content: center;
         align-items: center;
         width: 100%;
-        padding-bottom: 5rem;
+        height: 20rem;
+        margin: 3rem 0 6rem 0;
+        padding: 1em 0;
+        position:relative;
     }
 
     .animeDetailsVids {
         display: flex;
-        column-gap: 1rem;
         overflow-x: auto;
         width: 100%;
         flex-direction: row;
         overflow-y: hidden;
         white-space: nowrap;
+    }
+
+    .videosContainer{
+        width: 100%; 
+        margin: 1em 0;
     }
 
     .mangaDetails {
@@ -655,7 +707,7 @@ body {
     
     .spinner {
         border: 16px solid silver;
-        border-top: 16px solid #df49a6;
+        border-top: 16px solid var(--primary-pink);
         border-radius: 50%;
         width: 80px;
         height: 80px;
@@ -813,6 +865,9 @@ body {
         align-items: center;
         display: flex;
         flex-direction: column;
+        position: relative;
+        overflow-y: scroll;
+        overflow-x: hidden;
     }
 
     .animeDetailsVids {
@@ -824,6 +879,17 @@ body {
         align-items: center;
         row-gap: 1rem;
         overflow: auto;
+    }
+
+    .videosContainer{
+        height: calc(100% - 7rem); 
+        padding: 1em 0;
+    }
+
+    .videoThumbnail{
+        max-width: 100px;
+        max-height: 150px;
+        cursor: pointer;
     }
 
     .scroller-wrapper {
@@ -945,7 +1011,7 @@ body {
     }
 
     .card h3 {
-        color: #df49a6;
+        color: var(--primary-pink);
         letter-spacing: 1px;
         margin: 0px;
     }

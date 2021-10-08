@@ -4,7 +4,7 @@
 
 
 <section class="upcomingSeason">
-    @if (AnimeList == null)
+    @if (!AnimeList.Any())
     {
         <div class="spinner"></div>
     }
