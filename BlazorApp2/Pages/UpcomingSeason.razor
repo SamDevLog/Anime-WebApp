@@ -4,12 +4,7 @@
 
 
 <section class="upcomingSeason">
-    @if (!AnimeList.Any())
-    {
-        <div class="spinner"></div>
-    }
-    else
-    {
+    
         <div>
             <h3 class="pageTitle">Season Animes</h3>
         </div>
@@ -36,7 +31,12 @@
                 </EditForm>
 
         </div>
-
+@if (AnimeList == null)
+    {
+        <div class="spinner"></div>
+    }
+    else
+    {
         @if (AnimeList.Any())
         {
             <UpComingSeasonComponent UpcomingSeasons="AnimeList"></UpComingSeasonComponent>
@@ -45,7 +45,7 @@
         {
             string content = "Anime";
             <div class="no-content">
-                <ContentUnavailable Content="@content" Title="@Season.ToString()"></ContentUnavailable>
+                <ContentUnavailable Content="@content" Title="@NoContentParams"></ContentUnavailable>
             </div>
         }
     }
