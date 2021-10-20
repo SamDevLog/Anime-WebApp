@@ -163,15 +163,13 @@
 
 @code{
     
-    //public string searchQuery { get; set; }
     public Search SearchField { get; set; } = new Search();
     [Inject]
     public NavigationManager nav { get; set; }
 
     public void HandleSearch()
     {
-        nav.NavigateTo($"/search/{SearchField.SearchField}");
+        nav.NavigateTo($"search/{SearchField.SearchField}");
         SearchField.SearchField = "";
-        //StateHasChanged();
     }
 }
