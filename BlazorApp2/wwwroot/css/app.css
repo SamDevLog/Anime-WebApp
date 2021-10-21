@@ -210,6 +210,14 @@
     flex-grow: 1;
 }
 
+.dialog-body>button{
+    position: absolute;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+}
+
 .dialog-buttons {
     height: 4rem;
     flex-shrink: 0;
@@ -541,6 +549,61 @@ body {
     .no-content h3{
         text-align: center;
         font-family: nova flat;
+    }
+
+
+    .dialog {
+        position: absolute;
+        background-color: white;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+        display: flex;
+        flex-direction: column;
+        z-index: 2000;
+        align-self: center;
+        margin: 0;
+        padding: 0;
+        max-height: 100%;
+        width: 100%;
+        height: 100%;
+        animation: dialog-entry 0.4s;
+        animation-timing-function: cubic-bezier(0.075, 0.820, 0.165, 1.000);
+    }
+
+    .dialog-body{
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .dialog-body video{
+        width: 90vh;
+        height: 90vw;
+        transform: rotate(90deg);
+        transform-origin: bottom left;
+        margin-top: -82vw;
+        margin-left: 3vh;
+    }
+
+    .dialog-body>button{
+        bottom: 10px; 
+        right: 10px;
+    }
+    
+    .dialog-body video:-webkit-full-screen {
+        position: absolute;
+        width: 100vh;
+        height: 100vw;
+        transform: rotate(90deg);
+        transform-origin: bottom left;
+        margin-top: -100vw;
+        z-index: 4;
+        visibility: visible;
+    }
+
+    .dialog-title{
+        display: none;
+    }
+
+    .dialog-buttons{
+        display: none;
     }
 
     .col {
@@ -890,6 +953,20 @@ body {
         max-width: 100px;
         max-height: 150px;
         cursor: pointer;
+    }
+
+    .dialog-body{
+        position: relative;
+        align-self: center;
+    }
+
+    .dialog-body>button{
+        bottom: 103%;
+        right: -80px;
+    }
+
+    video{
+        width: 600px;
     }
 
     .scroller-wrapper {
