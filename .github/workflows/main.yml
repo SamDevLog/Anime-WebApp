@@ -1,6 +1,6 @@
 name: Deploy to GitHub Pages
 env:
-  PUBLISH_DIR: /BlazorApp2/bin/Release/net5.0/publish/wwwroot
+  PUBLISH_DIR: /release/wwwroot
 
 # Run workflow on every push to the master branch
 on:
@@ -21,24 +21,25 @@ jobs:
           
         # publishes Blazor project to the release-folder
       - name: Publish .NET Core Project
-        run: dotnet publish ./BlazorApp2/BlazorApp2.csproj -c Release
+        run: dotnet publish ./BlazorApp2/BlazorApp2.csproj -c Release -o release --nologo
         
         # changes the base-tag in index.html from '/' to 'Anime-WebApp' to match GitHub Pages repository subdirectory
         # - name: Change base-tag in index.html from / to Anime-WebApp
-        # run: sed -i 's/<base href="\/" \/>/<base href="\/Anime-WebApp\/" \/>/g' ./wwwroot/index.html
+        # run: sed -i 's/<base href="\/" \/>/<base href="\/Anime-WebApp\/" \/>/g' release/wwwroot/index.html
 
       - name: Rewrite base href
         uses: SteveSandersonMS/ghaction-rewrite-base-href@v1
         with:
-          html_path: ${{ env.PUBLISH_DIR }}/index.html
+          html_path: release/wwwroot/index.html
           base_href: /Anime-WebApp/BlazorApp2/
+        
+        # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
+      - name: Add .nojekyll file
+        run: touch release/wwwroot/.nojekyll
         
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: ${{ env.PUBLISH_DIR }}
-      
-    
-    
+          FOLDER: release/wwwroot
