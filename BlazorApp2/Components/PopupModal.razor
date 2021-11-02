@@ -5,14 +5,12 @@
         </div>
         <div class="dialog-body">
 			<div>
-				<video controls width="800" height="400" autoplay muted>
+				<video controls autoplay muted>
 					<source src="@VideoUrl" type="video/mp4">
 				</video>
 			</div>
 		</div>
-        <div class="dialog-buttons">
-            <button class="btn btn-secondary mr-auto" @onclick="OnCancel">Cancel</button>
-        </div>
+		<span class="btn-close" @onclick="OnCancel">&#10006;</span>
     </div>
 </div>
 
