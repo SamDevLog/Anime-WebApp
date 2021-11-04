@@ -34,21 +34,21 @@ namespace BlazorApp2.Pages
 
         protected override async Task OnInitializedAsync()
         {
-            try
-            {
-                Episodes = await _episodeService.GetAnimeList();
-                TopManga = await _episodeService.GetTopManga(); 
-            }
-            catch (NotSupportedException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            var _episodes = _episodeService.GetAnimeList();
+            var _topManga = _episodeService.GetTopManga();
+
+            await Task.WhenAll(_episodes, _topManga);
+
+            Episodes = await _episodes;
+            TopManga = await _topManga;
         }
 
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            await _jsRuntime.InvokeVoidAsync("initializeSwiper");
-        }
+        // protected override async Task OnAfterRenderAsync(bool firstRender)
+        // {
+        //     // await _jsRuntime.InvokeVoidAsync("initializeSwiper");
+        //     await _jsRuntime.InvokeVoidAsync("initializeGlider");
+            
+        // }
 
     }
 }

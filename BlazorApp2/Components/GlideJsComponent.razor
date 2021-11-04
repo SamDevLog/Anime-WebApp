@@ -1,0 +1,29 @@
+@inject IJSRuntime js;
+
+<h3 class="pageTitle">Top Anime</h3>
+<div class="glide-anime">
+  <div class="glide__track" data-glide-el="track">
+    <ul class="glide__slides">
+      @foreach (var ep in Episodes)
+        {
+          <li class="glide__slide glide__slide--card">
+            <h5 class="animeName">@ep.title</h5>
+            <a href="anime/@ep.mal_id">
+                <img class="cardImg" src="@ep.image_url" alt="@ep.title" style="width: 15rem; height: 25rem"/>
+            </a>
+          </li>
+        }
+    </ul>
+  </div>
+</div>
+
+
+@code{
+
+  [Parameter]
+  public IEnumerable<Anime> Episodes { get; set; }
+
+  protected override async Task OnAfterRenderAsync(bool firstRender){
+    await js.InvokeVoidAsync("initializeGlider", ".glide-anime");
+  }
+}

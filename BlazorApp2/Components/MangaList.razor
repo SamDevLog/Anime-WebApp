@@ -1,0 +1,30 @@
+@inject IJSRuntime js;
+
+<h3 class="pageTitle">Top Manga</h3>
+<div class="glide-manga">
+  <div class="glide__track" data-glide-el="track">
+    <ul class="glide__slides">
+      @foreach (var manga in TopManga.Top)
+        {
+          <li class="glide__slide">
+            <h5 class="animeName">@manga.title</h5>
+            <a href="manga/@manga.mal_id">
+                <img class="cardImg" src="@manga.image_url" alt="@manga.title" style="width: 15rem; height: 25rem"/>
+            </a>
+          </li>
+        }
+    </ul>
+  </div>
+</div>
+
+
+
+@code{
+
+  [Parameter]
+  public TopManga TopManga { get; set; }
+
+  protected override async Task OnAfterRenderAsync(bool firstRender){
+    await js.InvokeVoidAsync("initializeGlider", ".glide-manga");
+  }
+}
