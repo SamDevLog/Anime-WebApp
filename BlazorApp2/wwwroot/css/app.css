@@ -169,6 +169,7 @@
 }
 
 .dialog {
+    position: relative;
     background-color: white;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
     display: flex;
@@ -210,13 +211,14 @@
     flex-grow: 1;
 }
 
-.dialog-buttons {
-    height: 4rem;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    background-color: #eee;
-    padding: 0 1rem;
+.btn-close{
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    color: var(--primary-pink);
+    font-size: 2rem;
+    cursor: pointer;
+    padding: .5rem;
 }
 
 .dialog-body>div {
@@ -224,6 +226,10 @@
     margin: 1rem;
     align-items: center;
     justify-content: center;
+}
+
+.dialog-body video{
+    max-width: 100%;
 }
 
 .dialog-body label {
@@ -633,6 +639,7 @@ body {
         align-self: center;
         width: 15rem;
     }
+
     #searchBox {
         display: none;
     }
@@ -683,6 +690,29 @@ body {
     .videosContainer{
         width: 100%; 
         margin: 1em 0;
+    }
+
+    .dialog-body{
+        height: 100vw;
+        width: 100vh;
+        position: absolute;
+        top: 0;
+        transform: rotate(90deg) translate(-25%, 65%);
+    }
+
+    .dialog-body video{
+        height: 85vw;
+        width: 85vh;
+    }
+
+    .dialog-title{
+        display: none;
+    }
+
+    .btn-close{
+        top: 17rem;
+        right: 0;
+        padding: 1rem;
     }
 
     .mangaDetails {
