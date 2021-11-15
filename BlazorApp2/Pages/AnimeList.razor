@@ -18,7 +18,16 @@
             {
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    @foreach (var manga in TopManga.Top)
+                    @* <Virtualize Items="@TopManga.Top" Context="manga">
+                        <div class="swiper-slide">
+                            <h5 class="animeName">@manga.title</h5>
+                            <a href="manga/@manga.mal_id">
+                                <img class="cardImg" src="@manga.image_url" alt="@manga.title" />
+                            </a>
+                        </div>
+                    </Virtualize> *@
+
+                    @foreach (var manga in TopManga.Top.Take(10))
                     {
                         <div class="swiper-slide">
                             <h5 class="animeName">@manga.title</h5>
