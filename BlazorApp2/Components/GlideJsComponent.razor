@@ -7,9 +7,16 @@
       @foreach (var ep in Episodes)
         {
           <li class="glide__slide glide__slide--card">
-            <h5 class="animeName">@ep.title</h5>
             <a href="anime/@ep.mal_id">
-                <img class="cardImg" src="@ep.image_url" alt="@ep.title" style="width: 15rem; height: 25rem"/>
+              <div class="glide__slide--card-container">
+                <div class="glide__slide--card-container-bg" style="background: url(@ep.image_url) no-repeat center center;">
+                </div>
+                <div class="glide__slide--card-container-title">
+                  <h5>
+                    @ep.title
+                  </h5>
+                </div>
+              </div>
             </a>
           </li>
         }

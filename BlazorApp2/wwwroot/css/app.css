@@ -1,20 +1,23 @@
 ﻿:root {
-    font-size: 16px;
+    font-size: 10px;
     --text-primary: #b6b6b6;
     --text-secondary: #ececec;
     --bg-primary: #23232e;
     --bg-secondary: #141418;
     --primary-pink: #df49a6;
     --transition-speed: 600ms;
-    font-family: 'Open Sans';
+    font-family: 'Lato', 'Open Sans';
 }
 
-/**
+*,
+*::after,
+*::before
 {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-*/
+
 
 
 
@@ -232,14 +235,8 @@
     margin: 0 1.5rem;
 }
 
-a, .btn-link {
-    color: #0366d6;
-}
-
-.btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+a{
+    text-decoration: none;
 }
 
 .valid.modified:not([type=checkbox]) {
@@ -467,6 +464,54 @@ body {
     font-family: nova flat;
 }
 
+.glide__slide--card{
+    width: 300px;
+    height: 400px;
+    background: var(--bg-primary);
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    transform: scale(0.95);
+    transition: box-shadow 0.5s, transform 0.5s;
+}
+
+.glide__slide--card-container{
+    width: 100%;
+    height: 100%;
+}
+
+.glide__slide--card-container-bg{
+    height: 80%;
+    width:100%;
+    -webkit-background-size: cover!important;
+    -moz-background-size: cover!important;
+    -o-background-size: cover!important;
+    background-size: cover!important;
+}
+
+.glide__slide--card:hover{
+    transform: scale(1);
+    box-shadow: 5px 20px 30px rgba(0,0,0,0.2);
+}
+
+.glide__slide--card-container-title{
+    width: 100%;
+    height: 20%;
+    /* transition: transform 0.5s; */
+}
+
+.glide__slide--card-container-title h5{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    color: var(--primary-pink);
+    background-image: linear-gradient(132deg, rgba(var(--bg-secondary), .2),rgba(var(--bg-primary), .2));
+}
+
 .scrollCol {
     display: grid;
     grid-template-columns: 350px;
@@ -516,6 +561,10 @@ body {
     text-overflow: ellipsis;
 }
 
+@media screen and (min-width: 1024px){
+    
+}
+
 @media screen and (max-width: 601px) {
     .spinner {
         border: 16px solid silver;
@@ -541,6 +590,15 @@ body {
     .no-content h3{
         text-align: center;
         font-family: nova flat;
+    }
+
+    .homePage{
+        margin-bottom: 5rem;
+    }
+
+    .glide__slide--card{
+        height: 340px;
+        margin: 5px!important;
     }
 
     .col {
@@ -699,13 +757,9 @@ body {
     .snip1295{
         order: 1;
     }
-
-    .homePage h3 {
-        padding-bottom: 2rem;
-    }
 }
 
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 1200px) {
     
     .spinner {
         border: 16px solid silver;
@@ -1034,5 +1088,94 @@ body {
     .card button:hover {
         transform: scale(.95) translateX(-5px);
         transition: all .5s ease-in-out;
+    }
+}
+
+
+@media screen and (max-width: 75em) {
+    .homePage{
+        margin: 0 0 0 5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        row-gap: 3rem;
+        height: 100%;
+        width: 100vw;
+    }
+
+    .latestAnime{
+        width: 100%;
+        height: 100%;
+    }
+
+    .homePageContent{
+        width: 100%;
+        height: 100%;
+    }
+
+    .glide__slide--card{
+        height: 35rem;
+        max-width: 20rem;
+        margin: 2rem .5rem !important;
+    }
+
+    #divider{
+        height: 2px;
+        width: 80%;
+        background: linear-gradient(1deg, hsl(0, 0%, 10%), hsl(0, 0%, 40%), hsl(0, 0%, 10%));
+    }
+}
+
+
+@media screen and (max-width: 37.5em) {
+    .glide__slide--card{
+        height: 35rem;
+        max-width: 20rem;
+        margin: 2rem .5rem !important;
+    }
+
+    #divider{
+        height: 2px;
+        width: 80%;
+        background: linear-gradient(1deg, hsl(0, 0%, 10%), hsl(0, 0%, 40%), hsl(0, 0%, 10%));
+    }
+
+    .homePage{
+        margin: 1rem 0 5rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        row-gap: 1rem;
+        height: 100%;
+    }
+
+    .latestAnime{
+        width: 100%;
+        height: 100%;
+    }
+
+    .homePageContent{
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 23.5em) {
+    .glide__slide--card{
+        height: 25rem;
+        max-width: 15rem;
+        margin: 1rem 0 !important;
+    }
+
+    .homePage{
+        margin: 1rem 0 5rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        row-gap: 1rem;
+        height: 100%;
     }
 }

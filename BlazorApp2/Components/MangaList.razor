@@ -4,14 +4,25 @@
 <div class="glide-manga">
   <div class="glide__track" data-glide-el="track">
     <ul class="glide__slides">
-      @foreach (var manga in TopManga.Top)
+      @foreach (var manga in TopManga.Top.Take(10).ToList())
         {
-          <li class="glide__slide">
-            <h5 class="animeName">@manga.title</h5>
+          <li class="glide__slide glide__slide--card">
+            <a href="manga/@manga.mal_id">
+              <div class="glide__slide--card-container">
+                <div class="glide__slide--card-container-bg" style="background: url(@manga.image_url) no-repeat center center;">
+                </div>
+                <div class="glide__slide--card-container-title">
+                  <h5>
+                    @manga.title
+                  </h5>
+                </div>
+              </div>
+            </a>
+            @* <h5 class="animeName">@manga.title</h5>
             <a href="manga/@manga.mal_id">
                 <img class="cardImg" src="@manga.image_url" alt="@manga.title" style="width: 15rem; height: 25rem"/>
-            </a>
-          </li>
+            </a>*@
+          </li> 
         }
     </ul>
   </div>
