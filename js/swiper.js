@@ -1,5 +1,5 @@
 window.initializeSwiper = () => {
-    var swiper = new Swiper(".swiper-container", {
+    var swiper = new Swiper(".swiper", {
         effect: "coverflow",
         grabCursor: true,
         loop: false,
