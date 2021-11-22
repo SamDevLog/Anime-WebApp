@@ -6,17 +6,17 @@
 {
     
     <div class="homePage">
-        <div class="latestAnime">
+        <div class="homePage__section1">
             <LatestAnime Episodes="Episodes"></LatestAnime>
         </div>
 
         <div id="divider"></div>
         
-        <div class="homePageContent">
+        <div class="homePage__section2">
             <h3 class="pageTitle">Highly Ranked Manga</h3>
             @if (TopManga != null)
             {
-            <div class="swiper-container">
+            <div class="swiper swiper-container">
                 <div class="swiper-wrapper">
                     @* <Virtualize Items="@TopManga.Top" Context="manga">
                         <div class="swiper-slide">

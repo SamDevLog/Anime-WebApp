@@ -1,9 +1,11 @@
 ﻿@inject IJSRuntime _jsRuntime
 
 <h3 class="pageTitle">Top Anime</h3>
-<div class="swiper-container">
-    <div class="swiper-wrapper">
-        @foreach (var ep in Episodes)
+<div class="swiper swiper-container">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    @foreach (var ep in Episodes)
         {
             <div class="swiper-slide">
                 <h5 class="animeName">@ep.title</h5>
@@ -12,7 +14,8 @@
                 </a>
             </div>
         }
-    </div>
+  </div>
+  
 </div>
 
 @code {
