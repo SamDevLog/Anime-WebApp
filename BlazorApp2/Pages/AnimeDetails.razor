@@ -20,11 +20,11 @@ else
         </div>
         <div id="borders" class="infoCol">
             <div style="margin: 2rem 0;">
-                <h3>Episodes : <span class="animeDetailsValues">@(Anime.episodes.HasValue ? Anime.episodes : "N/A")</span></h3>
-                <h3>Score : <span class="animeDetailsValues">@(Anime.score.HasValue ? Anime.score : "N/A")</span></h3>
-                <h3>Rank : <span class="animeDetailsValues">@(Anime.rank.HasValue ? Anime.rank : "N/A")</span></h3>
-                <h3>Start Date : <span class="animeDetailsValues">@(String.IsNullOrEmpty(Anime.start_date) ? "N/A" : Anime.start_date) </span></h3>
-                <h3>End Date : <span class="animeDetailsValues">@(String.IsNullOrEmpty(Anime.end_date) ? "N/A" : Anime.end_date)</span></h3>
+                <h3>Episodes : <span>@(Anime.episodes.HasValue ? Anime.episodes : "N/A")</span></h3>
+                <h3>Score : <span>@(Anime.score.HasValue ? Anime.score : "N/A")</span></h3>
+                <h3>Rank : <span>@(Anime.rank.HasValue ? Anime.rank : "N/A")</span></h3>
+                <h3>Start Date : <span>@(String.IsNullOrEmpty(Anime.start_date) ? "N/A" : Anime.start_date) </span></h3>
+                <h3>End Date : <span>@(String.IsNullOrEmpty(Anime.end_date) ? "N/A" : Anime.end_date)</span></h3>
                 <p>Synopsis: <br> @Anime.synopsis</p>
             </div>
         </div>

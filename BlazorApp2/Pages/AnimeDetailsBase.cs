@@ -36,7 +36,7 @@ namespace BlazorApp2.Pages
         [Parameter]
         public string Id { get; set; }
 
-        protected async override Task OnInitializedAsync()
+        protected async override Task OnParametersSetAsync()
         {
             Id = Id ?? "1";
             Anime = await animeService.GetAnime(int.Parse(Id));

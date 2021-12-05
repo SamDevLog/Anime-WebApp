@@ -456,19 +456,18 @@ body {
     overflow: auto;
 }
 
-.infoCol p::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 0.25rem;
 }
 
-.infoCol p::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     background-color: #1e1e24;
 }
 
-.infoCol p::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background-color: #6649b8;
 }
-
-.animeDetailsValues {
+.detailsGrid span{
     color: var(--primary-pink);
     text-align: right;
 }

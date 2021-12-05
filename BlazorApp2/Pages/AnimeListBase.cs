@@ -34,10 +34,12 @@ namespace BlazorApp2.Pages
 
         protected override async Task OnInitializedAsync()
         {
+
             try
             {
                 Episodes = await _episodeService.GetAnimeList();
-                TopManga = await _episodeService.GetTopManga(); 
+                TopManga = await _episodeService.GetTopManga();
+
             }
             catch (NotSupportedException ex)
             {

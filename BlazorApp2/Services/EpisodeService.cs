@@ -45,11 +45,11 @@ namespace BlazorApp2.Services
 
         public async Task<int> GetIdOfAnime(int mal_id)
         {
+            var responseBody = await _httpClient.GetStringAsync($"anime?mal_id={mal_id}");
+            if (responseBody.Contains("404")) return 0;
             var response = await _httpClient.GetFromJsonAsync<AniApiAnimeResponse>($"anime?mal_id={mal_id}");
-            if (response == null) return 1;
-            var data = response.data;
-            if (data.documents == null) return 1;
-            return data.documents[0].id;
+            if (response.data == null) return 0;
+            return response.data.documents[0].id;
         }
 
         public async Task<List<AniEpisodeBase>> GetItalianEpisodesList(int animeId)
