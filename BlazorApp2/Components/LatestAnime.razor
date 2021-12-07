@@ -5,12 +5,12 @@
   <!-- Additional required wrapper -->
   <div class="swiper-wrapper">
     <!-- Slides -->
-    @foreach (var ep in Episodes)
+    @foreach (var anime in Animes)
         {
             <div class="swiper-slide">
-                <h5 class="animeName">@ep.title</h5>
-                <a href="anime/@ep.mal_id">
-                    <img class="cardImg" src="@ep.image_url" alt="@ep.title" />
+                <h5 class="animeName">@anime.title</h5>
+                <a href="anime/@anime.mal_id">
+                    <img class="cardImg" src="@anime.image_url" alt="@anime.title" />
                 </a>
             </div>
         }
@@ -20,6 +20,6 @@
 
 @code {
     [Parameter]
-    public IEnumerable<Anime> Episodes { get; set; }
+    public IEnumerable<Anime> Animes { get; set; }
     
 }

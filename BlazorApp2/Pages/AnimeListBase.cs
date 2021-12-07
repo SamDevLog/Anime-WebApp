@@ -16,9 +16,12 @@ namespace BlazorApp2.Pages
     public class AnimeListBase : ComponentBase
     {
         public string Title { get; set; }
-        public IEnumerable<Anime> Episodes { get; set; }
+        public IEnumerable<Anime> Animes { get; set; }
         public TopManga TopManga { get; set; }
         public bool jsInvoked { get; set; } = false;
+
+        [Inject]
+        public AppState AppState { get; set; }
 
         [Inject]
         public IAnimeService _episodeService { get; set; }
@@ -34,17 +37,39 @@ namespace BlazorApp2.Pages
 
         protected override async Task OnInitializedAsync()
         {
-
-            try
+            if (AppState.Animes.Count > 0)
             {
-                Episodes = await _episodeService.GetAnimeList();
-                TopManga = await _episodeService.GetTopManga();
-
-            }
-            catch (NotSupportedException ex)
+                Animes = AppState.Animes.ToList();
+            }else
             {
-                Console.WriteLine(ex.Message);
+                try
+                {
+                    Animes = await _episodeService.GetAnimeList();
+                    AppState.AddAnimeList(Animes.ToList());
+                }
+                catch (NotSupportedException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                
             }
+
+            if (AppState.TopManga != null)
+            {
+                TopManga = AppState.TopManga;
+            }else
+            {
+                try
+                {
+                    TopManga = await _episodeService.GetTopManga(); 
+                    AppState.SetManga(TopManga);
+                }
+                catch (NotSupportedException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
         }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)

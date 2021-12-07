@@ -26,7 +26,8 @@ namespace BlazorApp2.Pages
         public List<AniEpisodeBase> EnglishEpisodes { get; set; } = new();
         public List<AniEpisodeBase> ItalianEpisodes { get; set; } = new();
 
-        
+        [Inject]
+        public AppState AppState { get; set; }
 
         [Inject]
         public IAnimeService animeService { get; set; }

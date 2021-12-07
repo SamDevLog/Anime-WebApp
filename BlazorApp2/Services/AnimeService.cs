@@ -13,10 +13,13 @@ namespace BlazorApp2.Services
     public class AnimeService : IAnimeService
     {
         private readonly HttpClient httpClient;
+        private readonly AppState appState;
+
         public IEnumerable<Anime> Episodes { get; set; }
-        public AnimeService(HttpClient httpClient)
+        public AnimeService(HttpClient httpClient, AppState appState)
         {
             this.httpClient = httpClient;
+            this.appState = appState;
         }
 
 

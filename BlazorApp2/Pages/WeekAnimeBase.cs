@@ -20,14 +20,25 @@ namespace BlazorApp2.Pages
 
         [Parameter]
         public Days Day { get; set; } = Days.Monday;
+
+        [Inject]
+        public AppState AppState { get; set; }
+
         [Inject]
         public IAnimeService AnimeService { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
-            // var _day = DateTime.Today.ToString("dddd");
-            
-            apiRspn = await AnimeService.GetWeekAnime();
+            if(AppState.WeeklyResponseRaw != null){
+                apiRspn = AppState.WeeklyResponseRaw;
+            }else{
+
+                apiRspn = await AnimeService.GetWeekAnime();
+                if (apiRspn != null)
+                {
+                    AppState.SetWeeklyAnimeResponse(apiRspn);
+                }
+            }            
 
             if (apiRspn != null)
             {
