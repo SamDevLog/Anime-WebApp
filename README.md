@@ -14,3 +14,7 @@ Not to forget the ever exciting world of CSS as is evident in the repo stats.
 
 - [Jikan](https://jikan.moe/)
 - [Ani-Api](https://aniapi.com/)
+
+### Link
+
+You can check the web app online [Here](https://samdevlog.github.io/Anime-WebApp/).
